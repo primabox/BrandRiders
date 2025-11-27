@@ -5,23 +5,30 @@ html,
 body {
 	font-family: 'Cresta', sans-serif;
 	background-color: #F2F2F2;
-	overflow-x: hidden !important; 
+	overflow-x: hidden !important;
 }
 
 /* Hide the visual vertical scrollbar but preserve scrolling behavior.
    This keeps the UI clean while not disabling scroll interactions.
    If you'd rather fully disable vertical scroll, replace with `overflow-y: hidden` on body. */
 html {
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none; /* IE 10+ */
+	scrollbar-width: none;
+	/* Firefox */
+	-ms-overflow-style: none;
+	/* IE 10+ */
 }
+
 html::-webkit-scrollbar {
 	width: 0px;
 	height: 0px;
 	background: transparent;
 }
+
 /* Also hide on body for some WebKit builds */
-body::-webkit-scrollbar { width: 0; height: 0; }
+body::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
 
 .gradient-red {
 	@apply bg-gradient-to-r from-[#C40228] to-[#ED3D1A] z-50;
@@ -68,8 +75,13 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 }
 
 /* Default pill labels: show full label on desktop, hide mobile short label */
-.header-link--pill .pill-mobile { display: none; }
-.header-link--pill .pill-full { display: inline; }
+.header-link--pill .pill-mobile {
+	display: none;
+}
+
+.header-link--pill .pill-full {
+	display: inline;
+}
 
 .hero-link--pill {
 	@apply bg-[#0FC26C] text-white font-black italic rounded-full inline-flex items-center justify-center cursor-pointer h-[38px] w-[218px] mt-20 text-[18px] transition duration-200 ease-in-out;
@@ -145,9 +157,17 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 	}
 
 	/* hide regular header links, keep the portal pill and the hamburger */
-	header nav a.header-link { display: none !important; }
-	header nav a.header-link.header-link--pill { display: inline-flex !important; }
-	header nav .header-link--icon { display: inline-flex !important; }
+	header nav a.header-link {
+		display: none !important;
+	}
+
+	header nav a.header-link.header-link--pill {
+		display: inline-flex !important;
+	}
+
+	header nav .header-link--icon {
+		display: inline-flex !important;
+	}
 
 	/* style the pill on mobile: 78x24, small text */
 	header nav a.header-link.header-link--pill {
@@ -162,15 +182,25 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 	}
 
 	/* show shortened label and hide full label on mobile */
-	.header-link--pill .pill-full { display: none !important; }
-	.header-link--pill .pill-mobile { display: inline !important; }
+	.header-link--pill .pill-full {
+		display: none !important;
+	}
 
-	header nav { margin-right: 8px !important; gap: 8px !important; }
+	.header-link--pill .pill-mobile {
+		display: inline !important;
+	}
+
+	header nav {
+		margin-right: 8px !important;
+		gap: 8px !important;
+	}
 }
 
 /* Make the whole page background white on small screens as requested */
 @media (max-width: 480px) {
-	html, body {
+
+	html,
+	body {
 		background-color: #FFFFFF !important;
 	}
 }
@@ -216,10 +246,14 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 		margin-top: 120px !important;
 	}
 
-	.hero-line { gap: 8px !important; }
+	.hero-line {
+		gap: 8px !important;
+	}
 
 	/* keep original icon intrinsic sizes on mobile; only adjust spacing so they remain inline with text */
-	.hero-icon { margin: 0 6px !important; }
+	.hero-icon {
+		margin: 0 6px !important;
+	}
 
 	/* CTA sizing on mobile */
 	.hero-link--pill {
@@ -260,7 +294,9 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 	}
 
 	/* ensure pagination dots remain visible and centered */
-	.hero-controls { bottom: 36px !important; }
+	.hero-controls {
+		bottom: 36px !important;
+	}
 }
 
 /* Further mobile tweaks for hero badge and spacing to match reference */
@@ -274,6 +310,7 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 
 	.hero-badge__text {
 		font-size: 12px !important;
+<<<<<<< HEAD
 	@media (max-width: 480px) {
 		.hero-left .hero-line img.hero-icon,
 		.hero-left .hero-line .hero-icon,
@@ -297,11 +334,41 @@ body::-webkit-scrollbar { width: 0; height: 0; }
             margin: 0 4px !important;
             display: inline-block !important;
             vertical-align: middle !important;
+=======
+
+		@media (max-width: 480px) {
+
+			.hero-left .hero-line img.hero-icon,
+			.hero-left .hero-line .hero-icon,
+			.hero-icon-sidecar,
+			.hero-icon-sidecar-second,
+			.hero-icon-pig,
+			.hero-icon-money,
+			.hero-icon-money-second,
+			.hero-icon-carfront,
+			.hero-icon-carfront-second,
+			.hero-icon-persowave,
+			.hero-icon-mobilecheck,
+			.hero-icon-shield,
+			.hero-icon-gas-pump,
+			.hero-icon-tire,
+			.hero-icon-wrench,
+			.hero-icon-nocrash,
+			.hero-icon-shine {
+				height: 16px !important;
+				width: auto !important;
+				margin: 0 2px !important;
+				display: inline-block !important;
+				vertical-align: middle !important;
+			}
+
+			/* ensure the inline-flex gap doesn't add excessive space on mobile */
+			.hero-line {
+				gap: 6px !important;
+			}
+>>>>>>> bf6d46589165e47ee8713af2c4bc8b2e1a6eccbf
 		}
 
-		/* ensure the inline-flex gap doesn't add excessive space on mobile */
-		.hero-line { gap: 6px !important; }
-	}
 		line-height: 1 !important;
 		transform: rotate(8deg) !important;
 		padding: 6px !important;
@@ -366,7 +433,7 @@ h2 {
 }
 
 
-.questions-section > .mx-auto {
+.questions-section>.mx-auto {
 	position: relative;
 }
 
@@ -387,14 +454,111 @@ h2 {
 }
 
 /* Hide decorative background on smaller viewports to avoid overlap */
+
+/* Reusable card: left-top
+   Applies the same utility styles previously used inline in the HTML. */
+.left-top {
+	@apply bg-white rounded-[18px] p-6 shadow-md flex flex-col items-center justify-center w-[570px] h-[473px] overflow-hidden;
+}
+
+/* Reusable card: left-bottom
+   Matches the second left column card (different height and vertical centering). */
+.left-bottom {
+	@apply bg-white rounded-[18px] p-6 shadow-md flex items-center justify-center w-[570px] h-[530px] overflow-hidden;
+}
+
+/* Reusable card: right-top
+   Matches the right column top card (phone mockup) */
+.right-top {
+	@apply bg-white rounded-[18px] p-6 shadow-md flex items-center justify-center w-[570px] h-[697px] overflow-hidden;
+}
+
+/* Reusable card: right-bottom
+   Small bottom card on the right column */
+.right-bottom {
+	@apply bg-white rounded-[18px] p-6 shadow-md w-[570px] h-[304px] flex flex-col items-center justify-center overflow-hidden;
+}
+
+/* Mobile adjustments for left-top card */
+@media (max-width: 480px) {
+	.left-top {
+		width: 327px !important;
+		height: 297px !important;
+		padding: 12px !important;
+	}
+
+	/* Ensure the headline inside the card is 20px on mobile */
+	.left-top .community-card-label {
+		font-size: 20px !important;
+		line-height: 1.1 !important;
+	}
+
+	/* Constrain the screenshot image to the card width and preserve aspect */
+	.left-top .lefttop-img {
+		width: 327px !important;
+		height: auto !important;
+		max-height: 220px !important;
+		object-fit: contain !important;
+	}
+
+	/* Center the card on mobile */
+	.left-top {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block !important;
+		text-align: center !important;
+	}
+
+	.left-top .community-icon-row,
+	.left-top .community-card-label {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		text-align: center !important;
+	}
+
+	/* More robust centering for tricky parent layouts: center using relative positioning + transform */
+	.left-top {
+		position: relative !important;
+		left: 50% !important;
+		transform: translateX(-52%) !important;
+	}
+}
+
+/* Mobile adjustments for left-bottom card */
+.left-bottom {
+	width: 327px !important;
+	height: 487px !important;
+	padding: 12px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	display: block !important;
+	text-align: center !important;
+	position: relative !important;
+	left: 50% !important;
+	transform: translateX(-50%) !important;
+}
+
+.left-bottom .leftbottom-img {
+	width: 327px !important;
+	height: auto !important;
+	max-height: 380px !important;
+	object-fit: contain !important;
+}
+
 @media (max-width: 1400px) {
 	.questions-section .questions-bg {
-		display: none;
+		width: 425px !important;
+		height: auto !important;
+		max-width: none !important;
+		position: absolute !important;
+		right: 30px !important;
+		transform: translateY(-275px) !important;
+		z-index: 5 !important;
 	}
 }
 
 /* Ensure content inside the inner wrapper renders above the questions-bg element; exclude the bg itself */
-.questions-section > .mx-auto > *:not(.questions-bg) {
+.questions-section>.mx-auto>*:not(.questions-bg) {
 	position: relative;
 	z-index: 10;
 }
@@ -423,9 +587,11 @@ h2 {
 /* "Zobraziť všetky" control under the questions accordion */
 .questions-show-all {
 	display: block;
-	width: 1203px; /* match the accordion width */
+	width: 1203px;
+	/* match the accordion width */
 	margin-top: 64px;
-	margin-left: -200px; /* match accordion left shift */
+	margin-left: -200px;
+	/* match accordion left shift */
 	color: #1E1E1E;
 	font-weight: 900;
 	font-style: italic;
@@ -434,6 +600,7 @@ h2 {
 	cursor: pointer;
 	text-align: left;
 }
+
 .questions-show-all:hover {
 	opacity: 0.9;
 }
@@ -444,6 +611,7 @@ h2 {
 		margin-top: 0;
 		margin-left: 0;
 	}
+
 	.questions-show-all {
 		margin-left: 0;
 		width: auto;
@@ -452,10 +620,11 @@ h2 {
 }
 
 @media (max-width: 900px) {
-    /* Restore natural flow on small screens so title doesn't overlap */
-    .questions-section h2 {
-        margin-top: 0;
-    }
+
+	/* Restore natural flow on small screens so title doesn't overlap */
+	.questions-section h2 {
+		margin-top: 0;
+	}
 }
 
 /* Move the small decorative bar above the questions heading */
@@ -474,16 +643,16 @@ h2 {
 
 /* Same behaviour for question headings: separate utility class so it can be used independently */
 .question-bar-wrap {
-    /* pull the bar upward so it sits visually above the heading without affecting layout flow */
-    transform: translateY(-60px);
-    margin-bottom: 12px;
+	/* pull the bar upward so it sits visually above the heading without affecting layout flow */
+	transform: translateY(-60px);
+	margin-bottom: 12px;
 }
 
 @media (max-width: 900px) {
-    .question-bar-wrap {
-        transform: translateY(0);
-        margin-bottom: 12px;
-    }
+	.question-bar-wrap {
+		transform: translateY(0);
+		margin-bottom: 12px;
+	}
 }
 
 /* Decorative bar for the Advertise section (same behavior as other small header bars) */
@@ -509,8 +678,8 @@ h2 {
 
 /* Decorative bar variant for the Questions section — identical to .map-trail-bar */
 .question-bar {
-    background: #0FC26C;
-    background-image: none;
+	background: #0FC26C;
+	background-image: none;
 }
 
 .hero-carousel {
@@ -784,25 +953,63 @@ h2 {
 }
 
 /* Questions / Accordion styles (appended) */
-.accordion { display: block; }
-.shadow-accordion { box-shadow: 0 10px 30px rgba(16,16,16,0.06); }
-.accordion-item-wrapper { cursor: pointer; transition: none; will-change: max-height; background-clip: padding-box; border-radius: 44px; overflow: hidden; }
-.accordion-item-wrapper:focus { outline: none; outline-offset: 0; }
-.accordion-item-wrapper.open { transform: translateY(-2px); }
-.accordion-icon { transition: none; }
-.accordion-item-wrapper[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
+.accordion {
+	display: block;
+}
+
+.shadow-accordion {
+	box-shadow: 0 10px 30px rgba(16, 16, 16, 0.06);
+}
+
+.accordion-item-wrapper {
+	cursor: pointer;
+	transition: none;
+	will-change: max-height;
+	background-clip: padding-box;
+	border-radius: 44px;
+	overflow: hidden;
+}
+
+.accordion-item-wrapper:focus {
+	outline: none;
+	outline-offset: 0;
+}
+
+.accordion-item-wrapper.open {
+	transform: translateY(-2px);
+}
+
+.accordion-icon {
+	transition: none;
+}
+
+.accordion-item-wrapper[aria-expanded="true"] .accordion-icon {
+	transform: rotate(180deg);
+}
 
 /* Disable pointer interactions while an item is animating to avoid conflicting toggles */
-.accordion-item-wrapper.animating { pointer-events: none; }
+.accordion-item-wrapper.animating {
+	pointer-events: none;
+}
 
 /* The wrapper will expand in height to reveal body content; animate via max-height.
 	For best results the JS sets an explicit measured `max-height` when opening.
 	This implementation relies on JS to toggle `max-height` for the open/close
 	animation. If JS is not available you will need a CSS-only fallback (checkbox
 	or :target technique) for expandable behaviour. */
-.accordion-item-wrapper { max-height: none; transition: transform 220ms ease, box-shadow 220ms ease; }
-.accordion-header { min-height: 88px; }
-.accordion-item-wrapper.expanded { /* will be set via JS to measured height */ }
+.accordion-item-wrapper {
+	max-height: none;
+	transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.accordion-header {
+	min-height: 88px;
+}
+
+.accordion-item-wrapper.expanded {
+	/* will be set via JS to measured height */
+}
+
 .accordion-body {
 	max-height: 0;
 	overflow: hidden;
@@ -810,8 +1017,9 @@ h2 {
 	padding-top: 0;
 	padding-bottom: 0;
 	/* Slower, smooth open/close for both directions */
-	transition: max-height 700ms cubic-bezier(.2,.9,.3,1), opacity 600ms ease, padding 600ms cubic-bezier(.2,.9,.3,1);
+	transition: max-height 700ms cubic-bezier(.2, .9, .3, 1), opacity 600ms ease, padding 600ms cubic-bezier(.2, .9, .3, 1);
 }
+
 .accordion-body.open {
 	opacity: 1;
 	padding-top: 18px;
@@ -836,9 +1044,17 @@ h2 {
 }
 
 @media (max-width: 768px) {
-	.accordion { width: 100%; }
-	.accordion-item-wrapper { border-radius: 36px; }
-	.accordion-header { min-height: 72px; }
+	.accordion {
+		width: 100%;
+	}
+
+	.accordion-item-wrapper {
+		border-radius: 36px;
+	}
+
+	.accordion-header {
+		min-height: 72px;
+	}
 }
 
 
@@ -857,7 +1073,8 @@ h2 {
 	height: 0;
 	border-left: 34px solid transparent;
 	border-right: 34px solid transparent;
-	border-top: 34px solid #ffffff; /* same as card background */
+	border-top: 34px solid #ffffff;
+	/* same as card background */
 	/* no shadow for the speech-bubble tail */
 	filter: none;
 }
@@ -881,6 +1098,7 @@ h2 {
 
 /* Slightly smaller tail on small screens so it doesn't overflow */
 @media (max-width: 768px) {
+
 	.speech-bubble::after,
 	.speech-bubble--right::after {
 		/* slightly larger on small screens but raised a bit */
@@ -891,6 +1109,7 @@ h2 {
 		left: 4px;
 		right: auto;
 	}
+
 	.speech-bubble--right::after {
 		left: auto;
 		right: 4px;
@@ -1088,8 +1307,143 @@ h2 {
 	@apply bg-white rounded-[50px] py-6 pr-6 pl-12 shadow-md;
 }
 
+/* Make the first feature card a fixed size on mobile (slightly larger) */
+@media (max-width: 768px) {
+	.features-left>.feature-card:first-child {
+		width: 340px;
+		max-width: 340px;
+		height: 400px;
+		box-sizing: border-box;
+		margin: 0 auto;
+	}
+
+	/* Title inside the first feature card on mobile */
+	.features-left>.feature-card:first-child .feature-header {
+		font-size: 24px;
+		line-height: 1.2;
+	}
+
+	/* Feature item text size on mobile */
+	.features-left>.feature-card:first-child .feature-item,
+	.features-left>.feature-card:first-child .features-text {
+		font-size: 16px;
+		line-height: 1.4;
+	}
+
+	/* Second feature card size on mobile (327x575) */
+	.features-left>.feature-card:nth-child(2) {
+		width: 327px;
+		max-width: 327px;
+		height: 575px;
+		box-sizing: border-box;
+		margin: 0 auto;
+		/* nudge the second card slightly lower on mobile */
+		margin-top: 24px;
+	}
+
+	/* Make feature cards use light gray background on mobile */
+	.feature-card {
+		background-color: #F2F2F2 !important;
+	}
+
+	/* Shift feature card content slightly to the left on mobile */
+	.features-left>.feature-card {
+		padding-left: 16px !important;
+		padding-right: 12px !important;
+	}
+
+	/* Add a slight left offset to headers so they shift right with the content */
+	.features-left>.feature-card .feature-header,
+	.features-left>.feature-card .feature-header-bar-wrap {
+		margin-left: 4px !important;
+	}
+
+	/* Title inside the second feature card on mobile */
+	.features-left>.feature-card:nth-child(2) .feature-header {
+		font-size: 24px;
+		line-height: 1.2;
+	}
+
+	/* Feature item text size in the second feature card on mobile */
+	.features-left>.feature-card:nth-child(2) .feature-item,
+	.features-left>.feature-card:nth-child(2) .features-text {
+		font-size: 16px;
+		line-height: 1.4;
+	}
+
+	/* Description line in the second feature card on mobile */
+	.features-left>.feature-card:nth-child(2) .feature-description {
+		font-size: 16px;
+		line-height: 1.4;
+	}
+
+	/* Add vertical gap between feature items on mobile */
+	.features-text .feature-item {
+		margin-bottom: 12px;
+	}
+
+	.features-text .feature-item:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Resize breakout car in download section for mobile */
+	.download-car-breakout {
+		width: 375px !important;
+		height: 300px !important;
+		max-width: 425px !important;
+		object-fit: cover;
+	}
+
+	/* Make artboard illustration a bit wider on mobile for better visual weight */
+	.features-right .artboard-img {
+		width: 420px !important;
+		max-width: none !important;
+		height: auto !important;
+		/* center the artboard horizontally on small screens */
+		margin: 0 auto !important;
+		left: auto !important;
+		right: auto !important;
+		transform: none !important;
+		display: block !important;
+	}
+
+	/* Position breakout car with requested offset on small mobile viewports */
+	.download-car-breakout {
+		position: absolute !important;
+		right: 0px !important;
+		transform: translateY(-250px) !important;
+		z-index: 5 !important;
+	}
+
+	/* Remove the container gap on mobile so stacked columns collapse without extra spacing */
+	.features-section>.mx-auto {
+		gap: 0 !important;
+	}
+}
+
 .features-right img {
 	@apply block;
+}
+
+/* Specific breakpoint overrides for the download breakout width
+   - max-width:480px => set width: 425px
+   - max-width:375px => set width: 375px (this comes after and will override the 480px rule for narrower screens)
+*/
+@media (max-width: 480px) {
+	.download-car-breakout {
+		width: 425px !important;
+		height: 385px !important;
+		max-width: none !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.download-car-breakout {
+		width: 375px !important;
+		height: 310px !important;
+		max-width: none !important;
+		transform: translateY(-200px) !important;
+	}
 }
 
 /* Make the right-side illustration fill the column (desktop) */
@@ -1238,6 +1592,7 @@ h2 {
 	background: transparent;
 	margin-top: 120px;
 }
+
 .advertise-title {
 	font-weight: 900;
 	font-style: italic;
@@ -1247,6 +1602,7 @@ h2 {
 	margin-bottom: 140px;
 	line-height: 1.02;
 }
+
 .adv-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1254,6 +1610,7 @@ h2 {
 	row-gap: var(--adv-gap-y, 100px) !important;
 	justify-content: center;
 }
+
 .adv-card {
 	width: 408px;
 	height: 259px;
@@ -1266,6 +1623,7 @@ h2 {
 	box-sizing: border-box;
 	border-radius: 50px;
 }
+
 .adv-logo {
 	position: absolute;
 	top: 30px;
@@ -1275,42 +1633,100 @@ h2 {
 	object-fit: contain;
 	transition: filter 220ms ease, opacity 220ms ease;
 }
+
 /* On card hover, only the logo image becomes white (using filters). */
 .adv-card:hover .adv-logo {
 	/* convert colored logo to white while preserving transparency */
 	filter: grayscale(100%) brightness(0) invert(1);
 	opacity: 0.98;
 }
-.adv-car {
-		position: absolute;
 
-		left: var(--adv-car-left, auto);
-		top: var(--adv-car-top, auto);
-		right: var(--adv-car-right, -140px);
-		bottom: var(--adv-car-bottom, -65px);
-		z-index: 5;
-		pointer-events: none;
-		transform: translateZ(0);
+.adv-car {
+	position: absolute;
+
+	left: var(--adv-car-left, auto);
+	top: var(--adv-car-top, auto);
+	right: var(--adv-car-right, -140px);
+	bottom: var(--adv-car-bottom, -65px);
+	z-index: 5;
+	pointer-events: none;
+	transform: translateZ(0);
 }
 
 
-	.adv-car--1 { --adv-car-right: -140px;  --adv-car-bottom: -65px;  --adv-car-left: auto;  --adv-car-top: auto; }
-	.adv-car--2 { --adv-car-right: -100px;  --adv-car-bottom: -65px;   --adv-car-left: auto;  --adv-car-top: auto; }
-	.adv-car--3 { --adv-car-right: -80px;  --adv-car-bottom: -65px;  --adv-car-left: auto;  --adv-car-top: auto; }
-	.adv-car--4 { --adv-car-right: -140px;  --adv-car-bottom: -65px;   --adv-car-left: auto; --adv-car-top: auto; }
-	.adv-car--5 { --adv-car-right: -100px;  --adv-car-bottom: -65px;       --adv-car-left: auto; --adv-car-top: auto; }
-	.adv-car--6 { --adv-car-right: -90px;  --adv-car-bottom: -65px;       --adv-car-left: auto;  --adv-car-top: auto; }
+.adv-car--1 {
+	--adv-car-right: -140px;
+	--adv-car-bottom: -65px;
+	--adv-car-left: auto;
+	--adv-car-top: auto;
+}
+
+.adv-car--2 {
+	--adv-car-right: -100px;
+	--adv-car-bottom: -65px;
+	--adv-car-left: auto;
+	--adv-car-top: auto;
+}
+
+.adv-car--3 {
+	--adv-car-right: -80px;
+	--adv-car-bottom: -65px;
+	--adv-car-left: auto;
+	--adv-car-top: auto;
+}
+
+.adv-car--4 {
+	--adv-car-right: -140px;
+	--adv-car-bottom: -65px;
+	--adv-car-left: auto;
+	--adv-car-top: auto;
+}
+
+.adv-car--5 {
+	--adv-car-right: -100px;
+	--adv-car-bottom: -65px;
+	--adv-car-left: auto;
+	--adv-car-top: auto;
+}
+
+.adv-car--6 {
+	--adv-car-right: -90px;
+	--adv-car-bottom: -65px;
+	--adv-car-left: auto;
+	--adv-car-top: auto;
+}
 
 @media (max-width: 1024px) {
-	.adv-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
-	.adv-car { width: 200px; right: 10px; }
+	.adv-grid {
+		grid-template-columns: repeat(2, minmax(240px, 1fr));
+	}
+
+	.adv-car {
+		width: 200px;
+		right: 10px;
+	}
 }
 
 @media (max-width: 600px) {
-	.adv-grid { grid-template-columns: 1fr; }
-	.advertise-title { text-align: center; }
-	.adv-card { width: 100%; max-width: 408px; height: 259px; }
-	.adv-car { width: 140px; right: 8px; bottom: -8px; }
+	.adv-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.advertise-title {
+		text-align: center;
+	}
+
+	.adv-card {
+		width: 100%;
+		max-width: 408px;
+		height: 259px;
+	}
+
+	.adv-car {
+		width: 140px;
+		right: 8px;
+		bottom: -8px;
+	}
 }
 
 /* Ensure promo icons are hidden on small screens but visible on md+.
@@ -1342,6 +1758,28 @@ h2 {
 .download-section .download-inner {
 	max-width: 1550px;
 	margin: 0 auto;
+}
+
+/* Utility class combining the inline Tailwind-like utilities used on the download wrapper
+   This mirrors: `pr-6 py-20 bg-white h-[746px] w-[1750px] rounded-tr-[50px] rounded-br-[50px]` */
+.download-bg {
+	padding-right: 24px;
+	/* pr-6 */
+	padding-top: 80px;
+	/* py-20 */
+	padding-bottom: 80px;
+	/* py-20 */
+	background-color: #FFFFFF;
+	/* bg-white */
+	height: 746px;
+	/* h-[746px] */
+	width: 1750px;
+	/* w-[1750px] */
+	border-top-right-radius: 50px;
+	/* rounded-tr-[50px] */
+	border-bottom-right-radius: 50px;
+	/* rounded-br-[50px] */
+	box-sizing: border-box;
 }
 
 .download-section .container {
@@ -1557,12 +1995,14 @@ h2 {
 }
 
 @media (max-width: 900px) {
+
+	/* Ensure the right artwork stacks below the feature cards on small screens */
 	.features-right {
-		@apply order-first mb-6;
+		@apply order-last mt-6;
 	}
 
 	.features-left {
-		@apply order-last;
+		@apply order-first;
 	}
 }
 
@@ -1620,6 +2060,16 @@ h2 {
 	width: 100px;
 	height: 20px;
 	background: #E2BA04;
+
+	/* Add vertical gap between stacked feature cards on mobile */
+	.features-left>.feature-card {
+		margin-bottom: 18px;
+	}
+
+	.features-left>.feature-card:last-child {
+		margin-bottom: 0;
+	}
+
 	border-radius: 100px;
 }
 
@@ -1937,8 +2387,13 @@ h2 {
 		width: 100%;
 	}
 
+	/* On mobile, show earnings-right below earnings-left */
+	.earnings-left {
+		order: 1 !important;
+	}
+
 	.earnings-right {
-		order: -1;
+		order: 2 !important;
 		margin-bottom: 16px;
 	}
 
@@ -2048,8 +2503,19 @@ h2 {
 		gap: 12px;
 	}
 
+	/* On mobile show the icons column next to the step text */
 	.icons-col {
-		display: none;
+		display: flex !important;
+		flex: 0 0 28px !important;
+		width: 28px !important;
+		height: 227px !important;
+		align-items: flex-start !important;
+		justify-content: center !important;
+	}
+
+	/* Move the icons separator further right on mobile for better spacing */
+	.icons-sep {
+		margin-left: 12px !important;
 	}
 
 	.steps-divider {
@@ -2236,6 +2702,7 @@ h2 {
 	align-items: center;
 	justify-content: center;
 }
+
 .site-footer .footer-inner {
 	/* allow easy configuration of the inner container width via CSS variable */
 	--footer-inner-max: 1470px;
@@ -2245,26 +2712,32 @@ h2 {
 	/* remove large top/bottom padding so the inner block can be vertically centered
 	   horizontal padding retained */
 }
+
 .footer-grid {
 	display: flex;
 	gap: 120px;
 	/* center columns vertically within the footer */
 	align-items: center;
 }
+
 /* wrapper for the three middle columns so they sit closer together */
 .footer-mid {
-    display: flex;
-    gap: 75px; /* tighter gap between the three lists */
-    align-items: flex-start;
+	display: flex;
+	gap: 75px;
+	/* tighter gap between the three lists */
+	align-items: flex-start;
 }
+
 .footer-col {
 	flex: 1 1 0;
 	min-width: 75px;
 }
+
 .footer-col--brand {
 	margin-top: 50px;
 	flex: 0 0 280px;
 }
+
 .footer-col--contact {
 	/* push the contact column to the far right */
 	margin-left: auto;
@@ -2279,10 +2752,16 @@ h2 {
 	flex-direction: column;
 	align-items: flex-start;
 }
+
 .footer-logo {
 	display: block;
 }
-.footer-sublogo img {display:block; margin-top:18px; }
+
+.footer-sublogo img {
+	display: block;
+	margin-top: 18px;
+}
+
 .footer-invite {
 	font-size: 20px;
 	font-weight: 500;
@@ -2290,6 +2769,7 @@ h2 {
 	margin-top: 48px;
 	margin-bottom: 6px;
 }
+
 .footer-col h4 {
 	font-weight: 700;
 	font-size: 16px;
@@ -2297,8 +2777,17 @@ h2 {
 	text-transform: uppercase;
 	color: #FFFFFF;
 }
-.footer-links { list-style:none; padding:0; margin:0; }
-.footer-links li { margin-bottom: 35px; }
+
+.footer-links {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer-links li {
+	margin-bottom: 35px;
+}
+
 .footer-links a {
 	color: #FAFAFA;
 	text-decoration: none;
@@ -2306,11 +2795,33 @@ h2 {
 	font-weight: 500;
 	line-height: 1.25;
 }
-.footer-links a:hover { color: #FFFFFF; opacity: 0.95; }
-.footer-social { display:flex; gap:40px; align-items:center; margin-bottom: 12px; justify-content: flex-start; }
-.footer-social a { color: #FFFFFF; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background: rgba(255,255,255,0.06); text-decoration:none; }
 
-.footer-social a:hover { background: rgba(255,255,255,0.12); }
+.footer-links a:hover {
+	color: #FFFFFF;
+	opacity: 0.95;
+}
+
+.footer-social {
+	display: flex;
+	gap: 40px;
+	align-items: center;
+	margin-bottom: 12px;
+	justify-content: flex-start;
+}
+
+.footer-social a {
+	color: #FFFFFF;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.06);
+	text-decoration: none;
+}
+
+.footer-social a:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
 
 /* ensure social images fill the anchor box and keep correct aspect */
 .footer-social a img {
@@ -2321,12 +2832,36 @@ h2 {
 }
 
 /* individual icon sizes */
-.footer-social a:nth-child(1) { width: 36px; height: 36px; }
-.footer-social a:nth-child(1) i { font-size: 16px; line-height: 1; }
-.footer-social a:nth-child(2) { width: 19px; height: 36px; }
-.footer-social a:nth-child(2) i { font-size: 12px; line-height: 1; }
-.footer-social a:nth-child(3) { width: 36px; height: 36px; }
-.footer-social a:nth-child(3) i { font-size: 16px; line-height: 1; }
+.footer-social a:nth-child(1) {
+	width: 36px;
+	height: 36px;
+}
+
+.footer-social a:nth-child(1) i {
+	font-size: 16px;
+	line-height: 1;
+}
+
+.footer-social a:nth-child(2) {
+	width: 19px;
+	height: 36px;
+}
+
+.footer-social a:nth-child(2) i {
+	font-size: 12px;
+	line-height: 1;
+}
+
+.footer-social a:nth-child(3) {
+	width: 36px;
+	height: 36px;
+}
+
+.footer-social a:nth-child(3) i {
+	font-size: 16px;
+	line-height: 1;
+}
+
 .footer-address {
 	font-size: 16px;
 	font-weight: 500;
@@ -2340,25 +2875,46 @@ h2 {
 
 /* OK Riders logo placed under the address; keep left-aligned inside the right column */
 .footer-okriders-logo {
-    display: block;
-    align-self: flex-start;
-    margin-top: 16px;
+	display: block;
+	align-self: flex-start;
+	margin-top: 16px;
 }
 
 @media (max-width: 980px) {
-	.footer-grid { flex-direction: column; gap: 28px; }
-	.footer-col--brand { flex: none; }
+	.footer-grid {
+		flex-direction: column;
+		gap: 28px;
+	}
+
+	.footer-col--brand {
+		flex: none;
+	}
+
 	/* on small screens allow regular flow and restore vertical padding */
-	.site-footer { height: auto; padding-top: 48px; padding-bottom: 48px; }
+	.site-footer {
+		height: auto;
+		padding-top: 48px;
+		padding-bottom: 48px;
+	}
+
 	/* reset contact spacing on stacked layout */
-	.footer-col--contact { margin-left: 0; transform: none; }
+	.footer-col--contact {
+		margin-left: 0;
+		transform: none;
+	}
+
 	/* stacked layout: make the middle wrapper stack its children too */
-	.footer-mid { display: flex; flex-direction: column; gap: 12px; }
+	.footer-mid {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
 }
 
 /* FINAL MOBILE OVERRIDE: ensure hero icons are small on narrow devices
 	 Placed at EOF to guarantee it wins over previous declarations. */
 @media (max-width: 480px) {
+
 	.hero-left .hero-line img.hero-icon,
 	.hero-left .hero-line img[class*="hero-icon"],
 	img.hero-icon,
@@ -2395,5 +2951,219 @@ h2 {
 	}
 
 	/* tighten the line gap to keep icons visually aligned */
-	.hero-line { gap: 6px !important; }
+	.hero-line {
+		gap: 6px !important;
+	}
+}
+
+/* Ensure the artboard illustration is centered on all mobile sizes
+   Applies for <=900px (covers 900/768/480/375 breakpoints). This rule
+   uses !important to override earlier desktop sizing and position rules. */
+@media (max-width: 900px) {
+	.features-right .artboard-img {
+		width: 420px !important;
+		max-width: 100% !important;
+		height: auto !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		left: auto !important;
+		right: auto !important;
+		transform: none !important;
+		display: block !important;
+		top: 0 !important;
+	}
+}
+
+/* Download section sizing on mobile — set the inner download panel to exact phone panel size
+   This explicitly targets the `.download-inner` container and the `.download-img-container` so
+   the absolute positioned `.download-car-breakout` is not affected. */
+@media (max-width: 480px) {
+	.download-section .download-inner {
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		background-color: #F2F2F2 !important;
+		border-radius: 14px !important;
+		box-sizing: border-box !important;
+		overflow: visible !important;
+	}
+
+	.download-section .download-img-container {
+		width: 100% !important;
+		height: 100% !important;
+		padding-left: 0 !important;
+		overflow: visible !important;
+	}
+
+	/* On mobile show the right column above the left column */
+	.download-section .download-right {
+		order: -1 !important;
+	}
+
+	/* Hide the raw QR code images on mobile; show only store badges */
+	.qr-card__img,
+	.qr-card__img_second {
+		display: none !important;
+	}
+
+	/* Hide the whole register section on phones */
+	.register {
+		display: none !important;
+		visibility: hidden !important;
+		height: 0 !important;
+		overflow: hidden !important;
+	}
+
+	/* Hide original QR grid and show only badges on mobile */
+	.qr-grid {
+		display: none !important;
+	}
+
+	.qr-badges-mobile {
+		display: flex !important;
+		gap: 0px;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	.qr-badge {
+		display: block !important;
+		margin: 0 auto !important;
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	/* Also nudge the first badge a bit on very small screens */
+	.qr-badges-mobile .qr-badge:first-child {
+		margin-left: 1px !important;
+	}
+
+	/* Nudge the download QR title slightly to the right on phone widths */
+	.download-qr-title {
+		margin-left: 12px !important;
+		font-size: 28px !important;
+	}
+
+	/* Specific exact badge sizes for mobile: first = 128x43, second = 162x63 */
+	.qr-badges-mobile .qr-badge:first-child {
+		width: 128px !important;
+		height: 43px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+		margin-left: 18px !important;
+	}
+
+	.qr-badges-mobile .qr-badge:last-child {
+		width: 162px !important;
+		height: 63px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+	}
+
+	/* Set download image exact size on mobile as requested (510x396) */
+	.download-img {
+		width: 510px !important;
+		height: 396px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+		display: block !important;
+		margin: 0 auto !important;
+		/* Nudge image slightly left and up on mobile for better visual overlap */
+		transform: translate(-48px, -24px) !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.download-section .download-inner {
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		background-color: #F2F2F2 !important;
+		border-radius: 14px !important;
+		box-sizing: border-box !important;
+		overflow: visible !important;
+	}
+
+	.download-section .download-img-container {
+		width: 100% !important;
+		height: 100% !important;
+		padding-left: 0 !important;
+		overflow: visible !important;
+	}
+
+	/* Set download image exact size on very small mobile screens (510x396) */
+	.download-img {
+		width: 510px !important;
+		height: 396px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+		display: block !important;
+		margin: 0 auto !important;
+		/* Slightly stronger left/up nudge for the narrowest screens */
+		transform: translate(-60px, -28px) !important;
+	}
+
+	/* On very small mobile screens show the right column above the left column */
+	.download-section .download-right {
+		order: -1 !important;
+	}
+
+	/* Slightly larger right nudge for the QR title on the narrowest phones */
+	.download-qr-title {
+		margin-left: 16px !important;
+		font-size: 28px !important;
+	}
+
+	/* Hide the raw QR code images on very small mobile screens; show only store badges */
+	.qr-card__img,
+	.qr-card__img_second {
+		display: none !important;
+	}
+
+	/* Hide the whole register section on very small phones */
+	.register {
+		display: none !important;
+		visibility: hidden !important;
+		height: 0 !important;
+		overflow: hidden !important;
+	}
+
+	.qr-badge {
+		display: block !important;
+		margin: 0 auto !important;
+		max-width: 100% !important;
+		height: auto !important;
+	}
+}
+
+/* Ensure the download-bg wrapper uses exact mobile panel size on phones
+   Override the desktop width/height so the element becomes 327x642 on small devices */
+@media (max-width: 480px) {
+	.download-bg {
+		padding-top: 0 !important;
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		box-sizing: border-box !important;
+		border-radius: 14px !important;
+		/* Move the download-bg panel slightly up on phones to adjust overlap */
+		transform: translateY(-24px) !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.download-bg {
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		box-sizing: border-box !important;
+		border-radius: 14px !important;
+		/* Slightly stronger upward nudge on the narrowest screens */
+		transform: translateY(-70px) !important;
+	}
 }
