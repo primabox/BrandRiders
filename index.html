@@ -333,7 +333,7 @@
 
   <!-- New white download section (background #FFFFFF) -->
   <section class="download-section overflow-y-hidden">
-    <div class="pr-6 py-20 bg-white h-[746px] w-[1750px] rounded-tr-[50px] rounded-br-[50px]">
+    <div class="download-bg">
       <div class="download-inner flex flex-col md:flex-row items-start gap-8">
         <div class="download-left w-full md:w-1/2">
           <!-- Image container only (place app/phone mockup here) -->
@@ -356,6 +356,11 @@
               <img src="img/qrs/QR_code 2.png" alt="QR code" class="qr-card__img_second" width="133" height="133" />
               <img src="img/qrs/googlePlay.png" alt="Google Play" class="qr-badge" width="238" height="92" />
             </div>
+          </div>
+          <!-- Mobile-only: show only the store badges (no qr-card wrappers) -->
+          <div class="qr-badges-mobile" aria-hidden="true" style="display:none;">
+            <img src="img/qrs/appstore.png" alt="App Store" class="qr-badge" width="188" height="63" />
+            <img src="img/qrs/googlePlay.png" alt="Google Play" class="qr-badge" width="238" height="92" />
           </div>
         </div>
       </div>
@@ -408,9 +413,8 @@
   <section class="community-section py-20">
     <div class="mx-auto max-w-[1750px] px-6 flex items-center justify-center gap-12">
       <!-- Left column: two stacked screenshots/cards -->
-      <div class="hidden md:flex flex-col gap-8 md:w-[570px]">
-        <div
-          class="bg-white rounded-[18px] p-6 shadow-md flex flex-col items-center justify-center w-[570px] h-[473px] overflow-hidden">
+      <div class="flex flex-col gap-8 w-[570px]">
+        <div class="left-top">
           <div class="w-full text-center mb-4">
             <div class="flex items-center justify-center gap-4 community-icon-row">
               <img src="img/icons/carfrontRed.png" alt="car icon" class="hero-icon-carfront w-9 h-[30px]" width="36"
@@ -424,8 +428,7 @@
           <img src="img/lefttopPhone.png" alt="Screenshot left top"
             class="w-[486px] h-[295px] object-contain lefttop-img" width="486" height="295" />
         </div>
-        <div
-          class="bg-white rounded-[18px] p-6 shadow-md flex items-center justify-center w-[570px] h-[530px] overflow-hidden">
+        <div class="left-bottom">
           <img src="img/leftbottomPhone.png" alt="Screenshot left bottom"
             class="w-[486px] h-[516px] object-contain leftbottom-img" width="486" height="516" />
         </div>
@@ -477,13 +480,11 @@
 
       <!-- Right column: phone mockup and small rounded card on lower side -->
       <div class="hidden md:flex flex-col items-end gap-8 md:w-[570px]">
-        <div
-          class="bg-white rounded-[18px] p-6 shadow-md flex items-center justify-center w-[570px] h-[697px] overflow-hidden community-right-top">
+        <div class="right-top community-right-top">
           <img src="img/righttopPhone.png" alt="Phone mockup" class="w-[481px] h-[655px] object-contain righttop-img"
             width="481" height="655" style="width:481px;height:655px;" />
         </div>
-        <div
-          class="bg-white rounded-[18px] p-6 shadow-md w-[570px] h-[304px] flex flex-col items-center justify-center overflow-hidden">
+        <div class="right-bottom">
           <div class="community-bottom-icons w-full flex items-center justify-center gap-6 mb-3" aria-hidden="true">
             <img src="img/icons/pumpGreen.png" alt="pump" class="community-bottom-icon" width="30" height="32" />
             <img src="img/icons/stitGreen.png" alt="shield" class="community-bottom-icon" width="30" height="34" />

@@ -398,9 +398,104 @@ h2 {
 }
 
 /* Hide decorative background on smaller viewports to avoid overlap */
+
+/* Reusable card: left-top
+   Applies the same utility styles previously used inline in the HTML. */
+.left-top {
+	@apply bg-white rounded-[18px] p-6 shadow-md flex flex-col items-center justify-center w-[570px] h-[473px] overflow-hidden;
+}
+
+/* Reusable card: left-bottom
+   Matches the second left column card (different height and vertical centering). */
+.left-bottom {
+	@apply bg-white rounded-[18px] p-6 shadow-md flex items-center justify-center w-[570px] h-[530px] overflow-hidden;
+}
+
+/* Reusable card: right-top
+   Matches the right column top card (phone mockup) */
+.right-top {
+	@apply bg-white rounded-[18px] p-6 shadow-md flex items-center justify-center w-[570px] h-[697px] overflow-hidden;
+}
+
+/* Reusable card: right-bottom
+   Small bottom card on the right column */
+.right-bottom {
+	@apply bg-white rounded-[18px] p-6 shadow-md w-[570px] h-[304px] flex flex-col items-center justify-center overflow-hidden;
+}
+
+/* Mobile adjustments for left-top card */
+@media (max-width: 480px) {
+	.left-top {
+		width: 327px !important;
+		height: 297px !important;
+		padding: 12px !important;
+	}
+
+	/* Ensure the headline inside the card is 20px on mobile */
+	.left-top .community-card-label {
+		font-size: 20px !important;
+		line-height: 1.1 !important;
+	}
+
+	/* Constrain the screenshot image to the card width and preserve aspect */
+	.left-top .lefttop-img {
+		width: 327px !important;
+		height: auto !important;
+		max-height: 220px !important;
+		object-fit: contain !important;
+	}
+
+	/* Center the card on mobile */
+	.left-top {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block !important;
+		text-align: center !important;
+	}
+
+	.left-top .community-icon-row,
+	.left-top .community-card-label {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		text-align: center !important;
+	}
+
+	/* More robust centering for tricky parent layouts: center using relative positioning + transform */
+	.left-top {
+		position: relative !important;
+		left: 50% !important;
+		transform: translateX(-52%) !important;
+	}
+}
+	/* Mobile adjustments for left-bottom card */
+	.left-bottom {
+		width: 327px !important;
+		height: 487px !important;
+		padding: 12px !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block !important;
+		text-align: center !important;
+		position: relative !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+	}
+
+	.left-bottom .leftbottom-img {
+		width: 327px !important;
+		height: auto !important;
+		max-height: 380px !important;
+		object-fit: contain !important;
+	}
 @media (max-width: 1400px) {
 	.questions-section .questions-bg {
-		display: none;
+		width: 425px !important;
+		height: auto !important;
+		max-width: none !important;
+		position: absolute !important;
+		right: 30px !important;
+		transform: translateY(-275px) !important;
+		z-index: 5 !important;
 	}
 }
 
@@ -1237,7 +1332,7 @@ h2 {
 	.download-car-breakout {
 		width: 375px !important;
 		height: 300px !important;
-		max-width: none !important;
+		max-width: 425px !important;
 		object-fit: cover;
 	}
 
@@ -1258,7 +1353,7 @@ h2 {
 	.download-car-breakout {
 		position: absolute !important;
 		right: 0px !important;
-		transform: translateY(-285px) !important;
+		transform: translateY(-250px) !important;
 		z-index: 5 !important;
 	}
 
@@ -1270,6 +1365,27 @@ h2 {
 
 .features-right img {
 	@apply block;
+}
+
+/* Specific breakpoint overrides for the download breakout width
+   - max-width:480px => set width: 425px
+   - max-width:375px => set width: 375px (this comes after and will override the 480px rule for narrower screens)
+*/
+@media (max-width: 480px) {
+	.download-car-breakout {
+		width: 425px !important;
+		height: 385px !important;
+		max-width: none !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.download-car-breakout {
+		width: 375px !important;
+		height: 310px !important;
+		max-width: none !important;
+		transform: translateY(-200px) !important;
+	}
 }
 
 /* Make the right-side illustration fill the column (desktop) */
@@ -1584,6 +1700,28 @@ h2 {
 .download-section .download-inner {
 	max-width: 1550px;
 	margin: 0 auto;
+}
+
+/* Utility class combining the inline Tailwind-like utilities used on the download wrapper
+   This mirrors: `pr-6 py-20 bg-white h-[746px] w-[1750px] rounded-tr-[50px] rounded-br-[50px]` */
+.download-bg {
+	padding-right: 24px;
+	/* pr-6 */
+	padding-top: 80px;
+	/* py-20 */
+	padding-bottom: 80px;
+	/* py-20 */
+	background-color: #FFFFFF;
+	/* bg-white */
+	height: 746px;
+	/* h-[746px] */
+	width: 1750px;
+	/* w-[1750px] */
+	border-top-right-radius: 50px;
+	/* rounded-tr-[50px] */
+	border-bottom-right-radius: 50px;
+	/* rounded-br-[50px] */
+	box-sizing: border-box;
 }
 
 .download-section .container {
@@ -2191,8 +2329,13 @@ h2 {
 		width: 100%;
 	}
 
+	/* On mobile, show earnings-right below earnings-left */
+	.earnings-left {
+		order: 1 !important;
+	}
+
 	.earnings-right {
-		order: -1;
+		order: 2 !important;
 		margin-bottom: 16px;
 	}
 
@@ -2302,8 +2445,19 @@ h2 {
 		gap: 12px;
 	}
 
+	/* On mobile show the icons column next to the step text */
 	.icons-col {
-		display: none;
+		display: flex !important;
+		flex: 0 0 28px !important;
+		width: 28px !important;
+		height: 227px !important;
+		align-items: flex-start !important;
+		justify-content: center !important;
+	}
+
+	/* Move the icons separator further right on mobile for better spacing */
+	.icons-sep {
+		margin-left: 12px !important;
 	}
 
 	.steps-divider {
@@ -2742,5 +2896,217 @@ h2 {
 	/* tighten the line gap to keep icons visually aligned */
 	.hero-line {
 		gap: 6px !important;
+	}
+}
+
+/* Ensure the artboard illustration is centered on all mobile sizes
+   Applies for <=900px (covers 900/768/480/375 breakpoints). This rule
+   uses !important to override earlier desktop sizing and position rules. */
+@media (max-width: 900px) {
+	.features-right .artboard-img {
+		width: 420px !important;
+		max-width: 100% !important;
+		height: auto !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		left: auto !important;
+		right: auto !important;
+		transform: none !important;
+		display: block !important;
+		top: 0 !important;
+	}
+}
+
+/* Download section sizing on mobile — set the inner download panel to exact phone panel size
+   This explicitly targets the `.download-inner` container and the `.download-img-container` so
+   the absolute positioned `.download-car-breakout` is not affected. */
+@media (max-width: 480px) {
+	.download-section .download-inner {
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		background-color: #F2F2F2 !important;
+		border-radius: 14px !important;
+		box-sizing: border-box !important;
+		overflow: visible !important;
+	}
+
+	.download-section .download-img-container {
+		width: 100% !important;
+		height: 100% !important;
+		padding-left: 0 !important;
+		overflow: visible !important;
+	}
+
+	/* On mobile show the right column above the left column */
+	.download-section .download-right {
+		order: -1 !important;
+	}
+
+	/* Hide the raw QR code images on mobile; show only store badges */
+	.qr-card__img,
+	.qr-card__img_second {
+		display: none !important;
+	}
+
+	/* Hide the whole register section on phones */
+	.register {
+		display: none !important;
+		visibility: hidden !important;
+		height: 0 !important;
+		overflow: hidden !important;
+	}
+
+	/* Hide original QR grid and show only badges on mobile */
+	.qr-grid {
+		display: none !important;
+	}
+
+	.qr-badges-mobile {
+		display: flex !important;
+		gap: 0px;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	.qr-badge {
+		display: block !important;
+		margin: 0 auto !important;
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	/* Also nudge the first badge a bit on very small screens */
+	.qr-badges-mobile .qr-badge:first-child {
+		margin-left: 1px !important;
+	}
+
+	/* Nudge the download QR title slightly to the right on phone widths */
+	.download-qr-title {
+		margin-left: 12px !important;
+		font-size: 28px !important;
+	}
+
+	/* Specific exact badge sizes for mobile: first = 128x43, second = 162x63 */
+	.qr-badges-mobile .qr-badge:first-child {
+		width: 128px !important;
+		height: 43px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+		margin-left: 18px !important;
+	}
+
+	.qr-badges-mobile .qr-badge:last-child {
+		width: 162px !important;
+		height: 63px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+	}
+
+	/* Set download image exact size on mobile as requested (510x396) */
+	.download-img {
+		width: 510px !important;
+		height: 396px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+		display: block !important;
+		margin: 0 auto !important;
+		/* Nudge image slightly left and up on mobile for better visual overlap */
+		transform: translate(-48px, -24px) !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.download-section .download-inner {
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		background-color: #F2F2F2 !important;
+		border-radius: 14px !important;
+		box-sizing: border-box !important;
+		overflow: visible !important;
+	}
+
+	.download-section .download-img-container {
+		width: 100% !important;
+		height: 100% !important;
+		padding-left: 0 !important;
+		overflow: visible !important;
+	}
+
+	/* Set download image exact size on very small mobile screens (510x396) */
+	.download-img {
+		width: 510px !important;
+		height: 396px !important;
+		max-width: none !important;
+		object-fit: contain !important;
+		display: block !important;
+		margin: 0 auto !important;
+		/* Slightly stronger left/up nudge for the narrowest screens */
+		transform: translate(-60px, -28px) !important;
+	}
+
+	/* On very small mobile screens show the right column above the left column */
+	.download-section .download-right {
+		order: -1 !important;
+	}
+
+	/* Slightly larger right nudge for the QR title on the narrowest phones */
+	.download-qr-title {
+		margin-left: 16px !important;
+		font-size: 28px !important;
+	}
+
+	/* Hide the raw QR code images on very small mobile screens; show only store badges */
+	.qr-card__img,
+	.qr-card__img_second {
+		display: none !important;
+	}
+
+	/* Hide the whole register section on very small phones */
+	.register {
+		display: none !important;
+		visibility: hidden !important;
+		height: 0 !important;
+		overflow: hidden !important;
+	}
+
+	.qr-badge {
+		display: block !important;
+		margin: 0 auto !important;
+		max-width: 100% !important;
+		height: auto !important;
+	}
+}
+
+/* Ensure the download-bg wrapper uses exact mobile panel size on phones
+   Override the desktop width/height so the element becomes 327x642 on small devices */
+@media (max-width: 480px) {
+	.download-bg {
+		padding-top: 0 !important;
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		box-sizing: border-box !important;
+		border-radius: 14px !important;
+		/* Move the download-bg panel slightly up on phones to adjust overlap */
+		transform: translateY(-24px) !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.download-bg {
+		width: 327px !important;
+		height: 642px !important;
+		max-width: none !important;
+		margin: 0 auto !important;
+		box-sizing: border-box !important;
+		border-radius: 14px !important;
+		/* Slightly stronger upward nudge on the narrowest screens */
+		transform: translateY(-70px) !important;
 	}
 }
