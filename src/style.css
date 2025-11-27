@@ -175,6 +175,13 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 	}
 }
 
+/* Mobile: set hero section height to 812px */
+@media (max-width: 480px) {
+    .hero-bg {
+        height: 812px !important;
+    }
+}
+
 /* Mobile: Hero / Carousel adjustments (step 2) */
 @media (max-width: 480px) {
 	.slide-inner {
@@ -206,6 +213,7 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 		font-size: 42px !important;
 		line-height: 1.02 !important;
 		letter-spacing: 0 !important;
+		margin-top: 120px !important;
 	}
 
 	.hero-line { gap: 8px !important; }
@@ -219,14 +227,36 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 		height: 40px !important;
 		font-size: 16px !important;
 		padding: 0 14px !important;
+		margin-top: 16px !important;
 	}
 
 	/* Scale down the hero car and allow it to peek below the section */
 	.hero-right .hero-car {
-		max-width: 360px !important;
-		width: 100% !important;
+		max-width: 400px !important;
+		width: 120% !important;
 		height: auto !important;
+		transform: translateY(-110px) !important;
+	}
+
+	/* Slide 3 specific image sizing on mobile: exact 360x406 as requested */
+	.hero-slide--3 .hero-motorcyclists {
+		width: 360px !important;
+		height: 406px !important;
+		max-width: none !important;
+		object-fit: cover !important;
 		transform: translateY(-12px) !important;
+	}
+
+	/* Slide 2 specific image sizing on mobile: 255x231 */
+	.hero-slides-track .hero-slide:nth-child(2) .hero-car,
+	.hero-slide:nth-of-type(2) .hero-car {
+		width: 255px !important;
+		height: 231px !important;
+		max-width: none !important;
+		object-fit: cover !important;
+		transform: translateY(-12px) !important;
+		margin: 0 auto !important;
+		display: block !important;
 	}
 
 	/* ensure pagination dots remain visible and centered */
@@ -262,11 +292,11 @@ body::-webkit-scrollbar { width: 0; height: 0; }
 		.hero-icon-wrench,
 		.hero-icon-nocrash,
 		.hero-icon-shine {
-			height: 16px !important;
-			width: auto !important;
-			margin: 0 2px !important;
-			display: inline-block !important;
-			vertical-align: middle !important;
+            height: 28px !important;
+            width: auto !important;
+            margin: 0 4px !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
 		}
 
 		/* ensure the inline-flex gap doesn't add excessive space on mobile */
@@ -2334,9 +2364,8 @@ h2 {
 	img.hero-icon,
 	.hero-icon,
 	[class*="hero-icon-"] {
-		height: 14px !important;
+		height: 40px !important;
 		width: auto !important;
-		max-height: 14px !important;
 		max-width: none !important;
 		margin-left: 2px !important;
 		margin-right: 2px !important;
