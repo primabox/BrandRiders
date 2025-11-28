@@ -6,7 +6,8 @@
 // - Clicking (or Enter/Space) an icon activates its tab, sets aria-pressed, swaps `#promoCar.src` to the preload image src,
 //   copies `width`/`height` attributes and updates bracketed sizing classes on `#promoCar`.
 
-const icons = Array.from(document.querySelectorAll('.promo-icon'));
+// include mobile-specific icons so mobile promo icons mirror desktop behavior
+const icons = Array.from(document.querySelectorAll('.promo-icon, .promo-icon-mobile'));
 const promoCar = document.getElementById('promoCar');
 // promo logo element (left side) and its original src so we can swap to ORLEN
 const promoLogoImg = document.querySelector('.promo-logo img');
@@ -117,6 +118,59 @@ if (!promoCar || icons.length === 0) {
         // Mark current active tab on the promoCar element so the state is visible in DOM
         promoCar.setAttribute('data-tab', tabKey);
 
+        // Add modifier classes to the promo-left block for tab-specific styling
+        const promoLeftEl = document.querySelector('.promo-left');
+        if (promoLeftEl) {
+            // database tab
+            if (tabKey === 'car4') {
+                promoLeftEl.classList.add('promo-tab-car4');
+            } else {
+                promoLeftEl.classList.remove('promo-tab-car4');
+            }
+            // carClean tab (special case: hide logo)
+            if (tabKey === 'carClean') {
+                promoLeftEl.classList.add('promo-tab-carclean');
+            } else {
+                promoLeftEl.classList.remove('promo-tab-carclean');
+            }
+        }
+
+        // Toggle mobile shield / fuel / cleaning images depending on active tab
+        const shieldEl = document.querySelector('.promo-shield-mobile');
+        const cleaningEl = document.querySelector('.promo-cleaning-mobile');
+        const penizekEl = document.querySelector('.promo-penizek-mobile');
+        const fuelCanEl = document.querySelector('.promo-fuelcan-mobile');
+        const fuelGunEl = document.querySelector('.promo-fuelgun-mobile');
+        if (tabKey === 'carPump') {
+            // show fuel images, hide shield/cleaning/penizek
+            if (shieldEl) shieldEl.style.setProperty('display', 'none', 'important');
+            if (cleaningEl) cleaningEl.style.setProperty('display', 'none', 'important');
+            if (penizekEl) penizekEl.style.setProperty('display', 'none', 'important');
+            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'block', 'important');
+            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'block', 'important');
+        } else if (tabKey === 'carClean') {
+            // show cleaning image on mobile, hide shield/fuel/penizek
+            if (shieldEl) shieldEl.style.setProperty('display', 'none', 'important');
+            if (cleaningEl) cleaningEl.style.setProperty('display', 'block', 'important');
+            if (penizekEl) penizekEl.style.setProperty('display', 'none', 'important');
+            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'none', 'important');
+            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'none', 'important');
+        } else if (tabKey === 'car4') {
+            // database: show penizek image (mobile), hide shield/cleaning/fuel
+            if (shieldEl) shieldEl.style.setProperty('display', 'none', 'important');
+            if (cleaningEl) cleaningEl.style.setProperty('display', 'none', 'important');
+            if (penizekEl) penizekEl.style.setProperty('display', 'block', 'important');
+            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'none', 'important');
+            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'none', 'important');
+        } else {
+            // default: show shield, hide fuel/cleaning/penizek
+            if (shieldEl) shieldEl.style.setProperty('display', 'block', 'important');
+            if (cleaningEl) cleaningEl.style.setProperty('display', 'none', 'important');
+            if (penizekEl) penizekEl.style.setProperty('display', 'none', 'important');
+            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'none', 'important');
+            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'none', 'important');
+        }
+
         // Promo logo behavior:
         // - carPump: show ORLEN logo
         // - carClean or car4: hide the promo logo entirely
@@ -181,5 +235,52 @@ if (!promoCar || icons.length === 0) {
         }
         if (initialTab) activateTab(initialTab);
     })();
+
+    // Mobile prev/next buttons: wire to the same activateTab behavior so
+    // the mobile arrows work exactly like clicking the desktop promo icons.
+    const promoIconsPrevBtn = document.querySelector('.promo-icons-prev');
+    const promoIconsNextBtn = document.querySelector('.promo-icons-next');
+
+    if (promoIconsPrevBtn || promoIconsNextBtn) {
+        function getActiveIndex() {
+            // prefer aria-pressed on icons, fallback to matching promoCar data-tab
+            const byAria = icons.findIndex(i => i.getAttribute('aria-pressed') === 'true');
+            if (byAria !== -1) return byAria;
+            const current = promoCar.getAttribute('data-tab');
+            return icons.findIndex(i => i.getAttribute('data-tab') === current);
+        }
+
+        function activateByIndex(idx) {
+            if (idx < 0 || idx >= icons.length) return;
+            const ic = icons[idx];
+            if (ic) {
+                const tab = ic.getAttribute('data-tab');
+                if (tab) activateTab(tab);
+            }
+        }
+
+        promoIconsPrevBtn && promoIconsPrevBtn.addEventListener('click', () => {
+            const idx = getActiveIndex();
+            const prev = (idx <= 0) ? icons.length - 1 : idx - 1;
+            activateByIndex(prev);
+        });
+
+        promoIconsNextBtn && promoIconsNextBtn.addEventListener('click', () => {
+            const idx = getActiveIndex();
+            const next = (idx === -1 || idx === icons.length - 1) ? 0 : idx + 1;
+            activateByIndex(next);
+        });
+
+        // keyboard accessibility: allow Enter/Space to trigger
+        [promoIconsPrevBtn, promoIconsNextBtn].forEach((btn) => {
+            if (!btn) return;
+            btn.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    ev.preventDefault();
+                    btn.click();
+                }
+            });
+        });
+    }
 }
 // End of promo-icons data-tab script

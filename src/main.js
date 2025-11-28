@@ -1,5 +1,6 @@
 import './style.css'
 import './accordion.js'
+import './questions-move.js'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'

@@ -10,7 +10,7 @@
   <title>Brand Riders</title>
 </head>
 
-<body>q
+<body>
   <header class="gradient-red h-[100px] flex items-center rounded-bl-[50px] rounded-br-[50px] fixed w-full">
     <img src="img/Logo.png" alt="Logo" class="site-logo h-[34px] w-[238px] ml-[250px]" />
 
@@ -58,7 +58,6 @@
               </div>
             </div>
           </div>
-
           <!-- Slide 2:  -->
           <div class="hero-slide">
             <div class="slide-inner container mx-auto w-full max-w-[1550px] px-6 flex items-center justify-between">
@@ -318,6 +317,7 @@
             </div>
           </div>
         </div>
+      
       </div>
 
       <div class="features-right relative flex justify-end">
@@ -411,9 +411,9 @@
   </section>
 
   <section class="community-section py-20">
-    <div class="mx-auto max-w-[1750px] px-6 flex items-center justify-center gap-12">
+    <div class="mx-auto max-w-[1750px] px-6 flex flex-col md:flex-row items-center justify-center gap-12">
       <!-- Left column: two stacked screenshots/cards -->
-      <div class="flex flex-col gap-8 w-[570px]">
+      <div class="flex flex-col gap-8 w-full md:w-[570px] items-center md:items-start">
         <div class="left-top">
           <div class="w-full text-center mb-4">
             <div class="flex items-center justify-center gap-4 community-icon-row">
@@ -422,20 +422,83 @@
               <img src="img/icons/database.png" alt="database icon" class="feature-header-icon w-8 h-8" width="32"
                 height="32" style="width:32px;height:32px;" />
             </div>
-            <p class="community-card-label font-bold uppercase text-[#1E1E1E] text-[32px]">NABÍDKY REKLAMNÍCH KAMPANÍ
+            <p class="community-card-label font-bold uppercase text-[#1E1E1E] text-[32px] hidden md:block">NABÍDKY REKLAMNÍCH KAMPANÍ
               PŘÍMO V APLIKACI <br> V SEKCI AKTUALITY</p>
+
+            <!-- Mobile-only label (editable separately) -->
+            <p class="community-cr-label-mobile font-bold uppercase text-[#1E1E1E] text-[24px] block md:hidden">NABÍDKY REKLAMNÍCH <br> KAMPANÍ
+              PŘÍMO <br> V APLIKACI V SEKCI <br> AKTUALITY</p>
           </div>
           <img src="img/lefttopPhone.png" alt="Screenshot left top"
-            class="w-[486px] h-[295px] object-contain lefttop-img" width="486" height="295" />
+            class="hidden md:block w-[486px] h-[295px] object-contain lefttop-img" width="486" height="295" />
+          <img src="img/mobile/mobilephone1.png" alt="Screenshot left top mobile"
+            class="block md:hidden w-[230px] h-[159px] object-contain mobile-img mx-auto" width="230" height="159" />
         </div>
         <div class="left-bottom">
+          <!-- Desktop/tablet image (hidden on mobile) -->
           <img src="img/leftbottomPhone.png" alt="Screenshot left bottom"
-            class="w-[486px] h-[516px] object-contain leftbottom-img" width="486" height="516" />
+            class="hidden md:block w-[486px] h-[516px] object-contain leftbottom-img" width="486" height="516" />
+          <!-- Mobile-only image -->
+          <img src="img/mobile/mobilephone2.png" alt="Mobile screenshot" class="block md:hidden w-[230px] h-[259px] object-contain mobile-img mx-auto" width="320" height="340" />
+          <!-- Mobile-only: show first 3 community features inside left-bottom for small screens -->
+          <div class="community-mobile-features md:hidden mt-6 px-4">
+            <div class="text-center w-full mb-4">
+              <h4 class="community-feature-title mb-1">Automobil v kapse</h4>
+              <p class="community-feature-desc mt-0">přehled o vozidle</p>
+            </div>
+
+            <div class="text-center w-full mb-4">
+              <h4 class="community-feature-title mb-1">Upozornění konce platnosti</h4>
+              <p class="community-feature-desc mt-0">Parkovací karty, dálniční <br> známky, STK, pojištění</p>
+            </div>
+
+            <div class="text-center w-full">
+              <h4 class="community-feature-title mb-1">Skener dokumentů</h4>
+              <p class="community-feature-desc mt-0">a dokladů potřebných k vozidlu</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Center: narrow vertical feature list (single column) -->
-      <div class="w-full md:w-[342px] flex flex-col items-center">
+      <!-- Mobile-only right-top: shows phone mockup and selected community features on phones (moved under left-bottom) -->
+      <div class="flex md:hidden w-full justify-center">
+        <div class="right-top-mobile bg-white rounded-[18px] p-4 shadow-md flex flex-col items-center w-[327px]">
+          <img src="img/mobile/mobilephone3.png" alt="Mobile right top" class="right-top-mobile-img object-contain mb-4" width="230" height="265" />
+          <div class="w-full px-2">
+            <div class="text-center w-full mb-8">
+              <h4 class="community-feature-title mb-1">Slevy v automobilovém segmentu</h4>
+              <p class="community-feature-desc mt-0">pohonné hmoty, pneumatiky, náhradní díly a myčky</p>
+            </div>
+            <div class="text-center w-full mb-8">
+              <h4 class="community-feature-title mb-1">Asistence v případě nehody</h4>
+            </div>
+            <div class="text-center w-full mb-8">
+              <h4 class="community-feature-title mb-1">Elektronický záznam o nehodě</h4>
+              <p class="community-feature-desc mt-0">(akceptovaný pojišťovnami)</p>
+            </div>
+            <div class="text-center w-full">
+              <h4 class="community-feature-title mb-1">Mnohé další</h4>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <!-- Mobile-only right-bottom: small card under right-top on phones -->
+          <div class="flex md:hidden w-full justify-center">
+            <div class="right-bottom-mobile bg-white rounded-[12px] p-4 shadow-md flex flex-col items-center w-[327px] h-[217px]">
+              <div class="community-bottom-icons w-full flex items-center justify-center gap-4 mb-2" aria-hidden="true">
+                <img src="img/icons/pumpGreen.png" alt="pump" class="community-bottom-icon" width="24" height="24" />
+                <img src="img/icons/stitGreen.png" alt="shield" class="community-bottom-icon" width="24" height="24" />
+                <img src="img/icons/tireGreen.png" alt="tire" class="community-bottom-icon" width="24" height="24" />
+                <img src="img/icons/+.png" alt="plus" class="community-bottom-icon" width="16" height="16" />
+                <img src="img/icons/database.png" alt="database" class="community-bottom-icon" width="24" height="24" />
+              </div>
+              <p class="community-right-bottom-text text-center  max-w-full text-[18px]">Můžete si vybrat, jestli <br> své auto poskytnete <br> k inzerci, nebo si jen <br> budete užívat funkcí <br> aplikace a našich <br> benefitů.</p>
+            </div>
+          </div>
+
+          <!-- Center: narrow vertical feature list (single column) -->
+      <div class="hidden md:flex w-full md:w-[342px] flex-col items-center">
         <div class="w-full">
           <div class="flex flex-col items-center gap-14">
             <div class="text-center w-full">
@@ -496,6 +559,7 @@
             k inzerci, nebo si jen budete užívat funkcí aplikace a našich benefitů.</p>
         </div>
       </div>
+      
     </div>
   </section>
 
@@ -556,18 +620,19 @@
         <p class="mt-4 text-[18px] text-[#1E1E1E]">Canapuff ponúka kvety, vapy, gummies, <br> hash a cartridge z rôznych
           kanabinoidov</p>
 
-        <!-- large arrows positioned beside the text (left/right) -->
-        <button
-          class="showcase-prev absolute cursor-pointer -left-[150px] top-1/2 transform -translate-y-1/2 text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
-          aria-label="Předchozí"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-        <button
-          class="showcase-next absolute  cursor-pointer -right-[-130px] top-1/2 transform -translate-y-1/2 text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
-          aria-label="Další"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <!-- arrows are rendered inside the slider now (moved to .showcase-slider) -->
       </div>
 
       <!-- Right: image carousel -->
       <div class="showcase-slider w-[700px] h-[360px] relative flex items-center justify-center overflow-visible"
         style="transform: translateX(80px);">
+        <!-- large arrows positioned inside the slider -->
+        <button
+          class="showcase-prev cursor-pointer text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
+          aria-label="Předchozí"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button
+          class="showcase-next cursor-pointer text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
+          aria-label="Další"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         <!--  slide  1-->
         <div class="slide absolute inset-0 flex items-center justify-center">
           <img src="img/slides/car1.png" alt="Ukázka kampaně 1" class="max-w-[960px] max-h-[540px] object-contain" />
@@ -642,23 +707,46 @@
 
         <!-- Left: fixed-width gradient block (622px) -->
         <div class="promo-gradient w-full md:w-[1283px] h-[622px] rounded-tr-[50px] rounded-br-[50px] overflow-visible">
+          <!-- Mobile-only shield image that sits above the gradient -->
+          <img src="img/mobile/stit.png" alt="shield mobile" class="promo-shield-mobile md:hidden" />
+          <!-- Mobile-only cleaning image (shown when carClean is active) -->
+          <img src="img/mobile/cleaning.png" alt="cleaning mobile" class="promo-cleaning-mobile md:hidden" style="display:none;" />
+          <!-- Mobile-only penizek image (shown when car4/database tab is active) -->
+          <img src="img/mobile/penizek.png" alt="penizek mobile" class="promo-penizek-mobile md:hidden" style="display:none;" />
+          <!-- Mobile-only fuel icons (shown when carPump is active) -->
+          <img src="img/mobile/fuelcan.png" alt="fuel can mobile" class="promo-fuelcan-mobile md:hidden" style="display:none;" />
+          <img src="img/mobile/fuelgun.png" alt="fuel gun mobile" class="promo-fuelgun-mobile md:hidden" style="display:none;" />
           <div class="promo-left w-[1283px] pl-[250px] px-8 py-10 text-white h-full flex flex-col justify-center">
             <h2 class="promo-title">NAJVÝHODNEJŠIE <br> POISTENIE NA TRHU</h2>
             <p class="promo-description">Prišlo vám zdraženie alebo hľadáte férové poistenie?
               Získajte <br> najvýhodnejšie ceny a jedinečný servis!</p>
 
             <!-- Broker logo above CTA -->
-            <div class="promo-logo mb-6">
+            <div class="promo-logo mb-3">
               <img src="img/logos/brokerLogo.png" alt="Broker logo"
-                class="max-w-[235px] h-[88px] object-contain mb-16" />
+                class="max-w-[166px] h-[62px] object-contain mb-2 mt-2" />
             </div>
 
             <div class="promo-cta">
-              <a href="#"
-                class="inline-flex bg-white text-black font-black italic text-[20px] whitespace-nowrap text-center rounded-full mt-2 w-[284px] h-[38px] items-center justify-center">VIAC
-                O BENEFITOCH</a>
+              <a href="#" class="promo-btn">VIAC O BENEFITOCH</a>
             </div>
+            <!-- Mobile-only promo icons removed from here and rendered below the gradient block to keep layout consistent on mobile -->
           </div>
+        </div>
+
+        
+        <!-- Mobile-only promo icons (moved out of the gradient) -->
+        <div class="promo-icons-mobile mobile-only mt-4 md:hidden w-full flex justify-center" aria-hidden="true">
+          <button class="promo-icons-prev md:hidden cursor-pointer text-[#1E1E1E] bg-transparent w-10 h-10 flex items-center justify-center text-[20px]"
+            aria-label="Předchozí ikony"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+
+          <img src="img/icons/pumpGreen.png" alt="pump" width="32" height="32" class="promo-icon-mobile" role="tab" tabindex="0" aria-pressed="false" data-tab="carPump" data-gray-src="img/icons/pumpGray.png" data-title="Lacnejšie tankovanie" />
+          <img src="img/icons/stitGreen.png" alt="shield" width="32" height="32" class="promo-icon-mobile" role="tab" tabindex="0" aria-pressed="false" data-tab="carStit" data-gray-src="img/icons/stitGray.png" />
+          <img src="img/icons/tireGreen.png" alt="tire" width="32" height="32" class="promo-icon-mobile" role="tab" tabindex="0" aria-pressed="false" data-tab="carClean" data-gray-src="img/icons/tireGray.png" data-title="Zľavy na <br>   pneumatiky, <br>  náhradné diely <br> a doplnky" />
+          <img src="img/icons/database.png" alt="database" width="32" height="32" class="promo-icon-mobile" role="tab" tabindex="0" aria-pressed="false" data-tab="car4" data-gray-src="img/icons/databaseGray.png" data-title="Možnosť platenej <br> inzercie na Vašom <br> aute" />
+
+          <button class="promo-icons-next md:hidden cursor-pointer text-[#1E1E1E] bg-transparent w-10 h-10 flex items-center justify-center text-[20px]"
+            aria-label="Další ikony"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         </div>
 
         <!-- Right: content outside gradient (image takes remaining space) -->
@@ -684,12 +772,11 @@
 
             <img src="img/icons/database.png" alt="database" width="40" height="40" class="promo-icon w-[40px] h-[40px]"
               style="width:40px;height:40px;" role="tab" tabindex="0" aria-pressed="false" data-tab="car4"
-              data-gray-src="img/icons/databaseGray.png" />
+              data-gray-src="img/icons/databaseGray.png" data-title="Možnosť platenej &lt;br&gt; inzercie na Vašom &lt;br&gt; aute" />
           </div>
 
           <!-- Absolutely-positioned image badges (edit inline styles per-badge to move them) -->
           <div class="promo-badges" aria-hidden="true">
-            <!-- Example: adjust position via inline style: left/top and CSS variables --bx/--by for fine offset -->
             <img id="badgePump" class="promo-badge" src="img/badges/badgePump.png" alt="Pump badge" width="56"
               height="56" style="left: 21%; top: 40%; --bx: 0px; --by: 0px;" />
             <img id="badgeStit" class="promo-badge" src="img/badges/badgeStit.png" alt="Štít badge" width="56"
@@ -838,6 +925,8 @@
       <div class="questions-bg" aria-hidden="true">
         <img src="img/questionCar.png" alt="Car on gradient" class="questions-bg__img" width="806" height="453" />
       </div>
+      <!-- Mobile-only question car: visible on phones without the large gradient background -->
+     
       <!-- Gradient background is handled in CSS via a pseudo-element -->
       <div class="question-bar-wrap">
         <div class="question-bar gradient-red w-[100px] h-[20px] rounded-full" aria-hidden="true"></div>
@@ -905,6 +994,9 @@
           </div>
         </div>
         <a href="#" class="questions-show-all">ZOBRAZIT VŠETKY</a>
+        <div class="questions-bg-mobile mobile-only" aria-hidden="true">
+          <img src="img/questionCar.png" alt="Car (mobile)" class="questions-bg-mobile__img" width="418" height="177" />
+        </div>
       </div>
     </div>
   </section>
@@ -1016,6 +1108,7 @@
   <script type="module" src="src/map-trail.js"></script>
   <script type="module" src="src/promo-icons.js"></script>
   <script type="module" src="src/questions.js"></script>
+  <script type="module" src="src/hover-touch.js"></script>
 
 
 

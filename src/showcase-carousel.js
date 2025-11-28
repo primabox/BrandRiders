@@ -109,4 +109,90 @@ document.addEventListener('DOMContentLoaded', () => {
             show(idx);
         }, 5000);
     });
+
+    // Touch / swipe support for mobile: simple left/right swipe to change slides
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+    let isTouching = false;
+    const SWIPE_THRESHOLD = 40; // pixels
+
+    function onTouchStart(e) {
+        clearInterval(timer);
+        isTouching = true;
+        touchStartX = e.touches ? e.touches[0].clientX : e.clientX;
+        touchCurrentX = touchStartX;
+    }
+
+    function onTouchMove(e) {
+        if (!isTouching) return;
+        touchCurrentX = e.touches ? e.touches[0].clientX : e.clientX;
+    }
+
+    function onTouchEnd() {
+        if (!isTouching) return;
+        const delta = touchStartX - touchCurrentX;
+        if (Math.abs(delta) > SWIPE_THRESHOLD) {
+            if (delta > 0) {
+                // swipe left -> next
+                idx = (idx + 1) % slides.length;
+            } else {
+                // swipe right -> prev
+                idx = (idx - 1 + slides.length) % slides.length;
+            }
+            show(idx);
+        }
+        // restart auto-rotate
+        timer = setInterval(() => {
+            idx = (idx + 1) % slides.length;
+            show(idx);
+        }, 5000);
+        isTouching = false;
+    }
+
+    // Add listeners on the slider area if available, otherwise on the whole container
+    const touchTarget = container.querySelector('.showcase-slider') || container;
+    touchTarget.addEventListener('touchstart', onTouchStart, {passive: true});
+    touchTarget.addEventListener('touchmove', onTouchMove, {passive: true});
+    touchTarget.addEventListener('touchend', onTouchEnd);
+    // also support mouse drag as a fallback for touchpads
+    touchTarget.addEventListener('mousedown', (e) => { onTouchStart(e);
+        // listen for move/end on document to capture outside the component
+        const onMouseMove = (ev) => onTouchMove(ev);
+        const onMouseUp = (ev) => { onTouchEnd(ev); document.removeEventListener('mousemove', onMouseMove); document.removeEventListener('mouseup', onMouseUp); };
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+
+    // Keep arrows at a fixed screen position but only show them while the carousel is visible.
+    // Use IntersectionObserver to toggle arrow visibility. Use setProperty with 'important'
+    // so stylesheet !important rules don't block the inline change.
+    if (prev && next) {
+        try {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        prev.style.setProperty('display', 'flex', 'important');
+                        next.style.setProperty('display', 'flex', 'important');
+                    } else {
+                        prev.style.setProperty('display', 'none', 'important');
+                        next.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            }, {threshold: 0.2});
+            io.observe(container);
+            // initialize based on current visibility
+            const rect = container.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                prev.style.setProperty('display', 'flex', 'important');
+                next.style.setProperty('display', 'flex', 'important');
+            } else {
+                prev.style.setProperty('display', 'none', 'important');
+                next.style.setProperty('display', 'none', 'important');
+            }
+        } catch (e) {
+            // Fallback: if IntersectionObserver not supported, show arrows always
+            prev.style.setProperty('display', 'flex', 'important');
+            next.style.setProperty('display', 'flex', 'important');
+        }
+    }
 });
