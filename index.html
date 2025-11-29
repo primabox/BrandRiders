@@ -290,6 +290,85 @@
                 <div class="feature-header-bar feature-header-bar--green"></div>
                 <img src="img/icons/pumpGreen.png" alt="" class="feature-header-icon feature-header-icon--green"
                   width="30" height="32" />
+
+    <!-- Script: toggle extra questions (show all / show less) -->
+    <script>
+      (function () {
+        function getHeaderHeight(item) {
+          const header = item.querySelector('.accordion-header');
+          if (!header) return 88;
+          return header.getBoundingClientRect().height || 88;
+        }
+
+        function prepareExtra(item) {
+          // ensure proper attributes and collapsed sizing
+          if (!item.hasAttribute('tabindex')) item.setAttribute('tabindex', '0');
+          if (!item.hasAttribute('role')) item.setAttribute('role', 'button');
+          item.setAttribute('aria-expanded', 'false');
+          const headerH = getHeaderHeight(item);
+          item.style.maxHeight = headerH + 'px';
+          const body = item.querySelector('.accordion-body');
+          if (body) body.style.maxHeight = '0px';
+        }
+
+        function showExtras(show) {
+          const extraBlocks = document.querySelectorAll('.extra-question');
+          extraBlocks.forEach(block => {
+            const wrapper = block.querySelector('.accordion-item-wrapper');
+            if (!wrapper) return;
+            if (show) {
+              // reveal in DOM then initialize sizes
+              wrapper.style.display = '';
+              // give browser a moment to layout
+              const headerH = getHeaderHeight(wrapper);
+              wrapper.style.maxHeight = headerH + 'px';
+              const body = wrapper.querySelector('.accordion-body');
+              if (body) body.style.maxHeight = '0px';
+              wrapper.setAttribute('aria-expanded', 'false');
+            } else {
+              // hide again
+              wrapper.style.display = 'none';
+            }
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+          const ctrl = document.querySelector('.questions-show-all');
+          if (!ctrl) return;
+
+          // ensure extras are prepared (in case accordion script ran earlier)
+          document.querySelectorAll('.extra-question .accordion-item-wrapper').forEach(w => {
+            // keep hidden but set sizes so accordion works when revealed
+            w.style.display = 'none';
+            prepareExtra(w);
+          });
+
+          ctrl.addEventListener('click', function (e) {
+            e.preventDefault();
+            const expanded = ctrl.getAttribute('aria-expanded') === 'true';
+            if (expanded) {
+              // hide extras
+              showExtras(false);
+              ctrl.setAttribute('aria-expanded', 'false');
+              ctrl.textContent = 'ZOBRAZIT VŠETKY';
+            } else {
+              // show extras and prepare them for accordion
+              showExtras(true);
+              ctrl.setAttribute('aria-expanded', 'true');
+              ctrl.textContent = 'ZOBRAZIT MENEJ';
+            }
+          });
+
+          // keyboard activation (Enter/Space) for accessibility
+          ctrl.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              ctrl.click();
+            }
+          });
+        });
+      })();
+    </script>
                 <img src="img/icons/stitGreen.png" alt="" class="feature-header-icon feature-header-icon--green"
                   width="29" height="34" />
                 <img src="img/icons/tireGreen.png" alt="" class="feature-header-icon feature-header-icon--green"
@@ -992,6 +1071,90 @@
               </div>
             </div>
           </div>
+          <!-- Extra accordion items (hidden by default, revealed by "ZOBRAZIT VŠETKY") -->
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Zaväzujem sa prijať navrhnutú kampaň?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Nie — po obdržaní ponuky kampaň schvaľujete vy. Nezaväzujete sa ničím dokiaľ nepodpíšete zmluvu.</div>
+            </div>
+          </div>
+
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Koľko a kedy dostanem zaplatené?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Výška odmeny závisí od kampane a je uvedená v ponuke. Platby sa realizujú podľa podmienok v zmluve (zvyčajne mesačne po odsúhlasení odjazdených kilometrov).</div>
+            </div>
+          </div>
+
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Nezničí mi reklama auto?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Polep vykonávajú odborné firmy a pri odstraňovaní používame postupy, ktoré nemajú poškodzujúci vplyv na lak. Všetky náklady hradíme my.</div>
+            </div>
+          </div>
+
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Ako a kde prebieha inštalácia polepu a jeho odstránenie?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Inštaláciu zabezpečí naša partnerská montážna spoločnosť na dohodnutom mieste (zvyčajne dielňa alebo iné vhodné miesto). Odstránenie po ukončení kampane zabezpečíme rovnako.</div>
+            </div>
+          </div>
+
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Dostane každý nejakú reklamnú kampaň?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Nie každý. Výber závisí od požiadaviek inzerentov a vhodnosti konkrétneho vozidla pre danú kampaň.</div>
+            </div>
+          </div>
+
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Je možné polepiť reklamou aj firemné vozidlo?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Áno, ak to povoluje vlastník vozidla alebo zmluvné podmienky firmy. V takom prípade budeme potrebovať súhlas majiteľa alebo oprávnenej osoby.</div>
+            </div>
+          </div>
+
+          <div class="accordion-block mb-8 extra-question">
+            <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion" role="button" tabindex="0" aria-expanded="false" style="display:none;">
+              <div class="accordion-header flex items-center justify-between px-8">
+                <span class="text-[#1E1E1E]">Kedy môžem začať čerpať hlavné benefity komunity Brand Riders?</span>
+                <svg class="accordion-icon w-6 h-6 text-[#1E1E1E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="accordion-body bg-white p-6">Benefity sú dostupné ihneď po dokončení registrácie a aktivácii vášho účtu v Portáli vodiča, pokiaľ nie sú viazané na konkrétnu kampaň.</div>
+            </div>
+          </div>
         </div>
         <a href="#" class="questions-show-all">ZOBRAZIT VŠETKY</a>
         <div class="questions-bg-mobile mobile-only" aria-hidden="true">
@@ -1012,40 +1175,41 @@
       <div class="adv-grid grid grid-cols-3">
         <div
           class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#6D2037] transition-colors duration-400">
-          <img src="img/logos/costacoffeLogo.png" alt="Costa Coffeet" class="adv-logo" />
+          <img src="img/logos/costacoffeLogo.png" alt="Costa Coffeet" class="adv-logo adv-logo--costa" />
           <img src="img/slides/costacoffeCar.png" alt="car" class="adv-car adv-car--1" />
         </div>
 
         <div
           class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#C70F2E] transition-colors duration-400">
-          <img src="img/logos/pizzaHut2.png" alt="Pizza Hut" class="adv-logo" />
+          <img src="img/logos/pizzaHut2.png" alt="Pizza Hut" class="adv-logo adv-logo--pizzahut" />
           <img src="img/slides/pizzahutCar.png" alt="car" class="adv-car adv-car--2" />
         </div>
 
         <div
           class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#024DDF] transition-colors duration-400">
-          <img src="img/logos/ticketmasterLogo.png" alt="Ticketmaster" class="adv-logo" />
+          <img src="img/logos/ticketmasterLogo.png" alt="Ticketmaster" class="adv-logo adv-logo--ticketmaster" />
           <img src="img/slides/ticketmasterCar.png" alt="car" class="adv-car adv-car--3" />
         </div>
 
         <div
           class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#2D7DB9] transition-colors duration-400">
-          <img src="img/logos/bekoLogo.png" alt="Beko" class="adv-logo" />
+          <img src="img/logos/bekoLogo.png" alt="Beko" class="adv-logo adv-logo--beko" />
           <img src="img/slides/bekoCar.png" alt="car" class="adv-car adv-car--4" />
         </div>
 
         <div
           class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#005091] transition-colors duration-400">
-          <img src="img/logos/cppLogo.png" alt="CPP" class="adv-logo" />
+          <img src="img/logos/cppLogo.png" alt="CPP" class="adv-logo adv-logo--cpp" />
           <img src="img/slides/cppCar.png" alt="car" class="adv-car adv-car--5" />
         </div>
 
         <div
           class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#FEBA3A] transition-colors duration-400">
-          <img src="img/logos/ppLogo.png" alt="PP" class="adv-logo" />
+          <img src="img/logos/ppLogo.png" alt="PP" class="adv-logo adv-logo--pp" />
           <img src="img/slides/ppCar.png" alt="car" class="adv-car adv-car--6" />
         </div>
       </div>
+      <a href="#" class="adv-show-all mobile-only" aria-expanded="false">ZOBRAZIT VŠETKY</a>
     </div>
   </section>
 
@@ -1053,9 +1217,13 @@
     <div class="footer-inner mx-auto">
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
-          <img src="img/footerLogo.png" alt="Brand Riders" class="footer-logo" />
-          <div class="footer-invite">Inzerujte s námi</div>
-          <div class="footer-sublogo"><img src="img/brandcarsLogo.png" alt="OK Riders" /></div>
+          <div class="footer-logos-row">
+            <img src="img/footerLogo.png" alt="Brand Riders" class="footer-logo" />
+            <div class="footer-subcol">
+              <div class="footer-invite">Inzerujte s námi</div>
+              <div class="footer-sublogo"><img src="img/brandcarsLogo.png" alt="Brand Cars" /></div>
+            </div>
+          </div>
         </div>
 
         <div class="footer-mid">
@@ -1109,6 +1277,9 @@
   <script type="module" src="src/promo-icons.js"></script>
   <script type="module" src="src/questions.js"></script>
   <script type="module" src="src/hover-touch.js"></script>
+  <script type="module" src="src/adv-card-touch.js"></script>
+  <script type="module" src="src/adv-show-all.js"></script>
+  <script type="module" src="src/adv-debug.js"></script>
 
 
 

@@ -1578,7 +1578,7 @@
 		position: relative;
 		overflow: visible;
 		background: transparent;
-		margin-top: 120px;
+		margin-top: 0px;
 	}
 
 	.advertise-title {
@@ -3284,18 +3284,19 @@
 		.slide-inner { flex-direction: column; align-items: flex-start; gap: 12px; padding-left: 12px; padding-right: 12px; }
 
 		.hero-left {
-			width: 100% !important; text-align: left; padding-top: 56px !important; padding-left: 8px;
+			width: 100% !important; text-align: left; padding-top: 60px !important; padding-left: 24px;
 		}
 
-		.hero-right { width: 100% !important; display:flex; justify-content:center; margin-top:-10px; }
+		.hero-right { width: 100% !important; display:flex; justify-content:center; align-items:center !important; margin-top:-10px; }
 
+		/* Center hero title and car inside the mobile hero frame */
 		.hero-left .hero-title { font-size: 42px !important; line-height: 1.02 !important; letter-spacing: 0 !important; }
 		.hero-line { gap: 8px !important; }
 		.hero-icon { margin: 0 6px !important; }
 
-		.hero-link--pill { width: 180px !important; height: 40px !important; font-size: 16px !important; padding: 0 14px !important; }
+		.hero-link--pill { width: 168px !important; height: 30px !important; font-size: 14px !important; padding: 0 12px !important; margin-top: 20px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
 
-		.hero-right .hero-car { max-width: 360px !important; width: 100% !important; height: auto !important; transform: translateY(-12px) !important; }
+		.hero-right .hero-car { max-width: 360px !important; width: 100% !important; height: auto !important; margin: 0 auto !important; transform: translateY(0) !important; }
 		.hero-controls { bottom: 36px !important; }
 
 		/* Hero badge + icon sizing */
@@ -3450,7 +3451,7 @@
 		[class*="hero-icon-"] {
 			height: 40px !important;
 			width: auto !important;
-			max-height: 40px !important;
+			max-height: 35px !important;
 			max-width: none !important;
 			margin-left: 2px !important;
 			margin-right: 2px !important;
@@ -3855,7 +3856,6 @@
 				height: 214px !important;
 				pointer-events: none !important;
 				display: none !important;
-				z-index: 120 !important;
 			}
 
 			/* Mobile-only penizek image shown when car4 (database) is active */
@@ -3868,7 +3868,6 @@
 				height: 166px !important;
 				pointer-events: none !important;
 				display: none !important;
-				z-index: 120 !important;
 			}
 
 			/* Mobile fuel images shown when carPump is active */
@@ -3877,7 +3876,6 @@
 				position: absolute !important;
 				top: -48px !important;
 				pointer-events: none !important;
-				z-index: 120 !important;
 				display: none !important;
 			}
 
@@ -4199,7 +4197,9 @@
 	.advertise-section {
 		background-color: #F2F2F2 !important;
 		padding-top: 24px !important;
-		padding-bottom: 24px !important;
+		padding-bottom: 100px !important;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
 	}
 
 	.advertise-title {
@@ -4221,22 +4221,353 @@
 		margin: 0 auto !important;
 		padding: 12px !important;
 		box-sizing: border-box !important;
+		border-radius: 14px !important;
+		overflow: visible !important;
+	}
+
+	/* When a card is activated on touch, use the element's --active-bg variable */
+	.adv-card.adv-card--active {
+		background-color: var(--active-bg) !important;
+		color: #ffffff !important;
+	}
+
+	/* Also invert logos when active to match hover state */
+	.adv-card.adv-card--active .adv-logo {
+		filter: grayscale(100%) brightness(0) invert(1) !important;
+		opacity: 0.98 !important;
+	}
+
+	/* Mobile: show only first 3 advertise cards; 'show all' toggles .adv-grid--expanded */
+	.adv-grid {
+		grid-template-columns: 1fr !important;
+	}
+
+	/* hide cards 4+ using animated properties instead of display */
+	.adv-grid .adv-card:nth-child(n+4) {
+		max-height: 0 !important;
+		opacity: 0 !important;
+		transform: translateY(-8px) !important;
+		overflow: hidden !important;
+		pointer-events: none !important;
+		transition: max-height 360ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease, transform 300ms cubic-bezier(.2,.9,.2,1);
+	}
+
+	.adv-grid.adv-grid--expanded .adv-card:nth-child(n+4) {
+		max-height: 500px !important; /* large enough to reveal each card */
+		opacity: 1 !important;
+		transform: translateY(0) !important;
+		pointer-events: auto !important;
+	}
+
+	/* ensure all adv-cards have a smooth base transition */
+	.adv-card {
+		transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease, max-height 360ms cubic-bezier(.2,.9,.2,1);
+	}
+
+	/* Mobile 'show all' link styling */
+	.adv-show-all {
+		display: block !important;
+		/* move the control up on small screens so it's visually closer to the cards */
+		margin-top: -65px !important;
+		text-align: left !important;
+		font-style: italic !important;
+		font-weight: 900 !important;
+		font-size: 16px !important;
+		color: #1E1E1E !important;
+		text-decoration: none !important;
+		padding-left: 12px !important;
 	}
 
 	.adv-logo {
-		top: 12px !important;
-		left: 12px !important;
-		width: 96px !important;
+		top: 24px !important;
+		left: 24px !important;
+		width: 120px !important;
 		height: auto !important;
-		max-width: 96px !important;
+		max-width: 120px !important;
 		object-fit: contain !important;
+	}
+
+	/* Footer: mobile layout and logo sizes */
+	.site-footer {
+		background-color: #1E1E1E !important;
+		color: #FFFFFF !important;
+		padding-top: 24px !important;
+		padding-bottom: 24px !important;
+	}
+
+	.footer-inner {
+		max-width: 327px !important;
+		margin: 0 auto !important;
+		padding-left: 12px !important;
+		padding-right: 12px !important;
+	}
+
+	.footer-grid {
+		display: grid !important;
+		grid-template-columns: 1fr !important;
+		gap: 18px !important;
+		align-items: start !important;
+	}
+
+	.footer-col--brand {
+		display: flex !important;
+		/* place invite text above logos on mobile */
+		flex-direction: column !important;
+		gap: 8px !important;
+		align-items: flex-start !important;
+	}
+
+	.footer-logo {
+		width: 104px !important;
+		height: 48px !important;
+		object-fit: contain !important;
+		display: block !important;
+	}
+
+	.footer-sublogo img {
+		width: 123px !important;
+		height: 20px !important;
+		object-fit: contain !important;
+		display: block !important;
+		margin: 0 !important;
+	}
+
+	/* Small adjustment: invite text next to the logo */
+	.footer-invite {
+		font-size: 14px !important;
+		color: #FFFFFF !important;
+		margin: 0 !important;
+		line-height: 1 !important;
+	}
+
+	/* If sublogo shares the same row, ensure it doesn't wrap and is vertically centered */
+	.footer-sublogo {
+		display: flex !important;
+		align-items: center !important;
+	}
+
+	/* Row containing the main footer logo and the brandcars sublogo */
+	.footer-logos-row {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		gap: 50px !important;
+		background: none !important;
+		background-color: transparent !important;
+	}
+
+	/* Ensure the main footer logo aligns left and sublogo sits to its right */
+	.footer-logos-row .footer-logo { margin: 0 !important; }
+	.footer-logos-row .footer-sublogo { margin: 0 !important; }
+
+	/* Column that contains the invite text above the second (brandcars) logo */
+	.footer-subcol {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		justify-content: center !important;
+		gap: 6px !important;
+	}
+
+	/* Slightly reduce invite size when it's above the small brandcars logo and left-align */
+	.footer-subcol .footer-invite {
+		font-size: 13px !important;
+		text-align: left !important;
+		align-self: flex-start !important;
+	}
+
+	/* Ensure the brandcars image sits flush under the invite line */
+	.footer-subcol .footer-sublogo img {
+		display: block !important;
+		width: 123px !important;
+		height: 20px !important;
+		object-fit: contain !important;
+	}
+
+	/* Ensure no background boxes behind logos or invite text on mobile */
+	.footer-logos-row img,
+	.footer-sublogo,
+	.footer-logo,
+	.footer-invite {
+		background: none !important;
+		background-color: transparent !important;
+	}
+
+	.footer-mid {
+		display: grid !important;
+		grid-template-columns: repeat(2, 1fr) !important;
+		gap: 12px !important;
+	}
+
+	.footer-col .footer-links {
+		padding: 0 !important;
+		margin: 0 !important;
+		list-style: none !important;
+	}
+
+	.footer-col .footer-links li { margin-bottom: 8px !important; }
+
+	.footer-col .footer-links a { color: #FFFFFF !important; text-decoration: none !important; font-size: 14px !important; background: none !important; }
+
+	.footer-col--contact {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 12px !important;
+		align-items: flex-start !important;
+	}
+
+	.footer-social a img { width: 24px !important; height: 24px !important; margin-right: 8px !important; }
+
+	.footer-address { font-size: 12px !important; color: #CCCCCC !important; }
+
+	.footer-okriders-logo {
+		width: 106px !important;
+		height: 20px !important;
+		object-fit: contain !important;
+		display: block !important;
+		margin-top: 6px !important;
+	}
+
+	/* Position advertise car images on mobile as requested */
+	img.adv-car {
+		position: absolute !important;
+		right: -55px !important;
+		bottom: -42px !important;
+		object-fit: contain !important;
+		max-width: none !important;
+	}
+
+	/* Force hero to exact phone dimensions on small screens (375x812) */
+	@media (max-width: 480px) {
+		.hero-bg {
+			width: 375px !important;
+			height: 812px !important;
+			max-width: none !important;
+			margin: 0 auto !important;
+			overflow: hidden !important;
+			position: relative !important;
+		}
+
+		/* Constrain carousel & slides to the same width so layout matches the fixed phone frame */
+		.hero-carousel,
+		.hero-slides,
+		.hero-slides-track {
+			width: 375px !important;
+			max-width: 375px !important;
+			margin: 0 auto !important;
+		}
+
+		.slide-inner {
+			width: 375px !important;
+			max-width: 375px !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			box-sizing: border-box !important;
+		}
+
+		/* Make the hero image use the requested mobile size (255x231) */
+		.hero-right .hero-car,
+		.hero-car {
+			width: 255px !important;
+			height: 231px !important;
+			max-width: none !important;
+			object-fit: contain !important;
+			display: block !important;
+			margin: 0 auto !important;
+		}
 	}
 
 	/* Reduce logo visual size inside the card on phones (if logos are images inside adv-card) */
 	.adv-card .adv-logo img,
 	.adv-card img.adv-logo {
-		width: 96px !important;
-		height: auto !important;
-		max-width: 96px !important;
+
+	}
+
+	/* Per-logo exact sizes on mobile as requested */
+	.adv-logo--ticketmaster,
+	.adv-logo--ticketmaster img {
+		width: 175px !important;
+		height: 23px !important;
+		max-width: 175px !important;
+	}
+
+	.adv-logo--pizzahut,
+	.adv-logo--pizzahut img {
+		width: 164px !important;
+		height: 34px !important;
+		max-width: 164px !important;
+	}
+
+	.adv-logo--costa,
+	.adv-logo--costa img {
+		width: 105px !important;
+		height: 40px !important;
+		max-width: 105px !important;
+	}
+
+	.adv-logo--cpp,
+	.adv-logo--cpp img {
+		width: 102px !important;
+		height: 50px !important;
+		max-width: 102px !important;
+	}
+
+	.adv-logo--pp,
+	.adv-logo--pp img {
+		width: 170px !important;
+		height: 45px !important;
+		max-width: 170px !important;
+	}
+
+	/* Beko exact mobile size */
+	.adv-logo--beko,
+	.adv-logo--beko img {
+		width: 85px !important;
+		height: 48px !important;
+		max-width: 85px !important;
+	}
+
+	/* Exact mobile sizes for the car images inside advertise cards */
+	img.adv-car.adv-car--1 {
+		width: 259px !important;
+		height: 165px !important;
+		max-width: 259px !important;
+		object-fit: contain !important;
+	}
+
+	img.adv-car.adv-car--2 {
+		width: 268px !important;
+		height: 170px !important;
+		max-width: 268px !important;
+		object-fit: contain !important;
+	}
+
+	img.adv-car.adv-car--4 {
+		/* beko is adv-car--4 per markup */
+		width: 277px !important;
+		height: 177px !important;
+		max-width: 277px !important;
+		object-fit: contain !important;
+	}
+
+	img.adv-car.adv-car--3 {
+		width: 259px !important;
+		height: 127px !important;
+		max-width: 259px !important;
+		object-fit: contain !important;
+	}
+
+	img.adv-car.adv-car--5 {
+		width: 270px !important;
+		height: 138px !important;
+		max-width: 270px !important;
+		object-fit: contain !important;
+	}
+
+	img.adv-car.adv-car--6 {
+		width: 271px !important;
+		height: 151px !important;
+		max-width: 271px !important;
+		object-fit: contain !important;
 	}
 }
