@@ -113,6 +113,25 @@ if (!promoCar || icons.length === 0) {
                 promoDescNode.innerHTML = 'Získajte možnosť zárobku až 300 EUR mesačne. Navrhovanú kampaň schvaľuje majiteľ vozidla.';
             }
 
+            // Desktop-only title override for carPump
+            // On desktop we want the promo title to read: "Lacnejšie <br> tankovanie"
+            if (tabKey === 'carPump' && promoTitleNode) {
+                const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+                if (isDesktop) {
+                    promoTitleNode.innerHTML = 'Lacnejšie <br> tankovanie';
+                }
+                // On mobile we keep whatever title was provided by the active icon or default
+            }
+
+            // Desktop-only title override for carClean
+            // On desktop we want the promo title to read: "Zľavy na pneumatiky, <br> náhradné diely <br> a doplnky"
+            if (tabKey === 'carClean' && promoTitleNode) {
+                const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+                if (isDesktop) {
+                    promoTitleNode.innerHTML = 'Zľavy na pneumatiky, <br> náhradné diely <br> a doplnky';
+                }
+            }
+
         // Swap promo car src
         promoCar.src = targetImg.src;
         // Mark current active tab on the promoCar element so the state is visible in DOM
@@ -317,4 +336,26 @@ if (!promoCar || icons.length === 0) {
         });
     }
 }
+
+// Resize listener: when viewport becomes desktop-size, ensure mobile-only
+// elements are hidden and inline styles removed so desktop CSS renders
+// correctly (guard against leaving `display:block` inline from mobile
+// interactions after changing viewport).
+window.addEventListener('resize', () => {
+    const nowDesktop = window.matchMedia('(min-width: 768px)').matches;
+    if (!nowDesktop) return;
+    const shieldEl = document.querySelector('.promo-shield-mobile');
+    const cleaningEl = document.querySelector('.promo-cleaning-mobile');
+    const penizekEl = document.querySelector('.promo-penizek-mobile');
+    const fuelCanEl = document.querySelector('.promo-fuelcan-mobile');
+    const fuelGunEl = document.querySelector('.promo-fuelgun-mobile');
+    [shieldEl, cleaningEl, penizekEl, fuelCanEl, fuelGunEl].forEach(el => {
+        if (el) el.style.setProperty('display', 'none', 'important');
+    });
+    // Ensure promo logo sizing is reset if we're not in ORLEN tab
+    if (promoLogoImg && promoLogoImg.src && !promoLogoImg.src.includes('orlen')) {
+        promoLogoImg.style.width = '';
+        promoLogoImg.style.height = '';
+    }
+});
 // End of promo-icons data-tab script
