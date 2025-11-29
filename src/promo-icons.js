@@ -203,11 +203,22 @@ if (!promoCar || icons.length === 0) {
             if (key === 'carpump') {
                 promoLogoImg.src = 'img/logos/orlen.png';
                 promoLogoImg.style.display = '';
+                // On desktop, ensure ORLEN logo is sized 96x87 to match design
+                if (!isMobile) {
+                    promoLogoImg.style.width = '96px';
+                    promoLogoImg.style.height = '87px';
+                }
             } else if (key === 'carclean' || key === 'car4') {
                 promoLogoImg.style.display = 'none';
+                // ensure we remove any inline width/height when hidden
+                promoLogoImg.style.width = '';
+                promoLogoImg.style.height = '';
             } else if (originalPromoLogoSrc) {
                 promoLogoImg.src = originalPromoLogoSrc;
                 promoLogoImg.style.display = '';
+                // restore width/height to defaults (clear inline sizes)
+                promoLogoImg.style.width = '';
+                promoLogoImg.style.height = '';
             }
         }
 

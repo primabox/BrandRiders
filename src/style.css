@@ -1766,6 +1766,15 @@
 
 	}
 
+	/* Desktop: Orlen logo size (must be 96x87 on desktop as requested) */
+	@media (min-width: 768px) {
+		.promo-logo img[src*="orlen"] {
+			width: 96px !important;
+			height: 87px !important;
+			max-width: none !important;
+		}
+	}
+
 	.download-section .download-inner {
 		max-width: 1550px;
 		margin: 0 auto;
