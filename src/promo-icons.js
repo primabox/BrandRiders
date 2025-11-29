@@ -135,40 +135,63 @@ if (!promoCar || icons.length === 0) {
             }
         }
 
-        // Toggle mobile shield / fuel / cleaning images depending on active tab
+        // Toggle mobile shield / fuel / cleaning images depending on active tab.
+        // Important: only touch these mobile-specific elements when the viewport
+        // is in the mobile range. If we're on desktop, ensure any inline styles
+        // are cleared so mobile elements remain hidden by CSS.
         const shieldEl = document.querySelector('.promo-shield-mobile');
         const cleaningEl = document.querySelector('.promo-cleaning-mobile');
         const penizekEl = document.querySelector('.promo-penizek-mobile');
         const fuelCanEl = document.querySelector('.promo-fuelcan-mobile');
         const fuelGunEl = document.querySelector('.promo-fuelgun-mobile');
+        const isMobile = window.matchMedia('(max-width: 480px)').matches;
+
+        function showMobile(el) {
+            if (!el) return;
+            if (isMobile) {
+                el.style.setProperty('display', 'block', 'important');
+            } else {
+                // ensure explicit inline display is cleared on non-mobile so elements
+                // remain hidden via desktop CSS (avoid leaving inline `display:block`).
+                el.style.setProperty('display', 'none', 'important');
+            }
+        }
+
+        function hideMobile(el) {
+            if (!el) return;
+            // always hide on desktop; on mobile we explicitly hide via inline style
+            // as well so state is preserved during interactions.
+            el.style.setProperty('display', 'none', 'important');
+        }
+
         if (tabKey === 'carPump') {
             // show fuel images, hide shield/cleaning/penizek
-            if (shieldEl) shieldEl.style.setProperty('display', 'none', 'important');
-            if (cleaningEl) cleaningEl.style.setProperty('display', 'none', 'important');
-            if (penizekEl) penizekEl.style.setProperty('display', 'none', 'important');
-            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'block', 'important');
-            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'block', 'important');
+            hideMobile(shieldEl);
+            hideMobile(cleaningEl);
+            hideMobile(penizekEl);
+            showMobile(fuelCanEl);
+            showMobile(fuelGunEl);
         } else if (tabKey === 'carClean') {
             // show cleaning image on mobile, hide shield/fuel/penizek
-            if (shieldEl) shieldEl.style.setProperty('display', 'none', 'important');
-            if (cleaningEl) cleaningEl.style.setProperty('display', 'block', 'important');
-            if (penizekEl) penizekEl.style.setProperty('display', 'none', 'important');
-            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'none', 'important');
-            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'none', 'important');
+            hideMobile(shieldEl);
+            showMobile(cleaningEl);
+            hideMobile(penizekEl);
+            hideMobile(fuelCanEl);
+            hideMobile(fuelGunEl);
         } else if (tabKey === 'car4') {
             // database: show penizek image (mobile), hide shield/cleaning/fuel
-            if (shieldEl) shieldEl.style.setProperty('display', 'none', 'important');
-            if (cleaningEl) cleaningEl.style.setProperty('display', 'none', 'important');
-            if (penizekEl) penizekEl.style.setProperty('display', 'block', 'important');
-            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'none', 'important');
-            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'none', 'important');
+            hideMobile(shieldEl);
+            hideMobile(cleaningEl);
+            showMobile(penizekEl);
+            hideMobile(fuelCanEl);
+            hideMobile(fuelGunEl);
         } else {
             // default: show shield, hide fuel/cleaning/penizek
-            if (shieldEl) shieldEl.style.setProperty('display', 'block', 'important');
-            if (cleaningEl) cleaningEl.style.setProperty('display', 'none', 'important');
-            if (penizekEl) penizekEl.style.setProperty('display', 'none', 'important');
-            if (fuelCanEl) fuelCanEl.style.setProperty('display', 'none', 'important');
-            if (fuelGunEl) fuelGunEl.style.setProperty('display', 'none', 'important');
+            showMobile(shieldEl);
+            hideMobile(cleaningEl);
+            hideMobile(penizekEl);
+            hideMobile(fuelCanEl);
+            hideMobile(fuelGunEl);
         }
 
         // Promo logo behavior:

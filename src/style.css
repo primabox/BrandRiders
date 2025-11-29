@@ -15,6 +15,29 @@
 		display: none !important;
 	}
 
+/* Explicitly hide promo mobile-only visuals by default so they cannot appear
+   on the desktop if JS hasn't run or if a previous mobile action left inline
+   styles in place. These are shown only under the mobile media query below. */
+.promo-shield-mobile,
+.promo-cleaning-mobile,
+.promo-penizek-mobile,
+.promo-fuelcan-mobile,
+.promo-fuelgun-mobile,
+.promo-icons-mobile {
+    display: none !important;
+}
+
+/* Minimal responsive shim: provide basic `md:` utilities when Tailwind
+   processing is not available. This ensures `md:hidden` etc. behave
+   as expected (hide on medium+ viewports). */
+@media (min-width: 768px) {
+	.md\:hidden { display: none !important; }
+	.md\:block { display: block !important; }
+	.md\:flex { display: flex !important; }
+	.md\:inline { display: inline !important; }
+	.md\:inline-block { display: inline-block !important; }
+}
+
 	/* Hide the visual vertical scrollbar but preserve scrolling behavior.
 	This keeps the UI clean while not disabling scroll interactions.
 	If you'd rather fully disable vertical scroll, replace with `overflow-y: hidden` on body. */
