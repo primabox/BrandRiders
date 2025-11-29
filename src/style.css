@@ -163,6 +163,152 @@
 		opacity: 0.95;
 	}
 
+/* Map-trail step styles (centralized from inline/Tailwind utilities) */
+.map-step {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.25rem; /* equals Tailwind gap-5 */
+}
+.svg-fo.map-step {
+	/* ensure elements inside SVG foreignObject render as flex containers */
+	display: flex;
+}
+.map-step__num {
+	font-size: 130px;
+	font-weight: 900;
+	font-style: italic;
+	color: #d92b2b;
+	line-height: 1;
+	width: 140px;
+	flex: 0 0 140px;
+}
+.map-step__content {
+	max-width: 560px;
+	color: #1E1E1E;
+}
+.map-step--right .map-step__content {
+	text-align: right;
+}
+.map-step--left .map-step__content {
+	text-align: left;
+}
+.map-step__title {
+	font-size: 44px;
+	font-weight: 900;
+	font-style: italic;
+	color: #1E1E1E;
+	margin: 0;
+	white-space: nowrap;
+	text-align: left;
+}
+.map-step__title-row {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+.map-step__badge {
+	background: #1AC660;
+	width: 102px;
+	height: 25px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 999px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: 900;
+	font-style: italic;
+	line-height: 1;
+	margin-left: 8px;
+}
+.map-step__desc {
+	margin-top: 1.0rem;
+	margin-bottom: 0;
+	color: #1E1E1E;
+	max-width: 520px;
+	text-align: left;
+	font-size: 18px;
+	line-height: 1.0;
+}
+
+/* Utility: prevent a phrase from wrapping (used for short bold phrases) */
+.no-wrap {
+    white-space: nowrap;
+}
+
+
+/* small note under description (e.g. "Registrácia je ZDARMA...") */
+.map-step__note {
+	margin-top: 0.5rem;
+	text-align: left;
+	font-weight: 700;
+	color: #1AC660;
+}
+
+/* Media block placed left of the step numeral */
+.map-step__media {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	margin-right: 1rem;
+}
+
+/* Ensure order inside the step row: media -> number -> content */
+.map-step__media { order: 0; }
+.map-step__num { order: 1; }
+.map-step__content { order: 2; }
+
+.map-step--left .map-step__media { margin-right: 1rem; margin-left: 0; }
+.map-step--right .map-step__media { margin-right: 1rem; }
+
+/* Nudge the first right-side step's media up so it aligns better with the trail */
+#mapSteps .map-step.map-step.map-step--right:first-of-type .map-step__media,
+#mapSteps .map-step.map-step--right:first-of-type .map-step__media {
+	margin-top: -140px;
+}
+
+/* Nudge the actual image inside the media block slightly left */
+#mapSteps .map-step.map-step--right:first-of-type .map-step__media img {
+	transform: translateX(-75px);
+}
+.map-step__img-sm { width: 140px; height: auto; display: block; }
+.map-step__img-md { width: 220px; height: auto; display: block; }
+.map-step__img-badge { width: 60px; height: auto; display: block; }
+.map-step__img-icon { width: 48px; height: auto; display: inline-block; margin-right: 6px; }
+
+/* large image used for step 1 (explicit size requested) */
+.map-step__img-lg { width: 316px; height: 473px; display: block; object-fit: contain; }
+
+/* Side image shown next to step content (used for Step 2) */
+.map-step__side {
+	order: 3;
+	flex: 0 0 auto;
+	margin-left: -40px; /* nudged further left */
+	display: flex;
+	align-items: center;
+}
+.map-step__img-side {
+	width: 610px;
+	height: 408px;
+	display: block;
+	object-fit: contain;
+}
+
+/* Allow the SVG and its foreignObject content to overflow the SVG viewport
+   so step blocks placed near the edges are fully visible. The outer
+   container also needs to allow overflow. */
+.map-trail {
+	overflow: visible !important;
+}
+#mapTrailSvg {
+	overflow: visible;
+}
+#mapTrailSvg foreignObject {
+	overflow: visible;
+}
+
+
 	.header-link--icon {
 		@apply px-4 py-3 rounded-md text-white hover:bg-white/20 hover:shadow-md cursor-pointer transition duration-200 ease-in-out flex flex-col items-center justify-center z-50;
 		background: transparent;

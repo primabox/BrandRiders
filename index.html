@@ -768,13 +768,95 @@
 
         <!-- SVG wrapper: image + invisible path used for motion calculations -->
         <svg id="mapTrailSvg" viewBox="0 0 1165 2130" preserveAspectRatio="xMidYMid meet" class="block w-full h-auto">
-          <image href="img/map/mapTrail.png" x="0" y="0" width="1165" height="2130"
-            preserveAspectRatio="xMidYMid meet" />
+          <image href="img/map/mapTrail.png" x="0" y="0" width="1165" height="2130" preserveAspectRatio="xMidYMid meet"/>
+
+          <!-- Decorative icons at the start of the trail -->
+          <image href="img/map/cottage.png" x="6" y="-26" width="148" height="146" preserveAspectRatio="xMidYMid meet" />
+          <image href="img/map/waveCheck.png" x="110" y="30" width="120" height="120" preserveAspectRatio="xMidYMid meet" />
+
+          <!-- Steps inserted into the SVG so they render between image layers and follow the map z-order. -->
+          <g id="mapSteps">
+            <!-- Step 1 (right) - number always on LEFT of content -->
+            <foreignObject x="340" y="100" width="760" height="260">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
+                <div class="map-step__media">
+                  <img src="img/map/stepMobile1.png" alt="App" width="316" height="473" class="map-step__img-lg" />
+                </div>
+                <div class="map-step__num">1</div>
+                <div class="map-step__content">
+                  <h3 class="map-step__title">ZAREGISTRUJTE SA</h3>
+                  <p class="map-step__desc">Stáhněte si naši aplikaci, nebo se registrujte přímo na webu.<br>Vyplníte údaje o sobě a svém vozidle a stanete <br> se  <strong>plnohodnotným Brand Riderem.</strong></p>
+                  <div class="map-step__note">Registrácia je ZDARMA a k ničomu vás nezaväzuje.</div>
+                </div>
+              </div>
+            </foreignObject>
+
+            <!-- Step 2 (left) - number left of content -->
+            <foreignObject x="0" y="550" width="760" height="260" transform="translate(-150,0)">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left">
+                
+                <div class="map-step__num">2</div>
+                <div class="map-step__content">
+                  <div class="map-step__title-row">
+                    <h3 class="map-step__title">UŽÍVAJTE SI VÝHODY</h3>
+                    <span class="map-step__badge">setri</span>
+                  </div>
+                  <p class="map-step__desc">Hneď po registraci můžete využít naplno <strong>všechny funkce aplikace.</strong></p>
+                  <p class="map-step__desc"><strong>Skener, upozornění, srovnávač, slevy. </strong> Mezi největší slevy patří <strong>sleva na pohonné hmoty</strong> ve spolupráci se společností Slovnaft. Díky našemu partnerství u něj čerpáte palivo o několik centů levněji oproti běžným stojanovým cenám.</p>
+                  <p class="map-step__desc">Pro členy máme připraveny také <strong>nejlevnější pojištění, slevy na pneumatiky, náhradní díly </strong> a mnoho dalšího.</p>
+
+                </div>
+                <div class="map-step__side">
+                  <img src="img/map/slide7.png" alt="Step 2 visual" width="610" height="408" class="map-step__img-side" />
+                </div>
+              </div>
+            </foreignObject>
+
+            <!-- Step 3 (right) - number left of content -->
+                    <foreignObject x="640" y="1300" width="760" height="260">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
+                <div class="map-step__media">
+                  <img src="img/slides/car1.png" alt="Polep" width="220" height="120" class="map-step__img-md" />
+                </div>
+                <div class="map-step__num">3</div>
+                <div class="map-step__content">
+                  <h3 class="map-step__title">POLEP AUTA</h3>
+                  <p class="map-step__desc">Ak Vaše auto vyhovuje, dohodneme kampaň a zabezpečíme polep. Náklady sú hradené nami.</p>
+                </div>
+              </div>
+            </foreignObject>
+
+            <!-- Step 4 (left) - number left of content -->
+            <foreignObject x="50" y="1370" width="760" height="260">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left">
+                <div class="map-step__media">
+                  <img src="img/roadcar.png" alt="Ride" width="220" height="120" class="map-step__img-md" />
+                </div>
+                <div class="map-step__num">4</div>
+                <div class="map-step__content">
+                  <h3 class="map-step__title">JAZDITE!</h3>
+                  <p class="map-step__desc">Užívajte si jazdu a zarábajte jednoducho počas bežného používania vozidla.</p>
+                </div>
+              </div>
+            </foreignObject>
+
+            <!-- Step 5 (right) - number left of content -->
+            <foreignObject x="640" y="1800" width="760" height="260">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
+                <div class="map-step__media">
+                  <img src="img/badges/penizek1.png" alt="Coins" width="60" height="60" class="map-step__img-badge" />
+                </div>
+                <div class="map-step__num">5</div>
+                <div class="map-step__content">
+                  <h3 class="map-step__title">UKONČENIE KAMPANE</h3>
+                  <p class="map-step__desc">Po ukončení kampane vám auto vrátia do pôvodného stavu a vy dostanete odmenu.</p>
+                </div>
+              </div>
+            </foreignObject>
+          </g>
 
           <!-- Placeholder path: adjust `d` to precisely match the blue trail if you export the vector path. -->
-          <path id="trailPath"
-            d="M 100 150 C 220 40, 460 60, 540 180 C 620 300, 760 320, 820 420 C 880 520, 920 600, 980 660 C 1040 720, 1060 840, 1040 980 C 1020 1120, 900 1180, 780 1260 C 660 1340, 560 1400, 420 1480 C 280 1560, 220 1640, 180 1740 C 140 1840, 160 1960, 220 2040"
-            fill="none" stroke="transparent" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="trailPath" d="M 100 150 C 220 40, 460 60, 540 180 C 620 300, 760 320, 820 420 C 880 520, 920 600, 980 660 C 1040 720, 1060 840, 1040 980 C 1020 1120, 900 1180, 780 1260 C 660 1340, 560 1400, 420 1480 C 280 1560, 220 1640, 180 1740 C 140 1840, 160 1960, 220 2040" fill="none" stroke="transparent" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
     </div>
