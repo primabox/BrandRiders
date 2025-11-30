@@ -768,11 +768,32 @@
 
         <!-- SVG wrapper: image + invisible path used for motion calculations -->
         <svg id="mapTrailSvg" viewBox="0 0 1165 2130" preserveAspectRatio="xMidYMid meet" class="block w-full h-auto">
+          <!-- Pink car (hand) should appear under the map trail, so place it before the mapTrail image -->
+          <!-- moved left 60px and down 60px per request -->
+          <image href="img/map/pinkcarHand.png" x="-200" y="1775" width="640" height="517" preserveAspectRatio="xMidYMid meet" />
           <image href="img/map/mapTrail.png" x="0" y="0" width="1165" height="2130" preserveAspectRatio="xMidYMid meet"/>
 
           <!-- Decorative icons at the start of the trail -->
           <image href="img/map/cottage.png" x="6" y="-26" width="148" height="146" preserveAspectRatio="xMidYMid meet" />
-          <image href="img/map/waveCheck.png" x="110" y="30" width="120" height="120" preserveAspectRatio="xMidYMid meet" />
+          <image href="img/map/waveCheck.png" x="110" y="70" width="120" height="120" preserveAspectRatio="xMidYMid meet" />
+          <!-- Additional decorations requested: villa and shining stars (moved left near Step 3) -->
+          <image href="img/map/villa.png" x="-30" y="1060" width="155" height="155" preserveAspectRatio="xMidYMid meet" />
+          <image href="img/map/shiningStars.png" x="150" y="1100" width="79" height="79" preserveAspectRatio="xMidYMid meet" />
+
+          <!-- Grouped green icons placed near Step 2 (side-by-side). Use the group transform to nudge their position. -->
+          <g id="mapStepIcons" transform="translate(740,420)">
+            <image id="icon-pump" href="img/map/pumpGreen.png" x="50" y="0" width="88" height="88" preserveAspectRatio="xMidYMid meet" />
+            <image id="icon-stit" href="img/map/stitGreen.png" x="180" y="30" width="61" height="73" preserveAspectRatio="xMidYMid meet" />
+            <image id="icon-tire" href="img/map/tireGreen.png" x="280" y="90" width="68" height="68" preserveAspectRatio="xMidYMid meet" />
+            <image id="icon-fastfood" href="img/map/fastfoodGreen.png" x="350" y="155" width="77" height="77" preserveAspectRatio="xMidYMid meet" />
+          </g>
+
+          <!-- Decorative corporate/cars icons near Step 4 -->
+          <g id="mapStep4Icons" transform="translate(820,1440)">
+            <image id="corp-full" href="img/map/corporatefullRed.png" x="0" y="0" width="133" height="165" preserveAspectRatio="xMidYMid meet" />
+            <image id="corp-half" href="img/map/corporatehalfRed.png" x="120" y="70" width="133" height="197" preserveAspectRatio="xMidYMid meet" />
+            <image id="car-side" href="img/map/carsideRed.png" x="-40" y="225" width="81" height="38" preserveAspectRatio="xMidYMid meet" />
+          </g>
 
           <!-- Steps inserted into the SVG so they render between image layers and follow the map z-order. -->
           <g id="mapSteps">
@@ -813,39 +834,42 @@
             </foreignObject>
 
             <!-- Step 3 (right) - number left of content -->
-                    <foreignObject x="640" y="1300" width="760" height="260">
+                    <foreignObject x="110" y="1140" width="760" height="260">
               <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
                 <div class="map-step__media">
-                  <img src="img/slides/car1.png" alt="Polep" width="220" height="120" class="map-step__img-md" />
+                  <img src="img/map/stepCar3.png" alt="Polep" width="511" height="207" class="map-step__img-md" style="transform: translate(20px, 150px);" />
                 </div>
                 <div class="map-step__num">3</div>
-                <div class="map-step__content">
-                  <h3 class="map-step__title">POLEP AUTA</h3>
-                  <p class="map-step__desc">Ak Vaše auto vyhovuje, dohodneme kampaň a zabezpečíme polep. Náklady sú hradené nami.</p>
+                <div class="map-step__content map-step__content--step3">
+                  <div class="map-step__title-row">
+                    <h3 class="map-step__title">POLEP AUTA</h3>
+                    <span class="map-step__badge map-step__badge--gold">ZARÁBAJ</span>
+                  </div>
+                  <p class="map-step__desc">Nadišiel čas na <strong>reklamnú kampaň.</strong> V prípade, že vaše auto vyhovuje požiadavkám niektorého z našich inzerentov, ponúkneme vám platený reklamný polep.</p>
+                  <p class="map-step__desc">Záleží predovšetkým na lokalite, v ktorej chce inzerent svoju značku propagovať. Pokiaľ si spoločne schválime vizuál aj cenu, zaistíme polep vášho vozidla.</p>
                 </div>
               </div>
             </foreignObject>
 
             <!-- Step 4 (left) - number left of content -->
-            <foreignObject x="50" y="1370" width="760" height="260">
+            <foreignObject x="-120" y="1530" width="760" height="260">
               <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left">
-                <div class="map-step__media">
-                  <img src="img/roadcar.png" alt="Ride" width="220" height="120" class="map-step__img-md" />
-                </div>
                 <div class="map-step__num">4</div>
                 <div class="map-step__content">
-                  <h3 class="map-step__title">JAZDITE!</h3>
-                  <p class="map-step__desc">Užívajte si jazdu a zarábajte jednoducho počas bežného používania vozidla.</p>
+                  <div class="map-step__title-row">
+                    <h3 class="map-step__title">JAZDITE !</h3>
+                    <span class="map-step__badge map-step__badge--gold">ZARÁBAJ</span>
+                  </div>
+                  <p class="map-step__desc">Jazdite a zarábajte počas vašich <strong>bežných ciest</strong>  autom do práce, na kávu či nákupy. Zarábate len tým, že vaše auto vidia ľudia v okolí. Vďaka našim inteligentným jednotkám vieme, koľko ľudí sa pohybuje v blízkosti vášho vozidla.</p>
                 </div>
               </div>
             </foreignObject>
 
             <!-- Step 5 (right) - number left of content -->
-            <foreignObject x="640" y="1800" width="760" height="260">
+            <!-- Coin image above Step 5 -->
+            <image href="img/map/penizky.png" x="920" y="1660" width="310" height="281" preserveAspectRatio="xMidYMid meet" />
+            <foreignObject x="500" y="1920" width="760" height="260">
               <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
-                <div class="map-step__media">
-                  <img src="img/badges/penizek1.png" alt="Coins" width="60" height="60" class="map-step__img-badge" />
-                </div>
                 <div class="map-step__num">5</div>
                 <div class="map-step__content">
                   <h3 class="map-step__title">UKONČENIE KAMPANE</h3>
@@ -853,6 +877,8 @@
                 </div>
               </div>
             </foreignObject>
+            <!-- Water house marker at the end of the trail (centered on trail endpoint) -->
+            <image href="img/map/waterHouse.png" x="230" y="1950" width="182" height="182" preserveAspectRatio="xMidYMid meet" />
           </g>
 
           <!-- Placeholder path: adjust `d` to precisely match the blue trail if you export the vector path. -->

@@ -186,6 +186,13 @@
 	max-width: 560px;
 	color: #1E1E1E;
 }
+/* Step 3 specific content width */
+.map-step__content--step3 {
+	width: 460px;
+	/* prevent flex container from shrinking this content for Step 3 */
+	flex: 0 0 460px;
+	min-width: 460px;
+}
 .map-step--right .map-step__content {
 	text-align: right;
 }
@@ -220,6 +227,21 @@
 	font-style: italic;
 	line-height: 1;
 	margin-left: 8px;
+}
+.map-step__badge--gold {
+    background: #E2BA04;
+}
+
+/* For Step 3: ensure the title row (title + badge) is left-aligned inside the
+   content block even for right-side steps that typically right-align text. */
+.map-step__content--step3 .map-step__title-row {
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: center;
+}
+.map-step__content--step3 .map-step__title {
+	text-align: left;
 }
 .map-step__desc {
 	margin-top: 1.0rem;
@@ -273,7 +295,7 @@
 	transform: translateX(-75px);
 }
 .map-step__img-sm { width: 140px; height: auto; display: block; }
-.map-step__img-md { width: 220px; height: auto; display: block; }
+.map-step__img-md { width: 511px; height: 207px; display: block; }
 .map-step__img-badge { width: 60px; height: auto; display: block; }
 .map-step__img-icon { width: 48px; height: auto; display: inline-block; margin-right: 6px; }
 
@@ -2799,6 +2821,37 @@
 		transform: translateY(-10px);
 		transition: transform 220ms ease;
 	}
+
+/* Desktop: position the showcase arrows over the left text column to match reference */
+@media (min-width: 900px) {
+	.showcase-carousel {
+		position: relative;
+	}
+
+	.showcase-carousel .showcase-prev,
+	.showcase-carousel .showcase-next {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: transparent;
+		color: #1E1E1E;
+		border-radius: 0;
+		box-shadow: none;
+		z-index: 1200;
+	}
+
+	/* place both arrows inside the left column area (adjust percentages if needed) */
+	.showcase-carousel .showcase-prev { left: 8%; }
+	.showcase-carousel .showcase-next { left: 24%; }
+
+	.showcase-carousel .showcase-prev i,
+	.showcase-carousel .showcase-next i { font-size: 28px; }
+}
 
 	@media (max-width: 900px) {
 		.showcase-slider .slide img {
