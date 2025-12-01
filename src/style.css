@@ -4178,10 +4178,6 @@ header.header--open {
 			max-height: 10px !important;
 		}
 
-
-
-		/
-
 		/* Download panel & QR adjustments for phones */
 		.download-section .download-inner { width: 327px !important; height: 642px !important; max-width:none !important; margin:0 auto !important; background-color: #F2F2F2 !important; border-radius:14px !important; box-sizing: border-box !important; overflow: visible !important; }
 		.download-section .download-img-container { width:100% !important; height:100% !important; padding-left:0 !important; overflow: visible !important; }
@@ -5562,4 +5558,202 @@ header.header--open {
 		max-width: 271px !important;
 		object-fit: contain !important;
 	}
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+
+/* Keyframes */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+/* Base animation setup */
+.animate-on-scroll {
+	opacity: 0;
+}
+
+.animate-on-scroll.animated {
+	animation-fill-mode: forwards;
+}
+
+/* Hero Section Animations */
+.hero-car {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-icon {
+	animation: fadeIn 0.6s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+.hero-icon.bounce-animation {
+	animation: fadeIn 0.6s ease-out forwards, bounce 2s ease-in-out 1s infinite;
+}
+
+.hero-title, .hero-text {
+	animation: fadeInUp 0.8s ease-out forwards;
+	animation-delay: 0.2s;
+}
+
+.hero-eyecatcher {
+	animation: fadeInScale 0.8s ease-out forwards;
+	animation-delay: 0.4s;
+}
+
+.hero-button-left {
+	animation: fadeIn 0.6s ease-out forwards;
+	animation-delay: 0.6s;
+}
+
+.hero-button-right {
+	animation: fadeIn 0.6s ease-out forwards;
+	animation-delay: 0.8s;
+}
+
+/* App Section */
+.app-title, .app-text {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.app-badge {
+	opacity: 0;
+}
+
+.app-badge.animated {
+	animation: fadeIn 0.5s ease-out forwards;
+}
+
+.app-badge:nth-child(1) { animation-delay: 0.2s; }
+.app-badge:nth-child(2) { animation-delay: 0.3s; }
+.app-badge:nth-child(3) { animation-delay: 0.4s; }
+.app-badge:nth-child(4) { animation-delay: 0.5s; }
+
+.app-phone-center {
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+/* Download Section */
+.download-icon, .download-title {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.download-image {
+	animation: fadeInUp 0.8s ease-out forwards;
+	animation-delay: 0.2s;
+}
+
+.download-qr {
+	animation: fadeIn 0.8s ease-out forwards;
+	animation-delay: 0.4s;
+}
+
+/* Desktop Section */
+.desktop-image, .desktop-title {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.desktop-content {
+	animation: fadeIn 0.8s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+/* Benefits Section */
+.benefits-title {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.benefits-content {
+	animation: fadeIn 0.8s ease-out forwards;
+	animation-delay: 0.2s;
+}
+
+.benefits-card {
+	animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.benefits-card:nth-child(1) { animation-delay: 0.1s; }
+.benefits-card:nth-child(2) { animation-delay: 0.2s; }
+.benefits-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Features Section (5x) */
+.feature-title, .feature-image {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.feature-content {
+	opacity: 0;
+}
+
+.feature-content.animated {
+	animation: fadeIn 0.6s ease-out forwards;
+}
+
+.feature-content-row {
+	opacity: 0;
+}
+
+.feature-content-row.animated {
+	animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Map Trail Section */
+.map-trail-logo, .map-trail-title, .map-trail-image {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.map-trail-content {
+	animation: fadeIn 0.8s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+/* FAQ Section */
+.faq-title {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.faq-content {
+	animation: fadeIn 0.8s ease-out forwards;
+	animation-delay: 0.2s;
+}
+
+/* Footer */
+footer {
+	animation: fadeIn 1s ease-out forwards;
 }
