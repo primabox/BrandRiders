@@ -15,13 +15,6 @@
 		display: none !important;
 	}
 
-	/* Show mobile-only elements when dropdown is open on mobile */
-	@media (max-width: 768px) {
-		header.header--open .mobile-only {
-			display: block !important;
-		}
-	}
-
 /* Explicitly hide promo mobile-only visuals by default so they cannot appear
    on the desktop if JS hasn't run or if a previous mobile action left inline
    styles in place. These are shown only under the mobile media query below. */
@@ -345,24 +338,10 @@
 
 	.header-link--icon .hamburger-bar {
 		@apply block w-9 h-[3px] bg-white rounded transition-colors duration-200 ease-in-out;
-		transition: all 0.3s ease;
 	}
 
 	.header-link--icon .hamburger-bar+.hamburger-bar {
 		@apply mt-[5px];
-	}
-
-	/* Transform hamburger to X when menu is open */
-	header.header--open .header-link--icon .hamburger-bar:nth-child(1) {
-		transform: rotate(45deg) translate(6px, 6px);
-	}
-
-	header.header--open .header-link--icon .hamburger-bar:nth-child(2) {
-		opacity: 0;
-	}
-
-	header.header--open .header-link--icon .hamburger-bar:nth-child(3) {
-		transform: rotate(-45deg) translate(6px, -6px);
 	}
 
 	.bg-green {
@@ -437,10 +416,7 @@ header.header--open .header-dropdown {
     @apply block;
 }
 
-/* Remove bottom border-radius from header when dropdown is open */
-header.header--open {
-	@apply rounded-bl-none rounded-br-none;
-}
+
 
 .header-dropdown__inner {
     @apply pt-[28px] pb-[32px] flex gap-[24px];
@@ -695,168 +671,13 @@ header.header--open {
 
 
 
-/* Mobile dropdown: show full-screen overlay with menu */
+/* Hide the desktop dropdown on small screens; mobile has its separate header behavior */
 @media (max-width: 768px) {
-	/* Show dropdown as full overlay on mobile */
-	.header-dropdown {
-		display: none !important;
-		position: fixed !important;
-		top: 64px !important;
-		left: 0 !important;
-		right: 0 !important;
-		width: 100vw !important;
-		height: 678px !important;
-		max-height: 678px !important;
-		background: linear-gradient(90deg, #C40228 0%, #ED3D1A 100%) !important;
-		z-index: 9999 !important;
-		padding: 12px 24px 40px 24px !important;
-		overflow-y: auto !important;
-		overflow-x: hidden !important;
-		border-radius: 0 !important;
-		-webkit-overflow-scrolling: touch !important;
-	}
-
-	/* Add rounded bottom corners when dropdown is open */
-	header.header--open .header-dropdown {
-		border-radius: 0 0 28px 28px !important;
-	}
-
-	/* Hide desktop columns on mobile */
-	.header-dropdown__left,
-	.header-dropdown__center,
-	.header-dropdown__right,
-	.header-dropdown__inner {
-		display: none !important;
-	}
-
-	/* Mobile-only container inside dropdown */
-	.header-dropdown__mobile {
-		width: 100% !important;
-		padding: 0 !important;
-	}
-
-	/* Show mobile-only content when header is open */
-	header.header--open .header-dropdown .mobile-only {
-		display: block !important;
-	}
-
-	/* Mobile top section with logo */
-	.mobile-top {
-		display: flex !important;
-		align-items: center !important;
-		justify-content: space-between !important;
-		margin-bottom: 0 !important;
-	}
-
-	/* Mobile navigation links styling */
-	.mobile-nav {
-		margin-top: 0 !important;
-	}
-
-	.mobile-nav-links {
-		list-style: none !important;
-		padding: 0 !important;
-		margin: 0 !important;
-	}
-
-	.mobile-nav-links li {
-		margin-bottom: 5px !important;
-	}
-
-	.mobile-nav-links li a {
-		color: #FFFFFF !important;
-		font-size: 36px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-decoration: none !important;
-		text-transform: uppercase !important;
-		letter-spacing: 0.5px !important;
-		line-height: 1.1 !important;
-	}
-
-	/* Mobile social icons */
-	.mobile-social {
-		display: flex !important;
-		gap: 32px !important;
-		margin: 28px 0 0 0 !important;
-		align-items: center !important;
-	}
-
-	.mobile-social img {
-		object-fit: contain !important;
-	}
-
-	/* Mobile promo section */
-	.mobile-promo {
-		margin-top: 32px !important;
-		padding-top: 0 !important;
-	}
-
-	.mobile-promo .promo-text {
-		color: #FFFFFF !important;
-		font-size: 16px !important;
-		font-weight: 500 !important;
-		margin-bottom: 12px !important;
-	}
-
-	.mobile-promo .promo-logos {
-		margin-bottom: 12px !important;
-	}
-
-	.mobile-promo .promo-logos img {
-		max-width: 160px !important;
-		height: auto !important;
-	}
-
-	.mobile-promo .promo-ok img {
-		max-width: 120px !important;
-		height: auto !important;
-		margin-top: 8px !important;
-	}
-
-	/* Mobile small links */
-	.mobile-links-small {
-		margin-top: 28px !important;
-		padding-top: 0 !important;
-	}
-
-	.mobile-links-small ul {
-		list-style: none !important;
-		padding: 0 !important;
-		margin: 0 !important;
-	}
-
-	.mobile-links-small li {
-		margin-top: 20px !important;
-	}
-
-	.mobile-links-small li:first-child {
-		margin-top: 0 !important;
-	}
-
-	.mobile-links-small a {
-		color: #FAFAFA !important;
-		font-size: 16px !important;
-		font-weight: 400 !important;
-		text-decoration: none !important;
-	}
-
-	/* Ensure header stays fixed and allows dropdown to open */
-	header.header--open {
-		position: fixed !important;
-		top: 0 !important;
-		left: 0 !important;
-		right: 0 !important;
-		height: 64px !important;
-		z-index: 9998 !important;
-	}
-
-	/* Show dropdown when header is open */
-	header.header--open .header-dropdown {
-		display: block !important;
-		opacity: 1 !important;
-		pointer-events: auto !important;
-	}
+    /* original declarations (fallbacks) */
+    .header-dropdown { display: none !important;
+    }
+  header.header--open { height: auto !important;
+      }
 }
 /* Ensure the header bottom corners are rounded on mobile when dropdown is open */
 	/* Mobile header adjustments to match provided mobile reference (step 1) */
@@ -869,12 +690,6 @@ header.header--open {
 			/* smaller corner radius on mobile as requested */
 			border-bottom-left-radius: 28px !important;
 			border-bottom-right-radius: 28px !important;
-		}
-
-		/* Remove bottom radius when menu is open */
-		header.header--open.gradient-red {
-			border-bottom-left-radius: 0 !important;
-			border-bottom-right-radius: 0 !important;
 		}
 
 	/* Mobile: ensure the community section uses the requested light-gray background */
@@ -1420,14 +1235,6 @@ header.header--open {
 	/* Slide 7 specific title sizing */
 	.hero-slide--7 .hero-left .hero-title {
 		@apply text-[76px];
-	}
-
-	/* Slide 7: show desktop image, hide mobile image by default */
-	.hero-slide--7 .hero-slide7-desktop {
-		display: block;
-	}
-	.hero-slide--7 .hero-slide7-mobile {
-		display: none;
 	}
 
 	.hero-slide--3 .hero-left {
@@ -2138,8 +1945,6 @@ header.header--open {
 			width: 425px !important;
 			height: 385px !important;
 			max-width: none !important;
-      transform: translateY(-140px) !important;
-
 		}
 	}
 
@@ -4073,48 +3878,14 @@ header.header--open {
 		.hero-line { gap: 8px !important; }
 		.hero-icon { margin: 0 6px !important; }
 
-		/* Slide 3 specific mobile layout - stack text properly */
-		.hero-slide--3 .hero-left .hero-title { font-size: 28px !important; line-height: 1.1 !important; text-align: left !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(1) { display: block !important; white-space: normal !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(1) .hero-icon-carfront { display: none !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(2) { display: block !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(3) { display: block !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(4) { display: block !important; }
-		.hero-slide--3 .hero-left .hero-icon-carfront-third { width: 24px !important; height: 21px !important; max-width: 24px !important; max-height: 21px !important; }
-
-		/* Slide 4 specific mobile font size */
-		.hero-slide:nth-child(4) .hero-left .hero-title { font-size: 38px !important; }
-
-		/* Slide 5 specific mobile layout */
-		.hero-slide--5 .hero-left .hero-title { font-size: 28px !important; line-height: 1.1 !important; }
-		.hero-slide--5 .hero-left .hero-line { display: block !important; }
-
-		/* Slide 6 specific mobile font size */
-		.hero-slide--6 .hero-left .hero-title { font-size: 29px !important; line-height: 1.1 !important; }
-		.hero-slide--6 .hero-left .hero-line { display: block !important; }
-
-		/* Slide 7 specific mobile font size */
-		.hero-slide--7 .hero-left .hero-title { font-size: 28px !important; line-height: 1.1 !important; }
-		.hero-slide--7 .hero-left .hero-line { display: block !important; }
-		.hero-slide--7 .hero-left .hero-icon-sidecar-second { width: 43px !important; height: 20px !important; max-width: 43px !important; max-height: 20px !important; }
-		.hero-slide--7 .hero-slide7-desktop { display: none !important; }
-		.hero-slide--7 .hero-slide7-mobile { display: block !important; }
-
 		.hero-link--pill { width: 168px !important; height: 30px !important; font-size: 14px !important; padding: 0 12px !important; margin-top: 20px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
 
-		/* Mobile hero image sizing per slide */
-		.hero-right .hero-car { max-width: 255px !important; width: 255px !important; height: 231px !important; margin: 0 auto !important; transform: translateY(0) !important; }
-		.hero-right .hero-motorcyclists { max-width: 420px !important; width: 420px !important; height: 405px !important; margin: 0 auto !important; transform: translate(155px, -70px) !important;
- }
-		.hero-right .hero-mobile { max-width: 166px !important; width: 166px !important; height: 260px !important; margin: 0 auto !important; transform: translateY(100px) !important; }
-		.hero-right .hero-shield { max-width: 240px !important; width: 240px !important; height: 220px !important; margin: 0 auto !important; transform: translateX(-335px) !important; }
-		.hero-right .hero-pumpgun { max-width: 275px !important; width: 275px !important; height: 200px !important; margin: 0 auto !important; transform: translate(-170px, 40px) !important;}
-		.hero-right .hero-tires { max-width: 235px !important; width: 100% !important; height: 197px!important; margin: 0 auto !important; transform: translate(0px, 40px) !important; }
+		.hero-right .hero-car { max-width: 360px !important; width: 100% !important; height: auto !important; margin: 0 auto !important; transform: translateY(0) !important; }
 		.hero-controls { bottom: 36px !important; }
 
 		/* Hero badge + icon sizing */
-		.hero-badge { width: 96px !important; height: 96px !important; right: 12px !important; top: 90px !important; }
-		.hero-badge__text { font-size: 10px !important; line-height: 1.3 !important; transform: rotate(8deg) !important; padding: 6px !important; }
+		.hero-badge { width: 96px !important; height: 96px !important; right: 18px !important; top: 8px !important; }
+		.hero-badge__text { font-size: 12px !important; line-height: 1 !important; transform: rotate(8deg) !important; padding: 6px !important; }
 
 		/* make phone-sized hero icons consistent */
 		.hero-left .hero-line img.hero-icon,
@@ -4180,7 +3951,8 @@ header.header--open {
 
 
 
-		/
+		/* download breakout specific sizing for <=480 */
+		.download-car-breakout { width: 425px !important; height: 385px !important; max-width: none !important; }
 
 		/* Download panel & QR adjustments for phones */
 		.download-section .download-inner { width: 327px !important; height: 642px !important; max-width:none !important; margin:0 auto !important; background-color: #F2F2F2 !important; border-radius:14px !important; box-sizing: border-box !important; overflow: visible !important; }
@@ -4423,6 +4195,7 @@ header.header--open {
 			position: absolute !important;
 			top: 50% !important;
 			transform: translateY(-50%) !important;
+			z-index: 1200 !important;
 			width: 44px !important;
 			height: 44px !important;
 			align-items: center !important;
@@ -4747,197 +4520,6 @@ header.header--open {
 		width: 60px !important;
 		height: 12px !important;
 		border-radius: 6px !important;
-	}
-
-	/* Hide desktop map trail, show mobile stacked version */
-	.map-trail-desktop {
-		display: none !important;
-	}
-
-	.map-trail-mobile {
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 40px !important;
-		padding: 24px 12px !important;
-	}
-
-	/* Mobile map step styling */
-	.map-step-mobile {
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 8px !important;
-		align-items: flex-start !important;
-	}
-
-	.map-step-mobile__num {
-		font-size: 80px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		color: #C40228 !important;
-		line-height: 1 !important;
-		flex-shrink: 0 !important;
-		margin-bottom: 0 !important;
-	}
-
-	.map-step-mobile__content {
-		flex: 1 !important;
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 12px !important;
-		width: 100% !important;
-	}
-
-	.map-step-mobile__img {
-		width: 100% !important;
-		max-width: 280px !important;
-		height: auto !important;
-		margin: 8px 0 !important;
-	}
-
-	/* Step 1: stepMobile1.png */
-	.map-step-mobile:nth-child(1) .map-step-mobile__content {
-		position: relative !important;
-	}
-
-	.map-step-mobile:nth-child(1) .map-step-mobile__img:first-of-type {
-		max-width: 343px !important;
-		width: 343px !important;
-		height: 300px !important;
-	}
-
-	.map-step-mobile:nth-child(1) .map-step-mobile__img:nth-of-type(2) {
-		max-width: 122px !important;
-		width: 122px !important;
-		height: 233px !important;
-		position: absolute !important;
-		top: -10px !important;
-		left: 78% !important;
-		transform: translateX(-50%) !important;
-		z-index: 2 !important;
-	}
-
-	/* Step 2: slide7.png */
-	.map-step-mobile:nth-child(2) .map-step-mobile__img:first-of-type {
-		max-width: 136% !important;
-		width: 128% !important;
-		height: 300px !important;
-		margin-left: -37px !important;
-		margin-right: 8px !important;
-	}
-
-	.map-step-mobile:nth-child(2) .map-step-mobile__img:nth-of-type(2) {
-		max-width: 325px !important;
-		width: 325px !important;
-		height: 250px !important;
-		margin-top: -225px !important;
-	}
-
-	/* Step 3: stepCar3.png */
-	.map-step-mobile:nth-child(3) .map-step-mobile__img:first-of-type {
-		max-width: 126% !important;
-		width: 110% !important;
-		height: 420px !important;
-		margin-left: 5px !important;
-		margin-right: -24px !important;
-	}
-
-	.map-step-mobile:nth-child(3) .map-step-mobile__img:nth-of-type(2) {
-		max-width: 346px !important;
-		width: 346px !important;
-		height: 140px !important;
-		margin-top: -300px !important;
-		margin-left: 80px !important;
-	}
-
-	/* Step 4: mobile4.png */
-	.map-step-mobile:nth-child(4) .map-step-mobile__img {
-		max-width: 130% !important;
-		width: 130% !important;
-		height: 230px !important;
-		margin-left: -50px !important;
-	}
-
-	/* Step 5: penizky.png */
-	.map-step-mobile:nth-child(5) .map-step-mobile__img {
-		max-width: 200px !important;
-		width: 200px !important;
-		height: 144px !important;
-		margin-left: auto !important;
-		margin-right: -34px !important;
-	}
-
-	.map-step-mobile__title {
-		font-size: 24px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-transform: uppercase !important;
-		color: #1E1E1E !important;
-		line-height: 1.2 !important;
-		margin: 0 !important;
-	}
-
-	.map-step-mobile__title-row {
-		display: flex !important;
-		align-items: center !important;
-		gap: 12px !important;
-		flex-wrap: wrap !important;
-	}
-
-	.map-step-mobile__badge {
-		background: #0FC26C !important;
-		color: #FFFFFF !important;
-		font-size: 12px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-transform: uppercase !important;
-		padding: 4px 12px !important;
-		border-radius: 100px !important;
-		display: inline-block !important;
-		width: 102px !important;
-		height: 25px !important;
-		display: flex !important;
-		align-items: center !important;
-		justify-content: center !important;
-	}
-
-	.map-step-mobile__badge--gold {
-		background: #E2BA04 !important;
-	}
-
-	.map-step-mobile__desc {
-		font-size: 16px !important;
-		color: #1E1E1E !important;
-		line-height: 1.5 !important;
-		margin: 0 !important;
-	}
-
-	.map-step-mobile__note {
-		font-size: 16px !important;
-		font-weight: 700 !important;
-		color: #1AC660 !important;
-		font-style: italic !important;
-		margin-top: 8px !important;
-	}
-
-	/* Map trail section title */
-	.map-trail-section {
-		background: #F2F2F2 !important;
-	}
-
-	.map-trail-section h2 {
-		font-size: 32px !important;
-		margin-bottom: 32px !important;
-	}
-}
-
-/* Desktop: hide mobile version, show desktop SVG */
-@media (min-width: 481px) {
-	.map-trail-mobile {
-		display: none !important;
-	}
-
-	.map-trail-desktop {
-		display: block !important;
 	}
 }
 

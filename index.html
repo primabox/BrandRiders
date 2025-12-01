@@ -29,48 +29,49 @@
     </nav>
     <!-- Desktop dropdown expanded menu (hidden by default) -->
     <div class="header-dropdown" aria-hidden="true">
-      <div class="header-dropdown__inner container mx-auto max-w-[1800px] px-6 flex items-start justify-between">
-        <!-- Mobile stacked panel (mobile-only) -->
-        <div class="header-dropdown__mobile mobile-only">
-          <div class="mobile-top flex items-center justify-between">
+      <!-- Mobile stacked panel (mobile-only) - outside inner so it's visible on mobile -->
+      <div class="header-dropdown__mobile mobile-only">
+        <div class="mobile-top flex items-center justify-between">
+        </div>
+
+        <nav class="mobile-nav mt-6">
+          <ul class="mobile-nav-links list-none p-0 m-0">
+            <li class="text-[14px] font-black uppercase mb-3"><a href="#">BENEFITY</a></li>
+            <li class="text-[14px] font-black uppercase mb-3"><a href="#">REGISTRACE</a></li>
+            <li class="text-[14px] font-black uppercase mb-3"><a href="#">BLOG</a></li>
+            <li class="text-[14px] font-black uppercase mb-3"><a href="#">KARIÉRA</a></li>
+            <li class="text-[14px] font-black uppercase mb-3"><a href="#">FAQ</a></li>
+            <li class="text-[14px] font-black uppercase mb-3"><a href="#">KONTAKT</a></li>
+          </ul>
+        </nav>
+
+        <div class="mobile-social mt-6 flex items-center gap-4">
+          <img src="img/logos/instagram.png" alt="Instagram" width="25" height="25" />
+          <img src="img/logos/facebook.png" alt="Facebook" width="13" height="25" />
+          <img src="img/logos/linkedin.png" alt="LinkedIn" width="24" height="24" />
+        </div>
+
+        <div class="mobile-promo mt-6">
+          <div class="promo-text text-[#FFFFFF] text-[14px] font-medium mb-2">Inzerujte s námi</div>
+          <div class="promo-logos mb-2">
+            <img src="img/brandcarsLogo.png" alt="Brand Cars" width="140" height="24" />
           </div>
-
-          <nav class="mobile-nav mt-6">
-            <ul class="mobile-nav-links list-none p-0 m-0">
-              <li class="text-[28px] font-black uppercase mb-3"><a href="#">BENEFITY</a></li>
-              <li class="text-[28px] font-black uppercase mb-3"><a href="#">REGISTRACE</a></li>
-              <li class="text-[28px] font-black uppercase mb-3"><a href="#">BLOG</a></li>
-              <li class="text-[28px] font-black uppercase mb-3"><a href="#">KARIÉRA</a></li>
-              <li class="text-[28px] font-black uppercase mb-3"><a href="#">FAQ</a></li>
-              <li class="text-[28px] font-black uppercase mb-3"><a href="#">KONTAKT</a></li>
-            </ul>
-          </nav>
-
-          <div class="mobile-social mt-6 flex items-center gap-4">
-            <img src="img/logos/instagram.png" alt="Instagram" width="36" height="36" />
-            <img src="img/logos/facebook.png" alt="Facebook" width="19" height="36" />
-            <img src="img/logos/linkedin.png" alt="LinkedIn" width="36" height="36" />
-          </div>
-
-          <div class="mobile-promo mt-6">
-            <div class="promo-title text-[#FFFFFF] text-[14px] font-medium mb-2">Inzerujte s námi</div>
-            <div class="promo-logos mb-2">
-              <img src="img/brandcarsLogo.png" alt="Brand Cars" width="140" height="24" />
-            </div>
-            <div class="promo-text text-[#FFFFFF] text-[13px] leading-tight mb-3">Revoluce v užívání automobilu</div>
-            <div class="promo-ok">
-              <img src="img/okridersLogo.png" alt="OK Riders" width="96" height="20" />
-            </div>
-          </div>
-
-          <div class="mobile-links-small mt-6">
-            <ul class="list-none p-0 m-0 text-[16px]">
-              <li class="mt-3"><a href="#" class="text-[#FAFAFA]">Slovník pojmů</a></li>
-              <li class="mt-3"><a href="#" class="text-[#FAFAFA]">Ochrana osobních údajů</a></li>
-              <li class="mt-3"><a href="#" class="text-[#FAFAFA]">Dokumenty ke stažení</a></li>
-            </ul>
+          <div class="promo-text text-[#FFFFFF] text-[14px] leading-tight mb-3">Revoluce v užívání automobilu</div>
+          <div class="promo-ok">
+            <img src="img/okridersLogo.png" alt="OK Riders" width="96" height="20" />
           </div>
         </div>
+
+        <div class="mobile-links-small mt-6">
+          <ul class="list-none p-0 m-0 text-[16px]">
+            <li class="mt-3"><a href="#" class="text-[#FAFAFA]">Slovník pojmů</a></li>
+            <li class="mt-3"><a href="#" class="text-[#FAFAFA]">Ochrana osobních údajů</a></li>
+            <li class="mt-3"><a href="#" class="text-[#FAFAFA]">Dokumenty ke stažení</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header-dropdown__inner container mx-auto max-w-[1800px] px-6 flex items-start justify-between">
         <div class="header-dropdown__left text-white">
           <ul class="header-dropdown__links list-none p-0 m-0">
             <li class="text-[28px] font-black uppercase mb-4"><a href="#">BENEFITY</a></li>
@@ -109,7 +110,7 @@
             </div>
             <!-- Promo logos and text under the social icons -->
             <div class="header-dropdown__promo mt-6 mr-4">
-              <div class="promo-title text-[#FFFFFF] text-[16px] font-medium mb-3">Inzerujte s námi</div>
+              <div class="promo-text text-[#FFFFFF] text-[16px] font-medium mb-3">Inzerujte s námi</div>
               <div class="promo-logos mb-3">
                 <img src="img/brandcarsLogo.png" alt="Brand Cars" class="promo-logo" width="160" height="28" />
               </div>
@@ -183,7 +184,9 @@
                   <span class="hero-line whitespace-nowrap"><img src="img/icons/carfrontRed.png" alt=""
                       class="hero-icon hero-icon-carfront" aria-hidden="true" />TVORÍME najväčšiu</span>
                   <span class="hero-line"> komunitu <img src="img/icons/persowaveRed.png" alt=""
-                      class="hero-icon hero-icon-personwave" aria-hidden="true" /> vodičov</span>
+                      class="hero-icon hero-icon-personwave" aria-hidden="true" /></span>
+                  <span class="hero-line"><img src="img/icons/carfrontRed.png" alt=""
+                      class="hero-icon hero-icon-carfront-third" aria-hidden="true" />vodičov</span>
                   <span class="hero-line">na slovensku</span>
                 </h1>
 
@@ -226,9 +229,10 @@
             <div class="slide-inner container mx-auto w-full max-w-[1550px] px-6 flex items-center justify-between">
               <div class="hero-left w-1/2 text-white ">
                 <h1 class="hero-title  font-black leading-tight">
-                  <span class="hero-line">najlacnějšie <img src="img/icons/shieldRed.png" alt=""
+                  <span class="hero-line">najlacnějšie</span>
+                  <span class="hero-line">poistenie <img src="img/icons/shieldRed.png" alt=""
                       class="hero-icon hero-icon-shield" aria-hidden="true" /></span>
-                  <span class="hero-line whitespace-nowrap">poistenie a pohonné</span>
+                  <span class="hero-line">a pohonné</span>
                   <span class="hero-line"><img src="img/icons/gaspumpRed.png" alt=""
                       class="hero-icon hero-icon-gas-pump" aria-hidden="true" />hmoty</span>
                 </h1>
@@ -256,8 +260,9 @@
                   <span class="hero-line">zľavy na</span>
                   <span class="hero-line"><img src="img/icons/tireRed.png" alt="" class="hero-icon hero-icon-tire"
                       aria-hidden="true" />pneumatiky</span>
-                  <span class="hero-line whitespace-nowrap">a náhradné <img src="img/icons/wrenchRed.png" alt=""
-                      class="hero-icon hero-icon-wrench" aria-hidden="true" />diely</span>
+                  <span class="hero-line">a náhradné</span>
+                  <span class="hero-line">diely <img src="img/icons/wrenchRed.png" alt=""
+                      class="hero-icon hero-icon-wrench" aria-hidden="true" /></span>
                 </h1>
 
                 <button class="cta hero-link--pill mt-8 px-6">ZISTIŤ VIAC</button>
@@ -278,7 +283,7 @@
                 <h1 class="hero-title  font-black leading-tight">
                   <span class="hero-line"><img src="img/icons/nocrashRed.png" alt="" class="hero-icon hero-icon-nocrash"
                       aria-hidden="true" />čokoľvek</span>
-                  <span class="hero-line whitespace-nowrap">vás napadne</span>
+                  <span class="hero-line">vás napadne</span>
                   <span class="hero-line">z oblasti <img src="img/icons/carsideRed.png" alt=""
                       class="hero-icon hero-icon-sidecar-second" aria-hidden="true" /></span>
                   <span class="hero-line">automotive </span>
@@ -289,7 +294,9 @@
 
               <div class="hero-right w-1/2 relative flex items-end justify-end">
                 <img src="img/slides/slide7.png" alt="Car"
-                  class="hero-mobile max-w-[824px] h-[633px] ml-auto relative z-20" />
+                  class="hero-mobile hero-slide7-desktop max-w-[824px] h-[633px] ml-auto relative z-20" />
+                <img src="img/slides/slide6.png" alt="Tire"
+                  class="hero-tires hero-slide7-mobile max-w-[521px] h-[438px] ml-auto relative z-20" />
               </div>
 
             </div>
@@ -779,7 +786,8 @@
       </div>
       <h2 class="text-[64px] font-black italic mb-24 text-left">AKO TO CELÉ FUNGUJE</h2>
 
-      <div class="map-trail relative  rounded-[18px] p-6 overflow-hidden">
+      <!-- Desktop version: SVG map trail -->
+      <div class="map-trail map-trail-desktop relative  rounded-[18px] p-6 overflow-hidden">
         <!-- absolute, fixed-position car icon that will be moved with JS (using viewport coords) -->
         <img id="mapCar" src="img/map/car.png" alt="Car" class="map-car" aria-hidden="true" />
 
@@ -901,6 +909,70 @@
           <!-- Placeholder path: adjust `d` to precisely match the blue trail if you export the vector path. -->
           <path id="trailPath" d="M 100 150 C 220 40, 460 60, 540 180 C 620 300, 760 320, 820 420 C 880 520, 920 600, 980 660 C 1040 720, 1060 840, 1040 980 C 1020 1120, 900 1180, 780 1260 C 660 1340, 560 1400, 420 1480 C 280 1560, 220 1640, 180 1740 C 140 1840, 160 1960, 220 2040" fill="none" stroke="transparent" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
+      </div>
+
+      <!-- Mobile version: Stacked steps -->
+      <div class="map-trail-mobile">
+        <!-- Step 1 -->
+        <div class="map-step-mobile">
+          
+          <div class="map-step-mobile__content">
+            <img src="img/map/mobile1.png" alt="Step 1" class="map-step-mobile__img" />
+            <img src="img/map/stepMobile1.png" alt="App" class="map-step-mobile__img" />
+            <div class="map-step-mobile__num">1</div>
+            <h3 class="map-step-mobile__title">ZAREGISTRUJTE SA</h3>
+            <p class="map-step-mobile__desc">Stáhněte si naši aplikaci, nebo se registrujte přímo na webu. Vyplníte údaje o sobě a svém vozidle a stanete se <strong>plnohodnotným Brand Riderem.</strong></p>
+            <div class="map-step-mobile__note">Registrácia je ZDARMA a k ničomu vás nezaväzuje.</div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="map-step-mobile">
+          <div class="map-step-mobile__content">
+            <img src="img/map/mobile2.png" alt="Step 2 header" class="map-step-mobile__img" />
+            <img src="img/map/slide7.png" alt="Step 2 visual" class="map-step-mobile__img" />
+            <div class="map-step-mobile__num">2</div>
+            <h3 class="map-step-mobile__title">UŽÍVAJTE SI VÝHODY</h3>
+            <span class="map-step-mobile__badge">setri</span>
+            <p class="map-step-mobile__desc">Hneď po registraci můžete využít naplno <strong>všechny funkce aplikace.</strong></p>
+            <p class="map-step-mobile__desc"><strong>Skener, upozornění, srovnávač, slevy.</strong> Mezi největší slevy patří <strong>sleva na pohonné hmoty</strong> ve spolupráci se společností Slovnaft.</p>
+            <p class="map-step-mobile__desc">Pro členy máme připraveny také <strong>nejlevnější pojištění, slevy na pneumatiky, náhradní díly</strong> a mnoho dalšího.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="map-step-mobile">
+          <div class="map-step-mobile__content">
+            <img src="img/map/mobile3.png" alt="Step 3 header" class="map-step-mobile__img" />
+            <img src="img/map/stepCar3.png" alt="Polep" class="map-step-mobile__img" />
+            <div class="map-step-mobile__num">3</div>
+            <h3 class="map-step-mobile__title">POLEP AUTA</h3>
+            <span class="map-step-mobile__badge map-step-mobile__badge--gold">ZARÁBAJ</span>
+            <p class="map-step-mobile__desc">Nadišiel čas na <strong>reklamnú kampaň.</strong> V prípade, že vaše auto vyhovuje požiadavkám niektorého z našich inzerentov, ponúkneme vám platený reklamný polep.</p>
+            <p class="map-step-mobile__desc">Záleží predovšetkým na lokalite, v ktorej chce inzerent svoju značku propagovať.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="map-step-mobile">
+          <div class="map-step-mobile__content">
+            <img src="img/map/mobile4.png" alt="Step 4 header" class="map-step-mobile__img" />
+            <div class="map-step-mobile__num">4</div>
+            <h3 class="map-step-mobile__title">JAZDITE !</h3>
+            <span class="map-step-mobile__badge map-step-mobile__badge--gold">ZARÁBAJ</span>
+            <p class="map-step-mobile__desc">Jazdite a zarábajte počas vašich <strong>bežných ciest</strong> autom do práce, na kávu či nákupy. Zarábate len tým, že vaše auto vidia ľudia v okolí.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="map-step-mobile">
+          <div class="map-step-mobile__content">
+            <img src="img/map/mobile5.png" alt="Step 5 header" class="map-step-mobile__img" />
+            <div class="map-step-mobile__num">5</div>
+            <h3 class="map-step-mobile__title">UKONČENIE KAMPANE</h3>
+            <p class="map-step-mobile__desc">Po ukončení kampane vám auto vrátia do pôvodného stavu a vy dostanete odmenu.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
