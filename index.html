@@ -170,7 +170,7 @@
 
               <div class="hero-right w-1/2 relative flex items-end justify-end">
                 <img src="img/slides/slide2.png" alt="Car"
-                  class="hero-car max-w-[580px] h-[526px] ml-auto relative z-20" />
+                  class="hero-coins max-w-[580px] h-[526px] ml-auto relative z-20" />
               </div>
 
             </div>
@@ -448,7 +448,10 @@
           <!-- Title above the QR codes -->
 
           <!-- Short explanatory text above the cards (width: 510px) -->
-          <div class="download-qr-title">STÁHNĚTE SI APLIKACI <br> A STAŇTE SE ČLENEM BRAND RIDERS</div>
+          <div class="download-qr-title">
+            <img src="img/mobile/mobileApp.png" alt="Mobile App" class="download-mobile-app-icon" />
+            STÁHNĚTE SI APLIKACI <br> A STAŇTE SE ČLENEM BRAND RIDERS
+          </div>
           <!-- QR / App badges: two cards -->
           <div class="qr-grid flex gap-4">
             <div class="qr-card" aria-hidden="true">
@@ -465,6 +468,10 @@
             <img src="img/qrs/appstore.png" alt="App Store" class="qr-badge" width="188" height="63" />
             <img src="img/qrs/googlePlay.png" alt="Google Play" class="qr-badge" width="238" height="92" />
           </div>
+        </div>
+        <!-- Mobile badge (visible only on mobile) -->
+        <div class="download-badge" style="right: 10%; top: -5%;">
+          <div class="download-badge__text">Registrácia <br> zadarmo a <br> nezáväzne</div>
         </div>
       </div>
     </div>
@@ -1137,7 +1144,7 @@
               width="52" height="25" />
           </div>
 
-          <div class="review-card bg-white rounded-[18px] p-6  w-full md:w-[747px] relative speech-bubble">
+          <div class="review-card review-card--hidden bg-white rounded-[18px] p-6  w-full md:w-[747px] relative speech-bubble">
             <p class="text-[18px] text-[#1E1E1E] mb-4">„Jazdiť s Brand Riders je jednoduché a výhodné. Reklama je vkusná
               a ľudia sa fakt otáčajú, je to pekné. Najlepšie však je, že som naozaj nemusel nič robiť a zarobil som si
               pekné peniaze navyše. Za mňa to bola jasná voľba.“</p>
@@ -1158,7 +1165,7 @@
         <!-- Right: two stacked reviews with exact sizes -->
         <div class="reviews-right flex flex-col gap-[104px] ml-auto">
           <div
-            class="review-card-right bg-white rounded-[18px] p-6  w-full md:w-[593px] md:h-[495px] relative speech-bubble speech-tail-right">
+            class="review-card-right review-card--hidden bg-white rounded-[18px] p-6  w-full md:w-[593px] md:h-[495px] relative speech-bubble speech-tail-right">
             <p class="text-[18px] text-[#1E1E1E] mb-6">„Keď som zistil, aké benefity komunita prináša, neváhal som a
               zaregistroval som sa. Využil som polep svojho auta, ktorý mi zarába, a ponuku výhodného autopoistenia.
               Ďalšie produkty sú už v procese, napr. zľavová karta na pohonné hmoty. Som veľmi potešený, že existujú
@@ -1179,7 +1186,7 @@
           </div>
 
           <div
-            class="review-card-right bg-white rounded-[18px] p-6  w-full md:w-[593px] md:h-[339px] relative speech-bubble speech-tail-left">
+            class="review-card-right review-card--hidden bg-white rounded-[18px] p-6  w-full md:w-[593px] md:h-[339px] relative speech-bubble speech-tail-left">
             <p class="text-[18px] text-[#1E1E1E] mb-6">"Všetko funguje v úplnom poriadku. Polep vozidla aj odstránenie
               reklamy prebehlo na vopred dohodnutom mieste. Odmena za reklamu prišla. A ako veľké plus vítam zľavu na
               benzín. Na všetkých benzínkach ORLEN tankujete za rovnaké peniaze. Takže teraz bez problémov tankujem aj
@@ -1197,6 +1204,16 @@
           </div>
         </div>
       </div>
+      
+      <!-- Show all reviews button (mobile only) -->
+      <button class="reviews-show-all-btn md:hidden mt-8">
+        ZOBRAZIT VŠE
+      </button>
+      
+      <!-- Hide all reviews button (mobile only, shown when reviews are expanded) -->
+      <button class="reviews-hide-all-btn md:hidden mt-8" style="display: none;">
+        SKRÝT VŠE
+      </button>
     </div>
   </section>
 
@@ -1482,9 +1499,9 @@
   <script type="module" src="src/adv-card-touch.js"></script>
   <script type="module" src="src/adv-show-all.js"></script>
   <script type="module" src="src/adv-debug.js"></script>
-
   <script type="module" src="src/header-dropdown.js"></script>
   <script type="module" src="src/scroll-animations.js"></script>
+  <script type="module" src="src/reviews-show-all.js"></script>
 
 
 
