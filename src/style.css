@@ -22,28 +22,42 @@
 		}
 	}
 
-/* Explicitly hide promo mobile-only visuals by default so they cannot appear
+	/* Explicitly hide promo mobile-only visuals by default so they cannot appear
    on the desktop if JS hasn't run or if a previous mobile action left inline
    styles in place. These are shown only under the mobile media query below. */
-.promo-shield-mobile,
-.promo-cleaning-mobile,
-.promo-penizek-mobile,
-.promo-fuelcan-mobile,
-.promo-fuelgun-mobile,
-.promo-icons-mobile {
-    display: none !important;
-}
+	.promo-shield-mobile,
+	.promo-cleaning-mobile,
+	.promo-penizek-mobile,
+	.promo-fuelcan-mobile,
+	.promo-fuelgun-mobile,
+	.promo-icons-mobile {
+		display: none !important;
+	}
 
-/* Minimal responsive shim: provide basic `md:` utilities when Tailwind
+	/* Minimal responsive shim: provide basic `md:` utilities when Tailwind
    processing is not available. This ensures `md:hidden` etc. behave
    as expected (hide on medium+ viewports). */
-@media (min-width: 768px) {
-	.md\:hidden { display: none !important; }
-	.md\:block { display: block !important; }
-	.md\:flex { display: flex !important; }
-	.md\:inline { display: inline !important; }
-	.md\:inline-block { display: inline-block !important; }
-}
+	@media (min-width: 768px) {
+		.md\:hidden {
+			display: none !important;
+		}
+
+		.md\:block {
+			display: block !important;
+		}
+
+		.md\:flex {
+			display: flex !important;
+		}
+
+		.md\:inline {
+			display: inline !important;
+		}
+
+		.md\:inline-block {
+			display: inline-block !important;
+		}
+	}
 
 	/* Hide the visual vertical scrollbar but preserve scrolling behavior.
 	This keeps the UI clean while not disabling scroll interactions.
@@ -170,172 +184,229 @@
 		opacity: 0.95;
 	}
 
-/* Map-trail step styles (centralized from inline/Tailwind utilities) */
-.map-step {
-	display: flex;
-	align-items: flex-start;
-	gap: 1.25rem; /* equals Tailwind gap-5 */
-}
-.svg-fo.map-step {
-	/* ensure elements inside SVG foreignObject render as flex containers */
-	display: flex;
-}
-.map-step__num {
-	font-size: 130px;
-	font-weight: 900;
-	font-style: italic;
-	color: #d92b2b;
-	line-height: 1;
-	width: 140px;
-	flex: 0 0 140px;
-}
-.map-step__content {
-	max-width: 560px;
-	color: #1E1E1E;
-}
-/* Step 3 specific content width */
-.map-step__content--step3 {
-	width: 460px;
-	/* prevent flex container from shrinking this content for Step 3 */
-	flex: 0 0 460px;
-	min-width: 460px;
-}
-.map-step--right .map-step__content {
-	text-align: right;
-}
-.map-step--left .map-step__content {
-	text-align: left;
-}
-.map-step__title {
-	font-size: 44px;
-	font-weight: 900;
-	font-style: italic;
-	color: #1E1E1E;
-	margin: 0;
-	white-space: nowrap;
-	text-align: left;
-}
-.map-step__title-row {
-	display: inline-flex;
-	align-items: center;
-	gap: 10px;
-}
-.map-step__badge {
-	background: #1AC660;
-	width: 102px;
-	height: 25px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 999px;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: 900;
-	font-style: italic;
-	line-height: 1;
-	margin-left: 8px;
-}
-.map-step__badge--gold {
-    background: #E2BA04;
-}
+	/* Map-trail step styles (centralized from inline/Tailwind utilities) */
+	.map-step {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.25rem;
+		/* equals Tailwind gap-5 */
+	}
 
-/* For Step 3: ensure the title row (title + badge) is left-aligned inside the
+	.svg-fo.map-step {
+		/* ensure elements inside SVG foreignObject render as flex containers */
+		display: flex;
+	}
+
+	.map-step__num {
+		font-size: 130px;
+		font-weight: 900;
+		font-style: italic;
+		color: #d92b2b;
+		line-height: 1;
+		width: 140px;
+		flex: 0 0 140px;
+	}
+
+	.map-step__content {
+		max-width: 560px;
+		color: #1E1E1E;
+	}
+
+	/* Step 3 specific content width */
+	.map-step__content--step3 {
+		width: 460px;
+		/* prevent flex container from shrinking this content for Step 3 */
+		flex: 0 0 460px;
+		min-width: 460px;
+	}
+
+	.map-step--right .map-step__content {
+		text-align: right;
+	}
+
+	.map-step--left .map-step__content {
+		text-align: left;
+	}
+
+	.map-step__title {
+		font-size: 44px;
+		font-weight: 900;
+		font-style: italic;
+		color: #1E1E1E;
+		margin: 0;
+		white-space: nowrap;
+		text-align: left;
+	}
+
+	.map-step__title-row {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.map-step__badge {
+		background: #1AC660;
+		width: 102px;
+		height: 25px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 999px;
+		color: #FFFFFF;
+		font-size: 12px;
+		font-weight: 900;
+		font-style: italic;
+		line-height: 1;
+		margin-left: 8px;
+	}
+
+	.map-step__badge--gold {
+		background: #E2BA04;
+	}
+
+	/* For Step 3: ensure the title row (title + badge) is left-aligned inside the
    content block even for right-side steps that typically right-align text. */
-.map-step__content--step3 .map-step__title-row {
-	display: flex;
-	width: 100%;
-	justify-content: flex-start;
-	align-items: center;
-}
-.map-step__content--step3 .map-step__title {
-	text-align: left;
-}
-.map-step__desc {
-	margin-top: 1.0rem;
-	margin-bottom: 0;
-	color: #1E1E1E;
-	max-width: 520px;
-	text-align: left;
-	font-size: 18px;
-	line-height: 1.0;
-}
+	.map-step__content--step3 .map-step__title-row {
+		display: flex;
+		width: 100%;
+		justify-content: flex-start;
+		align-items: center;
+	}
 
-/* Utility: prevent a phrase from wrapping (used for short bold phrases) */
-.no-wrap {
-    white-space: nowrap;
-}
+	.map-step__content--step3 .map-step__title {
+		text-align: left;
+	}
+
+	.map-step__desc {
+		margin-top: 1.0rem;
+		margin-bottom: 0;
+		color: #1E1E1E;
+		max-width: 520px;
+		text-align: left;
+		font-size: 18px;
+		line-height: 1.0;
+	}
+
+	/* Utility: prevent a phrase from wrapping (used for short bold phrases) */
+	.no-wrap {
+		white-space: nowrap;
+	}
 
 
-/* small note under description (e.g. "Registrácia je ZDARMA...") */
-.map-step__note {
-	margin-top: 0.5rem;
-	text-align: left;
-	font-weight: 700;
-	color: #1AC660;
-}
+	/* small note under description (e.g. "Registrácia je ZDARMA...") */
+	.map-step__note {
+		margin-top: 0.5rem;
+		text-align: left;
+		font-weight: 700;
+		color: #1AC660;
+	}
 
-/* Media block placed left of the step numeral */
-.map-step__media {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 0 0 auto;
-	margin-right: 1rem;
-}
+	/* Media block placed left of the step numeral */
+	.map-step__media {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+		margin-right: 1rem;
+	}
 
-/* Ensure order inside the step row: media -> number -> content */
-.map-step__media { order: 0; }
-.map-step__num { order: 1; }
-.map-step__content { order: 2; }
+	/* Ensure order inside the step row: media -> number -> content */
+	.map-step__media {
+		order: 0;
+	}
 
-.map-step--left .map-step__media { margin-right: 1rem; margin-left: 0; }
-.map-step--right .map-step__media { margin-right: 1rem; }
+	.map-step__num {
+		order: 1;
+	}
 
-/* Nudge the first right-side step's media up so it aligns better with the trail */
-#mapSteps .map-step.map-step.map-step--right:first-of-type .map-step__media,
-#mapSteps .map-step.map-step--right:first-of-type .map-step__media {
-	margin-top: -140px;
-}
+	.map-step__content {
+		order: 2;
+	}
 
-/* Nudge the actual image inside the media block slightly left */
-#mapSteps .map-step.map-step--right:first-of-type .map-step__media img {
-	transform: translateX(-75px);
-}
-.map-step__img-sm { width: 140px; height: auto; display: block; }
-.map-step__img-md { width: 511px; height: 207px; display: block; }
-.map-step__img-badge { width: 60px; height: auto; display: block; }
-.map-step__img-icon { width: 48px; height: auto; display: inline-block; margin-right: 6px; }
+	.map-step--left .map-step__media {
+		margin-right: 1rem;
+		margin-left: 0;
+	}
 
-/* large image used for step 1 (explicit size requested) */
-.map-step__img-lg { width: 316px; height: 473px; display: block; object-fit: contain; }
+	.map-step--right .map-step__media {
+		margin-right: 1rem;
+	}
 
-/* Side image shown next to step content (used for Step 2) */
-.map-step__side {
-	order: 3;
-	flex: 0 0 auto;
-	margin-left: -40px; /* nudged further left */
-	display: flex;
-	align-items: center;
-}
-.map-step__img-side {
-	width: 610px;
-	height: 408px;
-	display: block;
-	object-fit: contain;
-}
+	/* Nudge the first right-side step's media up so it aligns better with the trail */
+	#mapSteps .map-step.map-step.map-step--right:first-of-type .map-step__media,
+	#mapSteps .map-step.map-step--right:first-of-type .map-step__media {
+		margin-top: -140px;
+	}
 
-/* Allow the SVG and its foreignObject content to overflow the SVG viewport
+	/* Nudge the actual image inside the media block slightly left */
+	#mapSteps .map-step.map-step--right:first-of-type .map-step__media img {
+		transform: translateX(-75px);
+	}
+
+	.map-step__img-sm {
+		width: 140px;
+		height: auto;
+		display: block;
+	}
+
+	.map-step__img-md {
+		width: 511px;
+		height: 207px;
+		display: block;
+	}
+
+	.map-step__img-badge {
+		width: 60px;
+		height: auto;
+		display: block;
+	}
+
+	.map-step__img-icon {
+		width: 48px;
+		height: auto;
+		display: inline-block;
+		margin-right: 6px;
+	}
+
+	/* large image used for step 1 (explicit size requested) */
+	.map-step__img-lg {
+		width: 316px;
+		height: 473px;
+		display: block;
+		object-fit: contain;
+	}
+
+	/* Side image shown next to step content (used for Step 2) */
+	.map-step__side {
+		order: 3;
+		flex: 0 0 auto;
+		margin-left: -40px;
+		/* nudged further left */
+		display: flex;
+		align-items: center;
+	}
+
+	.map-step__img-side {
+		width: 610px;
+		height: 408px;
+		display: block;
+		object-fit: contain;
+	}
+
+	/* Allow the SVG and its foreignObject content to overflow the SVG viewport
    so step blocks placed near the edges are fully visible. The outer
    container also needs to allow overflow. */
-.map-trail {
-	overflow: visible !important;
-}
-#mapTrailSvg {
-	overflow: visible;
-}
-#mapTrailSvg foreignObject {
-	overflow: visible;
-}
+	.map-trail {
+		overflow: visible !important;
+	}
+
+	#mapTrailSvg {
+		overflow: visible;
+	}
+
+	#mapTrailSvg foreignObject {
+		overflow: visible;
+	}
 
 
 	.header-link--icon {
@@ -374,491 +445,499 @@
 		overflow: visible;
 	}
 
-  header-dropdown {
-    @apply hidden w-[100%] text-[#fff] overflow-hidden;
-    /* original declarations (fallbacks) */
-    background: linear-gradient(90deg, #C40228 0%, #ED3D1A 100%);
-}
+	header-dropdown {
+		@apply hidden w-[100%] text-[#fff] overflow-hidden;
+		/* original declarations (fallbacks) */
+		background: linear-gradient(90deg, #C40228 0%, #ED3D1A 100%);
+	}
 
 
 
-/* When header receives this class it expands to show dropdown content */
+	/* When header receives this class it expands to show dropdown content */
 
-/* Keep header height fixed; show dropdown as absolutely positioned panel below header */
-header {
-    @apply overflow-visible;
-}
-
-
+	/* Keep header height fixed; show dropdown as absolutely positioned panel below header */
+	header {
+		@apply overflow-visible;
+	}
 
 
 
 
 
-/* Dropdown panel positioned under the header (desktop) */
-.header-dropdown {
-    @apply absolute top-[100%] left-[0] w-[100%] text-[#fff] overflow-hidden z-[40];
-    /* original declarations (fallbacks) */
-    /* keep in DOM so we can animate;
+
+
+	/* Dropdown panel positioned under the header (desktop) */
+	.header-dropdown {
+		@apply absolute top-[100%] left-[0] w-[100%] text-[#fff] overflow-hidden z-[40];
+		/* original declarations (fallbacks) */
+		/* keep in DOM so we can animate;
     hidden state uses max-height/opacity */
 		display: block;
-    max-height: 0;
-    /* collapsed */
-		background: linear-gradient(90deg, rgba(196,2,40,1) 0%, rgba(237,61,26,1) 100%);
-    /* sit below the fixed header (header z-50) */
+		max-height: 0;
+		/* collapsed */
+		background: linear-gradient(90deg, rgba(196, 2, 40, 1) 0%, rgba(237, 61, 26, 1) 100%);
+		/* sit below the fixed header (header z-50) */
 		opacity: 0;
-    transform: translateY(-6px);
-    transition: max-height 360ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease, transform 260ms ease;
-    pointer-events: none;
-}
+		transform: translateY(-6px);
+		transition: max-height 360ms cubic-bezier(.2, .9, .2, 1), opacity 260ms ease, transform 260ms ease;
+		pointer-events: none;
+	}
 
 
 
 	/* Visible/open state */
 	header.header--open .header-dropdown {
-    /* original declarations (fallbacks) */
-    max-height: 648px;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
+		/* original declarations (fallbacks) */
+		max-height: 648px;
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
 
 
 
-/* Give the dropdown the rounded bottom corners when visible so the combined
+	/* Give the dropdown the rounded bottom corners when visible so the combined
    header + dropdown visually appear as a single rounded panel. */
-.header-dropdown {
-    @apply rounded-bl-[50px] rounded-br-[50px];
-}
+	.header-dropdown {
+		@apply rounded-bl-[50px] rounded-br-[50px];
+	}
 
 
 
-header.header--open .header-dropdown {
-    @apply block;
-}
+	header.header--open .header-dropdown {
+		@apply block;
+	}
 
-/* Remove bottom border-radius from header when dropdown is open */
-header.header--open {
-	@apply rounded-bl-none rounded-br-none;
-}
+	/* Remove bottom border-radius from header when dropdown is open */
+	header.header--open {
+		@apply rounded-bl-none rounded-br-none;
+	}
 
-.header-dropdown__inner {
-    @apply pt-[28px] pb-[32px] flex gap-[24px];
-    /* original declarations (fallbacks) */
-    align-items: stretch;
-    /* allow columns to fill available height */
-	opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 300ms ease, transform 300ms ease;
-}
+	.header-dropdown__inner {
+		@apply pt-[28px] pb-[32px] flex gap-[24px];
+		/* original declarations (fallbacks) */
+		align-items: stretch;
+		/* allow columns to fill available height */
+		opacity: 0;
+		transform: translateY(8px);
+		transition: opacity 300ms ease, transform 300ms ease;
+	}
 
 
 
 	/* animate inner content once dropdown expands */
 	header.header--open .header-dropdown__inner {
-    /* original declarations (fallbacks) */
-    opacity: 1;
-    transform: translateY(0);
-}
+		/* original declarations (fallbacks) */
+		opacity: 1;
+		transform: translateY(0);
+	}
 
 
 
-/* Three-column layout: left (menu), center (QR + badges), right (links + social) */
-.header-dropdown__left {
-    /* original declarations (fallbacks) */
-    flex: 0 0 36%;
-}
+	/* Three-column layout: left (menu), center (QR + badges), right (links + social) */
+	.header-dropdown__left {
+		/* original declarations (fallbacks) */
+		flex: 0 0 36%;
+	}
 
 
 
-/* Nudge the left links further left inside the dropdown on desktop */
-@media (min-width: 769px) {
-    /* original declarations (fallbacks) */
-    .header-dropdown__left {
-		padding-left: 64px;
-    }
-}
+	/* Nudge the left links further left inside the dropdown on desktop */
+	@media (min-width: 769px) {
+
+		/* original declarations (fallbacks) */
+		.header-dropdown__left {
+			padding-left: 64px;
+		}
+	}
 
 
-.header-dropdown__center {
-    @apply flex flex-row gap-[24px];
-    /* original declarations (fallbacks) */
-    flex: 0 0 28%;
-    /* QR codes side-by-side */
-	align-items: flex-end;
-    /* align QR blocks to the bottom */
-	justify-content: center;
-    align-self: stretch;
-    /* fill column height so align-items:flex-end works */
-	padding-top: 56px;
-    /* push QR blocks down by adding top padding */
-	padding-bottom: 20px;
-    /* small bottom padding */;
-}
-
-
-
-@media (min-width: 769px) {
-
-	/* Nudge the whole center column to the right so QR blocks + links sit closer to the right side */
 	.header-dropdown__center {
-    @apply ml-[80px];
-    /* original declarations (fallbacks) */
-    /* adjusted per request */;
-}
+		@apply flex flex-row gap-[24px];
+		/* original declarations (fallbacks) */
+		flex: 0 0 28%;
+		/* QR codes side-by-side */
+		align-items: flex-end;
+		/* align QR blocks to the bottom */
+		justify-content: center;
+		align-self: stretch;
+		/* fill column height so align-items:flex-end works */
+		padding-top: 56px;
+		/* push QR blocks down by adding top padding */
+		padding-bottom: 20px;
+		/* small bottom padding */
+		;
+	}
 
 
 
-}
+	@media (min-width: 769px) {
+
+		/* Nudge the whole center column to the right so QR blocks + links sit closer to the right side */
+		.header-dropdown__center {
+			@apply ml-[80px];
+			/* original declarations (fallbacks) */
+			/* adjusted per request */
+			;
+		}
 
 
 
-@media (min-width: 769px) {
-
-	/* nudge the Google Play badge slightly lower than the App Store badge */
-	.header-dropdown__center .header-dropdown__qr:nth-child(2) .qr-badge {
-    @apply block;
-    /* original declarations (fallbacks) */
-    transform: translateY(15px);
-    transition: transform 260ms ease;
-}
+	}
 
 
 
-	/* also nudge the QR image itself a bit down for the second block */
-	.header-dropdown__center .header-dropdown__qr:nth-child(2) img:first-child {
-    /* original declarations (fallbacks) */
-    transform: translateY(4px);
-    transition: transform 260ms ease;
-}
+	@media (min-width: 769px) {
+
+		/* nudge the Google Play badge slightly lower than the App Store badge */
+		.header-dropdown__center .header-dropdown__qr:nth-child(2) .qr-badge {
+			@apply block;
+			/* original declarations (fallbacks) */
+			transform: translateY(15px);
+			transition: transform 260ms ease;
+		}
 
 
 
-}
-
-
-.header-dropdown__right {
-    @apply flex flex-col justify-center items-end;
-    /* original declarations (fallbacks) */
-    flex: 0 0 36%;
-}
-
-
-
-/* Promo block under social icons inside the right column */
-.header-dropdown__promo {
-    @apply max-w-[260px] ml-[auto] text-[#fff];
-    /* original declarations (fallbacks) */
-    /* keep the promo block floated to the right, but left-align internal text */
-	text-align: left;
-}
+		/* also nudge the QR image itself a bit down for the second block */
+		.header-dropdown__center .header-dropdown__qr:nth-child(2) img:first-child {
+			/* original declarations (fallbacks) */
+			transform: translateY(4px);
+			transition: transform 260ms ease;
+		}
 
 
 
-@media (min-width: 769px) {
-
-	/* move promo block slightly further to the right */
-	.header-dropdown__promo {
-    /* original declarations (fallbacks) */
-    transform: translateX(40px);
-}
+	}
 
 
-
-	/* Shift the entire right column slightly to the left so it sits closer to the center */
 	.header-dropdown__right {
-    /* original declarations (fallbacks) */
-    transform: translateX(-180px);
-}
+		@apply flex flex-col justify-center items-end;
+		/* original declarations (fallbacks) */
+		flex: 0 0 36%;
+	}
 
 
 
-}
-
-
-.header-dropdown__promo .promo-title {
-    /* original declarations (fallbacks) */
-    opacity: 0.95;
-}
-
-
-.header-dropdown__promo .promo-logos img,
-.header-dropdown__promo .promo-logo {
-    @apply max-w-[100%] h-[auto];
-    /* original declarations (fallbacks) */
-    display: inline-block;
-}
-
-
-.header-dropdown__promo .promo-text {
-    /* original declarations (fallbacks) */
-    opacity: 0.95;
-}
-
-
-.header-dropdown__promo .promo-title,
-.header-dropdown__promo .promo-text,
-.header-dropdown__promo .promo-ok {
-    
-    /* original declarations (fallbacks) */
-    /* medium */;
-}
-
-
-.header-dropdown__promo .promo-ok img {
-    @apply max-w-[100%] h-[auto];
-    /* original declarations (fallbacks) */
-    display: inline-block;
-}
+	/* Promo block under social icons inside the right column */
+	.header-dropdown__promo {
+		@apply max-w-[260px] ml-[auto] text-[#fff];
+		/* original declarations (fallbacks) */
+		/* keep the promo block floated to the right, but left-align internal text */
+		text-align: left;
+	}
 
 
 
-.header-dropdown__links li {
-    /* original declarations (fallbacks) */
-    list-style: none;
-}
+	@media (min-width: 769px) {
 
-
-.header-dropdown__links li a {
-    @apply text-[44px] font-black leading-[1];
-    /* original declarations (fallbacks) */
-    letter-spacing: 0.5px;
-}
+		/* move promo block slightly further to the right */
+		.header-dropdown__promo {
+			/* original declarations (fallbacks) */
+			transform: translateX(40px);
+		}
 
 
 
-.header-dropdown__qr img {
-    @apply block;
-}
+		/* Shift the entire right column slightly to the left so it sits closer to the center */
+		.header-dropdown__right {
+			/* original declarations (fallbacks) */
+			transform: translateX(-180px);
+		}
 
 
 
-/* Ensure QR images keep their intended pixel size and don't shrink inside flex
+	}
+
+
+	.header-dropdown__promo .promo-title {
+		/* original declarations (fallbacks) */
+		opacity: 0.95;
+	}
+
+
+	.header-dropdown__promo .promo-logos img,
+	.header-dropdown__promo .promo-logo {
+		@apply max-w-[100%] h-[auto];
+		/* original declarations (fallbacks) */
+		display: inline-block;
+	}
+
+
+	.header-dropdown__promo .promo-text {
+		/* original declarations (fallbacks) */
+		opacity: 0.95;
+	}
+
+
+	.header-dropdown__promo .promo-title,
+	.header-dropdown__promo .promo-text,
+	.header-dropdown__promo .promo-ok {
+
+		/* original declarations (fallbacks) */
+		/* medium */
+		;
+	}
+
+
+	.header-dropdown__promo .promo-ok img {
+		@apply max-w-[100%] h-[auto];
+		/* original declarations (fallbacks) */
+		display: inline-block;
+	}
+
+
+
+	.header-dropdown__links li {
+		/* original declarations (fallbacks) */
+		list-style: none;
+	}
+
+
+	.header-dropdown__links li a {
+		@apply text-[44px] font-black leading-[1];
+		/* original declarations (fallbacks) */
+		letter-spacing: 0.5px;
+	}
+
+
+
+	.header-dropdown__qr img {
+		@apply block;
+	}
+
+
+
+	/* Ensure QR images keep their intended pixel size and don't shrink inside flex
    containers when we added the links into the center column. */
-.header-dropdown__center > .header-dropdown__qr {
-    @apply flex flex-col items-center;
-    /* original declarations (fallbacks) */
-    flex: 0 0 auto;
-}
-
-
-
-.header-dropdown__center > .header-dropdown__qr img:first-child {
-    @apply w-[133px] h-[133px] block;
-    /* original declarations (fallbacks) */
-    object-fit: contain;
-}
-
-
-
-.header-dropdown__center__links {
-    /* original declarations (fallbacks) */
-    align-self: flex-end;
-}
-
-
-
-.header-dropdown__links-right ul {
-    /* original declarations (fallbacks) */
-    text-align: right;
-}
-
-
-.header-dropdown__links-right li a {
-    @apply text-[14px] text-[#fff];
-}
-
-
-
-/* Hide the desktop dropdown on small screens; mobile header behavior remains */
-@media (max-width: 768px) {
-    /* original declarations (fallbacks) */
-    .header-dropdown { display: none !important;
-  }
-}
-
-
-
-.header-dropdown__links a,
-.header-dropdown__links-right a {
-    @apply text-[#fff];
-    /* original declarations (fallbacks) */
-    text-decoration: none;
-}
-
-
-
-.header-dropdown__links li a:hover {
-    /* original declarations (fallbacks) */
-    opacity: 0.9;
-}
-
-
-
-/* Mobile dropdown: show full-screen overlay with menu */
-@media (max-width: 768px) {
-	/* Show dropdown as full overlay on mobile */
-	.header-dropdown {
-		display: none !important;
-		position: fixed !important;
-		top: 64px !important;
-		left: 0 !important;
-		right: 0 !important;
-		width: 100vw !important;
-		height: 678px !important;
-		max-height: 678px !important;
-		background: linear-gradient(90deg, #C40228 0%, #ED3D1A 100%) !important;
-		z-index: 9999 !important;
-		padding: 12px 24px 40px 24px !important;
-		overflow-y: auto !important;
-		overflow-x: hidden !important;
-		border-radius: 0 !important;
-		-webkit-overflow-scrolling: touch !important;
+	.header-dropdown__center>.header-dropdown__qr {
+		@apply flex flex-col items-center;
+		/* original declarations (fallbacks) */
+		flex: 0 0 auto;
 	}
 
-	/* Add rounded bottom corners when dropdown is open */
-	header.header--open .header-dropdown {
-		border-radius: 0 0 28px 28px !important;
+
+
+	.header-dropdown__center>.header-dropdown__qr img:first-child {
+		@apply w-[133px] h-[133px] block;
+		/* original declarations (fallbacks) */
+		object-fit: contain;
 	}
 
-	/* Hide desktop columns on mobile */
-	.header-dropdown__left,
-	.header-dropdown__center,
-	.header-dropdown__right,
-	.header-dropdown__inner {
-		display: none !important;
+
+
+	.header-dropdown__center__links {
+		/* original declarations (fallbacks) */
+		align-self: flex-end;
 	}
 
-	/* Mobile-only container inside dropdown */
-	.header-dropdown__mobile {
-		width: 100% !important;
-		padding: 0 !important;
+
+
+	.header-dropdown__links-right ul {
+		/* original declarations (fallbacks) */
+		text-align: right;
 	}
 
-	/* Show mobile-only content when header is open */
-	header.header--open .header-dropdown .mobile-only {
-		display: block !important;
+
+	.header-dropdown__links-right li a {
+		@apply text-[14px] text-[#fff];
 	}
 
-	/* Mobile top section with logo */
-	.mobile-top {
-		display: flex !important;
-		align-items: center !important;
-		justify-content: space-between !important;
-		margin-bottom: 0 !important;
+
+
+	/* Hide the desktop dropdown on small screens; mobile header behavior remains */
+	@media (max-width: 768px) {
+
+		/* original declarations (fallbacks) */
+		.header-dropdown {
+			display: none !important;
+		}
 	}
 
-	/* Mobile navigation links styling */
-	.mobile-nav {
-		margin-top: 0 !important;
+
+
+	.header-dropdown__links a,
+	.header-dropdown__links-right a {
+		@apply text-[#fff];
+		/* original declarations (fallbacks) */
+		text-decoration: none;
 	}
 
-	.mobile-nav-links {
-		list-style: none !important;
-		padding: 0 !important;
-		margin: 0 !important;
+
+
+	.header-dropdown__links li a:hover {
+		/* original declarations (fallbacks) */
+		opacity: 0.9;
 	}
 
-	.mobile-nav-links li {
-		margin-bottom: 5px !important;
+
+
+	/* Mobile dropdown: show full-screen overlay with menu */
+	@media (max-width: 768px) {
+
+		/* Show dropdown as full overlay on mobile */
+		.header-dropdown {
+			display: none !important;
+			position: fixed !important;
+			top: 64px !important;
+			left: 0 !important;
+			right: 0 !important;
+			width: 100vw !important;
+			height: 678px !important;
+			max-height: 678px !important;
+			background: linear-gradient(90deg, #C40228 0%, #ED3D1A 100%) !important;
+			z-index: 9999 !important;
+			padding: 12px 24px 40px 24px !important;
+			overflow-y: auto !important;
+			overflow-x: hidden !important;
+			border-radius: 0 !important;
+			-webkit-overflow-scrolling: touch !important;
+		}
+
+		/* Add rounded bottom corners when dropdown is open */
+		header.header--open .header-dropdown {
+			border-radius: 0 0 28px 28px !important;
+		}
+
+		/* Hide desktop columns on mobile */
+		.header-dropdown__left,
+		.header-dropdown__center,
+		.header-dropdown__right,
+		.header-dropdown__inner {
+			display: none !important;
+		}
+
+		/* Mobile-only container inside dropdown */
+		.header-dropdown__mobile {
+			width: 100% !important;
+			padding: 0 !important;
+		}
+
+		/* Show mobile-only content when header is open */
+		header.header--open .header-dropdown .mobile-only {
+			display: block !important;
+		}
+
+		/* Mobile top section with logo */
+		.mobile-top {
+			display: flex !important;
+			align-items: center !important;
+			justify-content: space-between !important;
+			margin-bottom: 0 !important;
+		}
+
+		/* Mobile navigation links styling */
+		.mobile-nav {
+			margin-top: 0 !important;
+		}
+
+		.mobile-nav-links {
+			list-style: none !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		.mobile-nav-links li {
+			margin-bottom: 5px !important;
+		}
+
+		.mobile-nav-links li a {
+			color: #FFFFFF !important;
+			font-size: 36px !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			text-decoration: none !important;
+			text-transform: uppercase !important;
+			letter-spacing: 0.5px !important;
+			line-height: 1.1 !important;
+		}
+
+		/* Mobile social icons */
+		.mobile-social {
+			display: flex !important;
+			gap: 32px !important;
+			margin: 28px 0 0 0 !important;
+			align-items: center !important;
+		}
+
+		.mobile-social img {
+			object-fit: contain !important;
+		}
+
+		/* Mobile promo section */
+		.mobile-promo {
+			margin-top: 32px !important;
+			padding-top: 0 !important;
+		}
+
+		.mobile-promo .promo-text {
+			color: #FFFFFF !important;
+			font-size: 16px !important;
+			font-weight: 500 !important;
+			margin-bottom: 12px !important;
+		}
+
+		.mobile-promo .promo-logos {
+			margin-bottom: 12px !important;
+		}
+
+		.mobile-promo .promo-logos img {
+			max-width: 160px !important;
+			height: auto !important;
+		}
+
+		.mobile-promo .promo-ok img {
+			max-width: 120px !important;
+			height: auto !important;
+			margin-top: 8px !important;
+		}
+
+		/* Mobile small links */
+		.mobile-links-small {
+			margin-top: 28px !important;
+			padding-top: 0 !important;
+		}
+
+		.mobile-links-small ul {
+			list-style: none !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		.mobile-links-small li {
+			margin-top: 20px !important;
+		}
+
+		.mobile-links-small li:first-child {
+			margin-top: 0 !important;
+		}
+
+		.mobile-links-small a {
+			color: #FAFAFA !important;
+			font-size: 16px !important;
+			font-weight: 400 !important;
+			text-decoration: none !important;
+		}
+
+		/* Ensure header stays fixed and allows dropdown to open */
+		header.header--open {
+			position: fixed !important;
+			top: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			height: 64px !important;
+			z-index: 9998 !important;
+		}
+
+		/* Show dropdown when header is open */
+		header.header--open .header-dropdown {
+			display: block !important;
+			opacity: 1 !important;
+			pointer-events: auto !important;
+		}
 	}
 
-	.mobile-nav-links li a {
-		color: #FFFFFF !important;
-		font-size: 36px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-decoration: none !important;
-		text-transform: uppercase !important;
-		letter-spacing: 0.5px !important;
-		line-height: 1.1 !important;
-	}
-
-	/* Mobile social icons */
-	.mobile-social {
-		display: flex !important;
-		gap: 32px !important;
-		margin: 28px 0 0 0 !important;
-		align-items: center !important;
-	}
-
-	.mobile-social img {
-		object-fit: contain !important;
-	}
-
-	/* Mobile promo section */
-	.mobile-promo {
-		margin-top: 32px !important;
-		padding-top: 0 !important;
-	}
-
-	.mobile-promo .promo-text {
-		color: #FFFFFF !important;
-		font-size: 16px !important;
-		font-weight: 500 !important;
-		margin-bottom: 12px !important;
-	}
-
-	.mobile-promo .promo-logos {
-		margin-bottom: 12px !important;
-	}
-
-	.mobile-promo .promo-logos img {
-		max-width: 160px !important;
-		height: auto !important;
-	}
-
-	.mobile-promo .promo-ok img {
-		max-width: 120px !important;
-		height: auto !important;
-		margin-top: 8px !important;
-	}
-
-	/* Mobile small links */
-	.mobile-links-small {
-		margin-top: 28px !important;
-		padding-top: 0 !important;
-	}
-
-	.mobile-links-small ul {
-		list-style: none !important;
-		padding: 0 !important;
-		margin: 0 !important;
-	}
-
-	.mobile-links-small li {
-		margin-top: 20px !important;
-	}
-
-	.mobile-links-small li:first-child {
-		margin-top: 0 !important;
-	}
-
-	.mobile-links-small a {
-		color: #FAFAFA !important;
-		font-size: 16px !important;
-		font-weight: 400 !important;
-		text-decoration: none !important;
-	}
-
-	/* Ensure header stays fixed and allows dropdown to open */
-	header.header--open {
-		position: fixed !important;
-		top: 0 !important;
-		left: 0 !important;
-		right: 0 !important;
-		height: 64px !important;
-		z-index: 9998 !important;
-	}
-
-	/* Show dropdown when header is open */
-	header.header--open .header-dropdown {
-		display: block !important;
-		opacity: 1 !important;
-		pointer-events: auto !important;
-	}
-}
-/* Ensure the header bottom corners are rounded on mobile when dropdown is open */
+	/* Ensure the header bottom corners are rounded on mobile when dropdown is open */
 	/* Mobile header adjustments to match provided mobile reference (step 1) */
 	@media (max-width: 480px) {
 		header.gradient-red {
@@ -877,21 +956,22 @@ header.header--open {
 			border-bottom-right-radius: 0 !important;
 		}
 
-	/* Mobile: ensure the community section uses the requested light-gray background */
-	@media (max-width: 480px) {
-		.community-section {
-			background-color: #F2F2F2 !important;
+		/* Mobile: ensure the community section uses the requested light-gray background */
+		@media (max-width: 480px) {
+			.community-section {
+				background-color: #F2F2F2 !important;
+			}
 		}
-	}
 
 
-	/* Tweak: lift the right-top mobile phone image higher on small screens */
-	@media (max-width: 480px) {
-	.right-top-mobile-img {
-		transform: translateY(-12px) !important;
-		margin-top: -40px !important;
-	}
-	}
+		/* Tweak: lift the right-top mobile phone image higher on small screens */
+		@media (max-width: 480px) {
+			.right-top-mobile-img {
+				transform: translateY(-12px) !important;
+				margin-top: -40px !important;
+			}
+		}
+
 		/* logo: smaller and left-aligned */
 		.site-logo {
 			height: 22px !important;
@@ -1429,6 +1509,7 @@ header.header--open {
 	.hero-slide--7 .hero-slide7-desktop {
 		display: block;
 	}
+
 	.hero-slide--7 .hero-slide7-mobile {
 		display: none;
 	}
@@ -1619,7 +1700,7 @@ header.header--open {
 		transform-origin: center center;
 	}
 
-	/* Download badge (mobile only) */
+	/* Download badge */
 	.download-badge {
 		display: none;
 		position: absolute;
@@ -1629,13 +1710,17 @@ header.header--open {
 		background-color: #0FC26C;
 		align-items: center;
 		justify-content: center;
-		z-index: 40;
+		z-index: 1;
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
 
 	.download-badge__text {
-		display: inline-block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
 		color: #FFFFFF;
 		font-style: italic;
 		font-weight: 900;
@@ -1648,10 +1733,69 @@ header.header--open {
 		transform-origin: center center;
 	}
 
+	/* Desktop badge - visible on desktop */
+	.download-badge-desktop {
+		display: flex;
+		width: 215px;
+		height: 215px;
+		right: 75%;
+		top: -15%;
+	}
+
+	.download-badge-desktop .download-badge__text {
+		font-size: 24px;
+		padding: 0 16px;
+	}
+
+	/* Mobile badge - hidden on desktop, shown on mobile */
+	.download-badge-mobile {
+		display: none;
+	}
+
 	@media (max-width: 480px) {
-		.download-badge {
-			display: flex !important;
+		.download-badge-desktop {
+			display: none !important;
 		}
+
+		.download-badge-mobile {
+			display: flex !important;
+			right: 10% !important;
+			top: -4% !important;
+		}
+	}
+
+	/* Custom checkbox styling */
+	.custom-checkbox {
+		appearance: none;
+		-webkit-appearance: none;
+		width: 27px;
+		height: 27px;
+		border: 2px solid #FFFFFF;
+		border-radius: 4px;
+		background-color: #FFFFFF;
+		cursor: pointer;
+		position: relative;
+		flex-shrink: 0;
+	}
+
+	.custom-checkbox:checked {
+		background-color: #FFFFFF;
+		border-color: #FFFFFF;
+	}
+
+	.custom-checkbox:checked::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 12px;
+		height: 10px;
+		background-color: #1C1B1F;
+		-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3 3 7-7' stroke='%231C1B1F' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat center;
+		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3 3 7-7' stroke='%231C1B1F' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat center;
+		mask-size: contain;
+		-webkit-mask-size: contain;
 	}
 
 	.hero-sub {
@@ -2186,7 +2330,7 @@ header.header--open {
 			width: 425px !important;
 			height: 385px !important;
 			max-width: none !important;
-      transform: translateY(-140px) !important;
+			transform: translateY(-140px) !important;
 
 		}
 	}
@@ -2200,7 +2344,9 @@ header.header--open {
 		}
 
 		/* ensure the portal pill is nudged right on the narrowest phones */
-		.mobile-pill { margin-left: 12px !important; }
+		.mobile-pill {
+			margin-left: 12px !important;
+		}
 	}
 
 	/* Make the right-side illustration fill the column (desktop) */
@@ -2606,6 +2752,8 @@ header.header--open {
 		object-fit: contain;
 		/* nudge image left and slightly up to create more overlap */
 		transform: translate(-120px, -70px);
+		position: relative;
+		z-index: 10;
 	}
 
 	/* QR image: exact requested size on desktop, responsive on small screens */
@@ -2986,7 +3134,7 @@ header.header--open {
 	/* shift the feature cards slightly to the left on wider screens */
 	.features-left {
 		/* reduce desktop horizontal nudge to avoid overlap with right column */
-		transform: translateX(40px);
+		transform: translateX(120px);
 	}
 
 	@media (max-width: 900px) {
@@ -3347,7 +3495,7 @@ header.header--open {
 
 	/* Center community section content on mobile */
 	@media (max-width: 480px) {
-		.community-section > div {
+		.community-section>div {
 			align-items: center !important;
 		}
 
@@ -3436,36 +3584,43 @@ header.header--open {
 		transition: transform 220ms ease;
 	}
 
-/* Desktop: position the showcase arrows over the left text column to match reference */
-@media (min-width: 900px) {
-	.showcase-carousel {
-		position: relative;
+	/* Desktop: position the showcase arrows over the left text column to match reference */
+	@media (min-width: 900px) {
+		.showcase-carousel {
+			position: relative;
+		}
+
+		.showcase-carousel .showcase-prev,
+		.showcase-carousel .showcase-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 44px;
+			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: transparent;
+			color: #1E1E1E;
+			border-radius: 0;
+			box-shadow: none;
+			z-index: 1200;
+		}
+
+		/* place both arrows inside the left column area (adjust percentages if needed) */
+		.showcase-carousel .showcase-prev {
+			left: 8%;
+		}
+
+		.showcase-carousel .showcase-next {
+			left: 24%;
+		}
+
+		.showcase-carousel .showcase-prev i,
+		.showcase-carousel .showcase-next i {
+			font-size: 28px;
+		}
 	}
-
-	.showcase-carousel .showcase-prev,
-	.showcase-carousel .showcase-next {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 44px;
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: transparent;
-		color: #1E1E1E;
-		border-radius: 0;
-		box-shadow: none;
-		z-index: 1200;
-	}
-
-	/* place both arrows inside the left column area (adjust percentages if needed) */
-	.showcase-carousel .showcase-prev { left: 8%; }
-	.showcase-carousel .showcase-next { left: 24%; }
-
-	.showcase-carousel .showcase-prev i,
-	.showcase-carousel .showcase-next i { font-size: 28px; }
-}
 
 	@media (max-width: 900px) {
 		.showcase-slider .slide img {
@@ -3988,7 +4143,9 @@ header.header--open {
 		}
 
 		/* nudge portal pill on very narrow phones */
-		.mobile-pill { margin-left: 12px !important; }
+		.mobile-pill {
+			margin-left: 12px !important;
+		}
 	}
 
 	/* Ensure the download-bg wrapper uses exact mobile panel size on phones
@@ -4020,7 +4177,9 @@ header.header--open {
 		}
 
 		/* nudge portal pill on very narrow phones */
-		.mobile-pill { margin-left: 12px !important; }
+		.mobile-pill {
+			margin-left: 12px !important;
+		}
 	}
 
 	/* Mobile: place the left-top screenshot image above its text block on phones */
@@ -4036,7 +4195,7 @@ header.header--open {
 			margin-bottom: 12px !important;
 		}
 
-		.left-top > .w-full.text-center.mb-4 {
+		.left-top>.w-full.text-center.mb-4 {
 			order: 2 !important;
 			width: 100% !important;
 			text-align: center !important;
@@ -4052,6 +4211,7 @@ header.header--open {
 
 	/* Mobile: reduce community feature/title sizes to 16px for better mobile fit */
 	@media (max-width: 480px) {
+
 		.community-feature-title,
 		.community-title,
 		.community-card-label,
@@ -4106,6 +4266,7 @@ header.header--open {
 	single place to maintain phone-specific overrides. If you want, I can remove
 	the scattered blocks after you verify the site visually. */
 	@media (max-width: 480px) {
+
 		/* Header / branding */
 		header.gradient-red {
 			height: 64px;
@@ -4123,86 +4284,275 @@ header.header--open {
 		}
 
 		/* nudge the portal pill slightly more to the right on mobile */
-		.mobile-pill { margin-left: 12px !important; }
+		.mobile-pill {
+			margin-left: 12px !important;
+		}
 
 		/* header links / pill behaviour */
-		header nav a.header-link { display: none !important; }
-		header nav a.header-link.header-link--pill { display: inline-flex !important; }
-		header nav .header-link--icon { display: inline-flex !important; }
-		header nav a.header-link.header-link--pill {
-			height: 24px !important; min-height: 24px !important; width: 78px !important;
-			padding: 0 8px !important; font-size: 12px !important; align-items: center !important;
-			justify-content: center !important; text-align: center !important;
+		header nav a.header-link {
+			display: none !important;
 		}
 
-		.header-link--pill .pill-full { display: none !important; }
-		.header-link--pill .pill-mobile { display: inline !important; }
+		header nav a.header-link.header-link--pill {
+			display: inline-flex !important;
+		}
 
-		header nav { margin-right: 8px !important; gap: 8px !important; }
+		header nav .header-link--icon {
+			display: inline-flex !important;
+		}
+
+		header nav a.header-link.header-link--pill {
+			height: 24px !important;
+			min-height: 24px !important;
+			width: 78px !important;
+			padding: 0 8px !important;
+			font-size: 12px !important;
+			align-items: center !important;
+			justify-content: center !important;
+			text-align: center !important;
+		}
+
+		.header-link--pill .pill-full {
+			display: none !important;
+		}
+
+		.header-link--pill .pill-mobile {
+			display: inline !important;
+		}
+
+		header nav {
+			margin-right: 8px !important;
+			gap: 8px !important;
+		}
 
 		/* Page background override for phones */
-		html, body { background-color: #FFFFFF !important; }
-
-		/* Hero / carousel */
-		.slide-inner { flex-direction: column; align-items: flex-start; gap: 12px; padding-left: 12px; padding-right: 12px; }
-
-		.hero-left {
-			width: 100% !important; text-align: left; padding-top: 60px !important; padding-left: 24px;
+		html,
+		body {
+			background-color: #FFFFFF !important;
 		}
 
-		.hero-right { width: 100% !important; display:flex; justify-content:center; align-items:center !important; margin-top:-10px; }
+		/* Hero / carousel */
+		.slide-inner {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+
+		.hero-left {
+			width: 100% !important;
+			text-align: left;
+			padding-top: 60px !important;
+			padding-left: 24px;
+		}
+
+		.hero-right {
+			width: 100% !important;
+			display: flex;
+			justify-content: center;
+			align-items: center !important;
+			margin-top: -10px;
+		}
 
 		/* Center hero title and car inside the mobile hero frame */
-		.hero-left .hero-title { font-size: 42px !important; line-height: 1.02 !important; letter-spacing: 0 !important; }
-		.hero-line { gap: 8px !important; }
-		.hero-icon { margin: 0 6px !important; }
+		.hero-left .hero-title {
+			font-size: 42px !important;
+			line-height: 1.02 !important;
+			letter-spacing: 0 !important;
+		}
+
+		.hero-line {
+			gap: 8px !important;
+		}
+
+		.hero-icon {
+			margin: 0 6px !important;
+		}
 
 		/* Slide 3 specific mobile layout - stack text properly */
-		.hero-slide--3 .hero-left .hero-title { font-size: 28px !important; line-height: 1.1 !important; text-align: left !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(1) { display: block !important; white-space: normal !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(1) .hero-icon-carfront { display: none !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(2) { display: block !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(3) { display: block !important; }
-		.hero-slide--3 .hero-left .hero-line:nth-child(4) { display: block !important; }
-		.hero-slide--3 .hero-left .hero-icon-carfront-third { width: 24px !important; height: 21px !important; max-width: 24px !important; max-height: 21px !important; }
+		.hero-slide--3 .hero-left .hero-title {
+			font-size: 28px !important;
+			line-height: 1.1 !important;
+			text-align: left !important;
+		}
+
+		.hero-slide--3 .hero-left .hero-line:nth-child(1) {
+			display: block !important;
+			white-space: normal !important;
+		}
+
+		.hero-slide--3 .hero-left .hero-line:nth-child(1) .hero-icon-carfront {
+			display: none !important;
+		}
+
+		.hero-slide--3 .hero-left .hero-line:nth-child(2) {
+			display: block !important;
+		}
+
+		.hero-slide--3 .hero-left .hero-line:nth-child(3) {
+			display: block !important;
+		}
+
+		.hero-slide--3 .hero-left .hero-line:nth-child(4) {
+			display: block !important;
+		}
+
+		.hero-slide--3 .hero-left .hero-icon-carfront-third {
+			width: 24px !important;
+			height: 21px !important;
+			max-width: 24px !important;
+			max-height: 21px !important;
+		}
 
 		/* Slide 4 specific mobile font size */
-		.hero-slide:nth-child(4) .hero-left .hero-title { font-size: 38px !important; }
+		.hero-slide:nth-child(4) .hero-left .hero-title {
+			font-size: 38px !important;
+		}
 
 		/* Slide 5 specific mobile layout */
-		.hero-slide--5 .hero-left .hero-title { font-size: 28px !important; line-height: 1.1 !important; }
-		.hero-slide--5 .hero-left .hero-line { display: block !important; }
+		.hero-slide--5 .hero-left .hero-title {
+			font-size: 28px !important;
+			line-height: 1.1 !important;
+		}
+
+		.hero-slide--5 .hero-left .hero-line {
+			display: block !important;
+		}
 
 		/* Slide 6 specific mobile font size */
-		.hero-slide--6 .hero-left .hero-title { font-size: 29px !important; line-height: 1.1 !important; }
-		.hero-slide--6 .hero-left .hero-line { display: block !important; }
+		.hero-slide--6 .hero-left .hero-title {
+			font-size: 29px !important;
+			line-height: 1.1 !important;
+		}
+
+		.hero-slide--6 .hero-left .hero-line {
+			display: block !important;
+		}
 
 		/* Slide 7 specific mobile font size */
-		.hero-slide--7 .hero-left .hero-title { font-size: 28px !important; line-height: 1.1 !important; }
-		.hero-slide--7 .hero-left .hero-line { display: block !important; }
-		.hero-slide--7 .hero-left .hero-icon-sidecar-second { width: 43px !important; height: 20px !important; max-width: 43px !important; max-height: 20px !important; }
-		.hero-slide--7 .hero-slide7-desktop { display: none !important; }
-		.hero-slide--7 .hero-slide7-mobile { display: block !important; }
+		.hero-slide--7 .hero-left .hero-title {
+			font-size: 28px !important;
+			line-height: 1.1 !important;
+		}
 
-		.hero-link--pill { width: 168px !important; height: 30px !important; font-size: 14px !important; padding: 0 12px !important; margin-top: 20px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
-		.hero-right .hero-car { max-width: 255px !important; width: 255px !important; height: 231px !important; margin: 0 auto !important; transform: translateY(0) !important; }
-		.hero-right .hero-coins { max-width: 255px !important; width: 255px !important; height: 231px !important; margin: 0 auto !important; transform: translateY(0) !important; }
-		.hero-right .hero-motorcyclists { max-width: 420px !important; width: 420px !important; height: 405px !important; margin: 0 auto !important; transform: translate(155px, -70px) !important;}
-		.hero-right .hero-mobile { max-width: 166px !important; width: 166px !important; height: 260px !important; margin: 0 auto !important; transform: translateY(100px) !important; }
-		.hero-right .hero-shield { max-width: 240px !important; width: 240px !important; height: 220px !important; margin: 0 auto !important; transform: translateX(-335px) !important; }
-		.hero-right .hero-pumpgun { max-width: 275px !important; width: 275px !important; height: 200px !important; margin: 0 auto !important; transform: translate(-170px, 40px) !important;}
-		.hero-right .hero-tires { max-width: 235px !important; width: 100% !important; height: 197px!important; margin: 0 auto !important; transform: translate(0px, 40px) !important; }
-		.hero-controls { bottom: 36px !important; }
-		.hero-badge { width: 96px !important; height: 96px !important; right: 12px !important; top: 125px !important; }
-		.hero-badge__text { font-size: 10px !important; line-height: 1.3 !important; transform: rotate(8deg) !important; padding: 6px !important; }
+		.hero-slide--7 .hero-left .hero-line {
+			display: block !important;
+		}
+
+		.hero-slide--7 .hero-left .hero-icon-sidecar-second {
+			width: 43px !important;
+			height: 20px !important;
+			max-width: 43px !important;
+			max-height: 20px !important;
+		}
+
+		.hero-slide--7 .hero-slide7-desktop {
+			display: none !important;
+		}
+
+		.hero-slide--7 .hero-slide7-mobile {
+			display: block !important;
+		}
+
+		.hero-link--pill {
+			width: 168px !important;
+			height: 30px !important;
+			font-size: 14px !important;
+			padding: 0 12px !important;
+			margin-top: 20px !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+
+		.hero-right .hero-car {
+			max-width: 255px !important;
+			width: 255px !important;
+			height: 231px !important;
+			margin: 0 auto !important;
+			transform: translateY(0) !important;
+		}
+
+		.hero-right .hero-coins {
+			max-width: 255px !important;
+			width: 255px !important;
+			height: 231px !important;
+			margin: 0 auto !important;
+			transform: translateY(0) !important;
+		}
+
+		.hero-right .hero-motorcyclists {
+			max-width: 420px !important;
+			width: 420px !important;
+			height: 405px !important;
+			margin: 0 auto !important;
+			transform: translate(155px, -70px) !important;
+		}
+
+		.hero-right .hero-mobile {
+			max-width: 166px !important;
+			width: 166px !important;
+			height: 260px !important;
+			margin: 0 auto !important;
+			transform: translateY(100px) !important;
+		}
+
+		.hero-right .hero-shield {
+			max-width: 240px !important;
+			width: 240px !important;
+			height: 220px !important;
+			margin: 0 auto !important;
+			transform: translateX(-335px) !important;
+		}
+
+		.hero-right .hero-pumpgun {
+			max-width: 275px !important;
+			width: 275px !important;
+			height: 200px !important;
+			margin: 0 auto !important;
+			transform: translate(-170px, 40px) !important;
+		}
+
+		.hero-right .hero-tires {
+			max-width: 235px !important;
+			width: 100% !important;
+			height: 197px !important;
+			margin: 0 auto !important;
+			transform: translate(0px, 40px) !important;
+		}
+
+		.hero-controls {
+			bottom: 36px !important;
+		}
+
+		.hero-badge {
+			width: 96px !important;
+			height: 96px !important;
+			right: 12px !important;
+			top: 125px !important;
+		}
+
+		.hero-badge__text {
+			font-size: 10px !important;
+			line-height: 1.3 !important;
+			transform: rotate(8deg) !important;
+			padding: 6px !important;
+		}
 
 		/* make phone-sized hero icons consistent */
 		.hero-left .hero-line img.hero-icon,
 		.hero-left .hero-line .hero-icon,
 		.hero-icon,
 		[class*="hero-icon-"] {
-			height: 40px !important; width: auto !important; max-height: 40px !important; max-width: none !important;
-			margin-left: 2px !important; margin-right: 2px !important; padding: 0 !important; display:inline-block !important;
+			height: 40px !important;
+			width: auto !important;
+			max-height: 40px !important;
+			max-width: none !important;
+			margin-left: 2px !important;
+			margin-right: 2px !important;
+			padding: 0 !important;
+			display: inline-block !important;
 			vertical-align: middle !important;
 		}
 
@@ -4220,22 +4570,74 @@ header.header--open {
 		.hero-icon-tire,
 		.hero-icon-wrench,
 		.hero-icon-nocrash,
-		.hero-icon-shine { width: auto !important; height: 24px !important; }
+		.hero-icon-shine {
+			width: auto !important;
+			height: 24px !important;
+		}
 
-		.hero-line { gap: 6px !important; }
+		.hero-line {
+			gap: 6px !important;
+		}
 
 		/* Left-top / Left-bottom cards */
-		.left-top { width: 327px !important; height: 297px !important; padding: 12px !important; margin-left:auto !important; margin-right:auto !important; display:block !important; text-align:center !important; position:relative !important;}
-		.left-top .community-card-label { font-size: 20px !important; line-height:1.1 !important; }
-		.left-top .lefttop-img { width: 327px !important; height: auto !important; max-height:220px !important; object-fit: contain !important; }
+		.left-top {
+			width: 327px !important;
+			height: 297px !important;
+			padding: 12px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			display: block !important;
+			text-align: center !important;
+			position: relative !important;
+		}
 
-		.left-bottom { width: 327px !important; height: 487px !important; padding:12px !important; margin-left:auto !important; margin-right:auto !important; display:block !important; text-align:center !important; position:relative !important;}
-		.left-bottom .leftbottom-img { width: 327px !important; height:auto !important; max-height:380px !important; object-fit: contain !important; }
+		.left-top .community-card-label {
+			font-size: 20px !important;
+			line-height: 1.1 !important;
+		}
+
+		.left-top .lefttop-img {
+			width: 327px !important;
+			height: auto !important;
+			max-height: 220px !important;
+			object-fit: contain !important;
+		}
+
+		.left-bottom {
+			width: 327px !important;
+			height: 487px !important;
+			padding: 12px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			display: block !important;
+			text-align: center !important;
+			position: relative !important;
+		}
+
+		.left-bottom .leftbottom-img {
+			width: 327px !important;
+			height: auto !important;
+			max-height: 380px !important;
+			object-fit: contain !important;
+		}
 
 		/* Mobile right-bottom card sizing and text */
-		.right-bottom-mobile { width: 327px !important; height: 217px !important; padding: 12px !important; box-sizing: border-box !important; }
-		.right-bottom-mobile .community-right-bottom-text { font-size: 18px !important; line-height:1.2 !important; }
-		.right-bottom-mobile .community-bottom-icons img { width: 24px !important; height: 24px !important; }
+		.right-bottom-mobile {
+			width: 327px !important;
+			height: 217px !important;
+			padding: 12px !important;
+			box-sizing: border-box !important;
+		}
+
+		.right-bottom-mobile .community-right-bottom-text {
+			font-size: 18px !important;
+			line-height: 1.2 !important;
+		}
+
+		.right-bottom-mobile .community-bottom-icons img {
+			width: 24px !important;
+			height: 24px !important;
+		}
 
 		/* Tighter, lowered icon row for mobile: 124x20 and icons 20x20 */
 		.right-bottom-mobile .community-bottom-icons {
@@ -4248,7 +4650,10 @@ header.header--open {
 			display: flex !important;
 		}
 
-		.right-bottom-mobile .community-bottom-icons img { width: 20px !important; height: 20px !important; }
+		.right-bottom-mobile .community-bottom-icons img {
+			width: 20px !important;
+			height: 20px !important;
+		}
 
 		/* Make the plus icon smaller (10x10) specifically on mobile */
 		.right-bottom-mobile .community-bottom-icons img[alt="plus"] {
@@ -4259,32 +4664,120 @@ header.header--open {
 		}
 
 		/* Download panel & QR adjustments for phones */
-		.download-section .download-inner { width: 327px !important; height: 642px !important; max-width:none !important; margin:0 auto !important; background-color: #F2F2F2 !important; border-radius:14px !important; box-sizing: border-box !important; overflow: visible !important; }
-		.download-section .download-img-container { width:100% !important; height:100% !important; padding-left:0 !important; overflow: visible !important; }
-		.download-section .download-right { order:-1 !important; }
-		.qr-card__img, .qr-card__img_second { display:none !important; }
-		.register { display:none !important; visibility:hidden !important; height:0 !important; overflow:hidden !important; }
-		.qr-grid { display:none !important; }
-		.qr-badges-mobile { display:flex !important; gap:0; justify-content:center; align-items:center; width:100%; }
-		.qr-badge { display:block !important; margin:0 auto !important; max-width:100% !important; height:auto !important; }
-		.qr-badges-mobile .qr-badge:first-child { width:128px !important; height:43px !important; margin-left:18px !important; }
-		.qr-badges-mobile .qr-badge:last-child { width:162px !important; height:63px !important; }
-		.download-qr-title { margin-left:12px !important; font-size:28px !important; }
-		.download-img { width:510px !important; height:396px !important; max-width:none !important; object-fit:contain !important; display:block !important; margin:0 auto !important; transform: translate(-48px,-24px) !important; }
+		.download-section .download-inner {
+			width: 327px !important;
+			height: 642px !important;
+			max-width: none !important;
+			margin: 0 auto !important;
+			background-color: #F2F2F2 !important;
+			border-radius: 14px !important;
+			box-sizing: border-box !important;
+			overflow: visible !important;
+		}
+
+		.download-section .download-img-container {
+			width: 100% !important;
+			height: 100% !important;
+			padding-left: 0 !important;
+			overflow: visible !important;
+		}
+
+		.download-section .download-right {
+			order: -1 !important;
+		}
+
+		.qr-card__img,
+		.qr-card__img_second {
+			display: none !important;
+		}
+
+		.register {
+			display: none !important;
+			visibility: hidden !important;
+			height: 0 !important;
+			overflow: hidden !important;
+		}
+
+		.qr-grid {
+			display: none !important;
+		}
+
+		.qr-badges-mobile {
+			display: flex !important;
+			gap: 0;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		.qr-badge {
+			display: block !important;
+			margin: 0 auto !important;
+			max-width: 100% !important;
+			height: auto !important;
+		}
+
+		.qr-badges-mobile .qr-badge:first-child {
+			width: 128px !important;
+			height: 43px !important;
+			margin-left: 18px !important;
+		}
+
+		.qr-badges-mobile .qr-badge:last-child {
+			width: 162px !important;
+			height: 63px !important;
+		}
+
+		.download-qr-title {
+			margin-left: 12px !important;
+			font-size: 28px !important;
+		}
+
+		.download-img {
+			width: 510px !important;
+			height: 396px !important;
+			max-width: none !important;
+			object-fit: contain !important;
+			display: block !important;
+			margin: 0 auto !important;
+			transform: translate(-48px, -24px) !important;
+		}
 
 		/* download-bg phone override */
-		.download-bg { padding-top:0 !important; width:327px !important; height:642px !important; max-width:none !important; margin:0 auto !important; box-sizing:border-box !important; border-radius:14px !important; transform: translateY(-24px) !important; }
+		.download-bg {
+			padding-top: 0 !important;
+			width: 327px !important;
+			height: 642px !important;
+			max-width: none !important;
+			margin: 0 auto !important;
+			box-sizing: border-box !important;
+			border-radius: 14px !important;
+			transform: translateY(-24px) !important;
+		}
 
 
 
 		/* left-top: image above text (ordering) */
-		.left-top { display:flex !important; flex-direction:column !important; align-items:center !important; }
-		.left-top .lefttop-img { order:1 !important; margin-bottom:12px !important; }
-		.left-top > .w-full.text-center.mb-4 { order:2 !important; width:100% !important; text-align:center !important; }
+		.left-top {
+			display: flex !important;
+			flex-direction: column !important;
+			align-items: center !important;
+		}
+
+		.left-top .lefttop-img {
+			order: 1 !important;
+			margin-bottom: 12px !important;
+		}
+
+		.left-top>.w-full.text-center.mb-4 {
+			order: 2 !important;
+			width: 100% !important;
+			text-align: center !important;
+		}
 
 		/* community small-screen tweaks */
-		.community-mobile-features { 
-			margin-top:0 !important; 
+		.community-mobile-features {
+			margin-top: 0 !important;
 			padding-left: 0 !important;
 			padding-right: 0 !important;
 			display: flex !important;
@@ -4293,16 +4786,35 @@ header.header--open {
 		}
 
 		/* Remove the horizontal gap between community columns on phones */
-		.community-section > .mx-auto {
+		.community-section>.mx-auto {
 			gap: 18px !important;
 		}
-		.community-feature-title, .community-title, .community-card-label, .community-feature-desc { font-size:16px !important; line-height:1.2 !important; }
-		.community-card-label { transform: translateY(-8px) !important; }
+
+		.community-feature-title,
+		.community-title,
+		.community-card-label,
+		.community-feature-desc {
+			font-size: 16px !important;
+			line-height: 1.2 !important;
+		}
+
+		.community-card-label {
+			transform: translateY(-8px) !important;
+		}
 
 		/* mobile-only editable label */
-		.community-cr-label-mobile { font-size:20px !important; line-height:1.2 !important; transform: translateY(-8px) !important; margin-top:0 !important; margin-bottom:0 !important; text-align:center !important; }
+		.community-cr-label-mobile {
+			font-size: 20px !important;
+			line-height: 1.2 !important;
+			transform: translateY(-8px) !important;
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+			text-align: center !important;
+		}
 
-		.community-icon-row { transform: translateY(-20px) !important; }
+		.community-icon-row {
+			transform: translateY(-20px) !important;
+		}
 
 		/* Ensure right-bottom card text is 18px on phones */
 		.right-bottom-mobile .community-right-bottom-text {
@@ -4359,9 +4871,14 @@ header.header--open {
 		.hero-icon-tire,
 		.hero-icon-wrench,
 		.hero-icon-nocrash,
-		.hero-icon-shine { width: auto !important; height: 24px !important; }
+		.hero-icon-shine {
+			width: auto !important;
+			height: 24px !important;
+		}
 
-		.hero-line { gap: 6px !important; }
+		.hero-line {
+			gap: 6px !important;
+		}
 	}
 
 	/* Mobile-specific styles for the new right-top mobile block */
@@ -4710,7 +5227,9 @@ header.header--open {
 		}
 
 		/* Hide the desktop promo-icons on mobile to avoid duplication */
-		.promo-icons { display: none !important; }
+		.promo-icons {
+			display: none !important;
+		}
 
 		@media (max-width: 480px) {
 
@@ -4804,234 +5323,235 @@ header.header--open {
 			display: block !important;
 		}
 
-	/* If carClean tab is active, hide the promo logo (applies across breakpoints) */
-	.promo-left.promo-tab-carclean .promo-logo,
-	.promo-left.promo-tab-carclean .promo-logo img {
-		display: none !important;
+		/* If carClean tab is active, hide the promo logo (applies across breakpoints) */
+		.promo-left.promo-tab-carclean .promo-logo,
+		.promo-left.promo-tab-carclean .promo-logo img {
+			display: none !important;
+		}
+
+		/* Also hide the promo logo when the database tab (car4) is active */
+		.promo-left.promo-tab-car4 .promo-logo,
+		.promo-left.promo-tab-car4 .promo-logo img {
+			display: none !important;
+		}
 	}
 
-	/* Also hide the promo logo when the database tab (car4) is active */
-	.promo-left.promo-tab-car4 .promo-logo,
-	.promo-left.promo-tab-car4 .promo-logo img {
-		display: none !important;
-	}
-	}
-
-/* Mobile: set reviews section H2 to 36px for phone view (<=480px) */
-@media (max-width: 480px) {
-    .reviews-section h2 {
-        font-size: 36px !important;
-        line-height: 1.05 !important;
-        margin-bottom: 24px !important;
-    }
-}
-
-/* Mobile: make small decorative bars 60x12 on phones */
-@media (max-width: 480px) {
-	.map-trail-bar,
-	.question-bar,
-	.feature-header-bar,
-	.advertise-bar {
-		width: 60px !important;
-		height: 12px !important;
-		border-radius: 6px !important;
+	/* Mobile: set reviews section H2 to 36px for phone view (<=480px) */
+	@media (max-width: 480px) {
+		.reviews-section h2 {
+			font-size: 36px !important;
+			line-height: 1.05 !important;
+			margin-bottom: 24px !important;
+		}
 	}
 
-	/* Hide desktop map trail, show mobile stacked version */
-	.map-trail-desktop {
-		display: none !important;
+	/* Mobile: make small decorative bars 60x12 on phones */
+	@media (max-width: 480px) {
+
+		.map-trail-bar,
+		.question-bar,
+		.feature-header-bar,
+		.advertise-bar {
+			width: 60px !important;
+			height: 12px !important;
+			border-radius: 6px !important;
+		}
+
+		/* Hide desktop map trail, show mobile stacked version */
+		.map-trail-desktop {
+			display: none !important;
+		}
+
+		.map-trail-mobile {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 40px !important;
+			padding: 24px 12px !important;
+		}
+
+		/* Mobile map step styling */
+		.map-step-mobile {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 8px !important;
+			align-items: flex-start !important;
+		}
+
+		.map-step-mobile__num {
+			font-size: 80px !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			color: #C40228 !important;
+			line-height: 1 !important;
+			flex-shrink: 0 !important;
+			margin-bottom: 0 !important;
+		}
+
+		.map-step-mobile__content {
+			flex: 1 !important;
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 12px !important;
+			width: 100% !important;
+		}
+
+		.map-step-mobile__img {
+			width: 100% !important;
+			max-width: 280px !important;
+			height: auto !important;
+			margin: 8px 0 !important;
+		}
+
+		/* Step 1: stepMobile1.png */
+		.map-step-mobile:nth-child(1) .map-step-mobile__content {
+			position: relative !important;
+		}
+
+		.map-step-mobile:nth-child(1) .map-step-mobile__img:first-of-type {
+			max-width: 425px !important;
+			width: 425px !important;
+			height: 300px !important;
+		}
+
+		.map-step-mobile:nth-child(1) .map-step-mobile__img:nth-of-type(2) {
+			max-width: 122px !important;
+			width: 122px !important;
+			height: 233px !important;
+			position: absolute !important;
+			top: -10px !important;
+			left: 78% !important;
+			transform: translateX(-50%) !important;
+			z-index: 2 !important;
+		}
+
+		/* Step 2: slide7.png */
+		.map-step-mobile:nth-child(2) .map-step-mobile__img:first-of-type {
+			max-width: 136% !important;
+			width: 128% !important;
+			height: 300px !important;
+			transform: translateX(-37px) !important;
+		}
+
+		.map-step-mobile:nth-child(2) .map-step-mobile__img:nth-of-type(2) {
+			max-width: 325px !important;
+			width: 325px !important;
+			height: 250px !important;
+			margin-top: -225px !important;
+		}
+
+		/* Step 3: stepCar3.png */
+		.map-step-mobile:nth-child(3) .map-step-mobile__img:first-of-type {
+			max-width: 126% !important;
+			width: 110% !important;
+			height: 420px !important;
+		}
+
+		.map-step-mobile:nth-child(3) .map-step-mobile__img:nth-of-type(2) {
+			max-width: 346px !important;
+			width: 346px !important;
+			height: 140px !important;
+			margin-top: -300px !important;
+			margin-left: 80px !important;
+		}
+
+		/* Step 4: mobile4.png */
+		.map-step-mobile:nth-child(4) .map-step-mobile__img {
+			max-width: 130% !important;
+			width: 130% !important;
+			height: 230px !important;
+			transform: translateX(-50px) !important;
+		}
+
+		/* Step 5: penizky.png */
+		.map-step-mobile:nth-child(5) .map-step-mobile__img {
+			max-width: 200px !important;
+			width: 200px !important;
+			height: 144px !important;
+			margin-left: auto !important;
+			transform: translateX(34px) !important;
+		}
+
+		.map-step-mobile__title {
+			font-size: 24px !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			text-transform: uppercase !important;
+			color: #1E1E1E !important;
+			line-height: 1.2 !important;
+			margin: 0 !important;
+		}
+
+		.map-step-mobile__title-row {
+			display: flex !important;
+			align-items: center !important;
+			gap: 12px !important;
+			flex-wrap: wrap !important;
+		}
+
+		.map-step-mobile__badge {
+			background: #0FC26C !important;
+			color: #FFFFFF !important;
+			font-size: 12px !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			text-transform: uppercase !important;
+			padding: 4px 12px !important;
+			border-radius: 100px !important;
+			display: inline-block !important;
+			width: 102px !important;
+			height: 25px !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+
+		.map-step-mobile__badge--gold {
+			background: #E2BA04 !important;
+		}
+
+		.map-step-mobile__desc {
+			font-size: 16px !important;
+			color: #1E1E1E !important;
+			line-height: 1.5 !important;
+			margin: 0 !important;
+		}
+
+		.map-step-mobile__note {
+			font-size: 16px !important;
+			font-weight: 700 !important;
+			color: #1AC660 !important;
+			font-style: italic !important;
+			margin-top: 8px !important;
+		}
+
+		/* Map trail section title */
+		.map-trail-section {
+			background: #F2F2F2 !important;
+			overflow-x: hidden !important;
+		}
+
+		.map-trail-section h2 {
+			font-size: 32px !important;
+			margin-bottom: 32px !important;
+		}
+
+		.map-trail-mobile {
+
+			width: 100% !important;
+			max-width: 425px !important;
+		}
 	}
 
-	.map-trail-mobile {
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 40px !important;
-		padding: 24px 12px !important;
-	}
+	/* Desktop: hide mobile version, show desktop SVG */
+	@media (min-width: 481px) {
+		.map-trail-mobile {
+			display: none !important;
+		}
 
-	/* Mobile map step styling */
-	.map-step-mobile {
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 8px !important;
-		align-items: flex-start !important;
+		.map-trail-desktop {
+			display: block !important;
+		}
 	}
-
-	.map-step-mobile__num {
-		font-size: 80px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		color: #C40228 !important;
-		line-height: 1 !important;
-		flex-shrink: 0 !important;
-		margin-bottom: 0 !important;
-	}
-
-	.map-step-mobile__content {
-		flex: 1 !important;
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 12px !important;
-		width: 100% !important;
-	}
-
-	.map-step-mobile__img {
-		width: 100% !important;
-		max-width: 280px !important;
-		height: auto !important;
-		margin: 8px 0 !important;
-	}
-
-	/* Step 1: stepMobile1.png */
-	.map-step-mobile:nth-child(1) .map-step-mobile__content {
-		position: relative !important;
-	}
-
-	.map-step-mobile:nth-child(1) .map-step-mobile__img:first-of-type {
-		max-width: 425px !important;
-		width: 425px !important;
-		height: 300px !important;
-	}
-
-	.map-step-mobile:nth-child(1) .map-step-mobile__img:nth-of-type(2) {
-		max-width: 122px !important;
-		width: 122px !important;
-		height: 233px !important;
-		position: absolute !important;
-		top: -10px !important;
-		left: 78% !important;
-		transform: translateX(-50%) !important;
-		z-index: 2 !important;
-	}
-
-	/* Step 2: slide7.png */
-	.map-step-mobile:nth-child(2) .map-step-mobile__img:first-of-type {
-		max-width: 136% !important;
-		width: 128% !important;
-		height: 300px !important;
-		transform: translateX(-37px) !important;
-	}
-
-	.map-step-mobile:nth-child(2) .map-step-mobile__img:nth-of-type(2) {
-		max-width: 325px !important;
-		width: 325px !important;
-		height: 250px !important;
-		margin-top: -225px !important;
-	}
-
-	/* Step 3: stepCar3.png */
-	.map-step-mobile:nth-child(3) .map-step-mobile__img:first-of-type {
-		max-width: 126% !important;
-		width: 110% !important;
-		height: 420px !important;
-	}
-
-	.map-step-mobile:nth-child(3) .map-step-mobile__img:nth-of-type(2) {
-		max-width: 346px !important;
-		width: 346px !important;
-		height: 140px !important;
-		margin-top: -300px !important;
-		margin-left: 80px !important;
-	}
-
-	/* Step 4: mobile4.png */
-	.map-step-mobile:nth-child(4) .map-step-mobile__img {
-		max-width: 130% !important;
-		width: 130% !important;
-		height: 230px !important;
-		transform: translateX(-50px) !important;
-	}
-
-	/* Step 5: penizky.png */
-	.map-step-mobile:nth-child(5) .map-step-mobile__img {
-		max-width: 200px !important;
-		width: 200px !important;
-		height: 144px !important;
-		margin-left: auto !important;
-		transform: translateX(34px) !important;
-	}
-
-	.map-step-mobile__title {
-		font-size: 24px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-transform: uppercase !important;
-		color: #1E1E1E !important;
-		line-height: 1.2 !important;
-		margin: 0 !important;
-	}
-
-	.map-step-mobile__title-row {
-		display: flex !important;
-		align-items: center !important;
-		gap: 12px !important;
-		flex-wrap: wrap !important;
-	}
-
-	.map-step-mobile__badge {
-		background: #0FC26C !important;
-		color: #FFFFFF !important;
-		font-size: 12px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-transform: uppercase !important;
-		padding: 4px 12px !important;
-		border-radius: 100px !important;
-		display: inline-block !important;
-		width: 102px !important;
-		height: 25px !important;
-		display: flex !important;
-		align-items: center !important;
-		justify-content: center !important;
-	}
-
-	.map-step-mobile__badge--gold {
-		background: #E2BA04 !important;
-	}
-
-	.map-step-mobile__desc {
-		font-size: 16px !important;
-		color: #1E1E1E !important;
-		line-height: 1.5 !important;
-		margin: 0 !important;
-	}
-
-	.map-step-mobile__note {
-		font-size: 16px !important;
-		font-weight: 700 !important;
-		color: #1AC660 !important;
-		font-style: italic !important;
-		margin-top: 8px !important;
-	}
-
-	/* Map trail section title */
-	.map-trail-section {
-		background: #F2F2F2 !important;
-		overflow-x: hidden !important;
-	}
-
-	.map-trail-section h2 {
-		font-size: 32px !important;
-		margin-bottom: 32px !important;
-	}
-
-	.map-trail-mobile {
-
-		width: 100% !important;
-		max-width: 425px !important;
-	}
-}
-
-/* Desktop: hide mobile version, show desktop SVG */
-@media (min-width: 481px) {
-	.map-trail-mobile {
-		display: none !important;
-	}
-
-	.map-trail-desktop {
-		display: block !important;
-	}
-}
 
 	/* Ensure desktop (>=768px) shows the full promo copy — restore visibility/size
 	in case earlier mobile overrides affected desktop rendering. */
@@ -5060,886 +5580,941 @@ header.header--open {
 		}
 	}
 
-/* Mobile: set background for reviews and promo sections to light gray (#F2F2F2) */
-@media (max-width: 480px) {
-	.reviews-section,
-	.promo-section {
-		background-color: #F2F2F2 !important;
-	}
-}
-
-/* Mobile: ensure reviews-section has no top margin on phones */
-@media (max-width: 1024px) {
-	.reviews-section {
-		margin-top: 0 !important;
-		margin-left: 0px !important;
-	}
-
-	.reviews-section .flex {
-		gap: 24px !important;
-		margin: 0 auto !important;
-	}
-
-	/* Hide reviews 3, 4, 5 on mobile by default */
-	.review-card--hidden,
-	.review-card-right.review-card--hidden,
-	.reviews-left .review-card--hidden {
-		display: none !important;
-	}
-
-	/* Show all reviews when active */
-	.reviews-section.show-all .review-card--hidden,
-	.reviews-section.show-all .review-card-right.review-card--hidden,
-	.reviews-section.show-all .reviews-left .review-card--hidden {
-		display: block !important;
-	}
-
-	/* Show all button styling */
-	.reviews-show-all-btn {
-		cursor: pointer;
-		background: none !important;
-		color: #1E1E1E !important;
-		font-size: 16px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-align: left !important;
-		padding: 0 !important;
-		margin: 0 !important;
-		display: block !important;
-	}
-
-	.reviews-hide-all-btn {
-		cursor: pointer;
-		background: none !important;
-		color: #1E1E1E !important;
-		font-size: 16px !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-		text-align: left !important;
-		padding: 0 !important;
-		margin-top: 32px !important;
-		display: none !important;
-	}
-
-	.reviews-show-all-btn:hover,
-	.reviews-hide-all-btn:hover {
-		opacity: 0.7;
-	}
-
-	/* Hide show button when all reviews are shown */
-	.reviews-section.show-all .reviews-show-all-btn {
-		display: none !important;
-	}
-
-	/* Show hide button when all reviews are shown */
-	.reviews-section.show-all .reviews-hide-all-btn {
-		display: block !important;
-	}
-}
-
-/* Mobile: position small carside icon inside review cards to the top-left */
-@media (max-width: 480px) {
-	.review-card img[alt="carside icon"],
-	.review-card-right img[alt="carside icon"] {
-		position: absolute !important;
-		top: 18px !important;
-		left: 18px !important;
-		right: auto !important;
-		bottom: auto !important;
-		width: 52px !important;
-		height: 25px !important;
-	}
-}
-
-/* Mobile: make review paragraph text 16px for better mobile fit */
-@media (max-width: 480px) {
-	.reviews-section .review-card p,
-	.reviews-section .review-card-right p,
-	.reviews-section .reviews-left .review-card p {
-		font-size: 16px !important;
-		line-height: 1.4 !important;
-		margin-top: 32px !important;
-		margin-bottom: 4px !important;
-	}
-}
-
-/* Mobile: exact sizes for each review card (first..fifth) */
-@media (max-width: 480px) {
-	/* Left column (three stacked cards) */
-	.reviews-left > .review-card:nth-of-type(1) {
-		width: 327px !important;
-		height: 293px !important;
-		margin-left: auto !important;
-		margin-right: auto !important;
-		box-sizing: border-box !important;
-		overflow: hidden !important;
-	}
-
-	.reviews-left > .review-card:nth-of-type(2) {
-		width: 327px !important;
-		height: 401px !important;
-		margin-left: auto !important;
-		margin-right: auto !important;
-		box-sizing: border-box !important;
-		overflow: hidden !important;
-	}
-
-	.reviews-left > .review-card:nth-of-type(3) {
-		width: 327px !important;
-		height: 293px !important;
-		margin-left: auto !important;
-		margin-right: auto !important;
-		box-sizing: border-box !important;
-		overflow: hidden !important;
-	}
-
-	/* Right column (two stacked cards) */
-	/* Swap: 4th card should be taller (530), 5th slightly shorter (369) */
-	.reviews-right > .review-card-right:nth-of-type(1) {
-		width: 327px !important;
-		height: 530px !important;
-		margin-left: 0px !important;
-		margin-right: auto !important;
-		box-sizing: border-box !important;
-		overflow: hidden !important;
-	}
-
-	.reviews-right > .review-card-right:nth-of-type(2) {
-		width: 327px !important;
-		height: 369px !important;
-		margin-left: 0px !important;
-		margin-right: auto !important;
-		box-sizing: border-box !important;
-		overflow: hidden !important;
-	}
-
-	/* Ensure the review cards keep their internal padding/layout when forced to height */
-	.review-card,
-	.review-card-right {
-		padding: 16px !important;
-		display: block !important;
-	}
-}
-
-/* Questions section: mobile specific overrides (<=480px) */
-@media (max-width: 480px) {
-	/* Remove the decorative questions background on phones to avoid overlap */
-	.questions-section .questions-bg {
-		display: none !important;
-		visibility: hidden !important;
-		width: 0 !important;
-		height: 0 !important;
-		pointer-events: none !important;
-	}
-
-	/* Make the questions title large and readable on phones */
-	.questions-section h2 {
-		font-size: 36px !important;
-		line-height: 1.05 !important;
-		margin-top: 0 !important;
-		margin-bottom: 16px !important;
-	}
-
-	/* Constrain accordions to the phone panel width and set header height to 60px */
-	.questions-section .accordion {
-		width: 327px !important;
-		margin: 0 auto !important;
-		box-sizing: border-box !important;
-	}
-
-	.questions-section .accordion .accordion-item-wrapper {
-		width: 327px !important;
-		min-height: 60px !important;
-		border-radius: 12px !important;
-		padding: 0 12px !important;
-		box-sizing: border-box !important;
-		overflow: hidden !important;
-	}
-
-	.questions-section .accordion .accordion-header {
-		min-height: 60px !important;
-		height: 60px !important;
-		display: flex !important;
-		align-items: center !important;
-		padding-left: 12px !important;
-		padding-right: 12px !important;
-		font-size: 18px !important;
-	}
-}
-
-/* Questions accordion typography on mobile: header 18px, body 16px */
-@media (max-width: 480px) {
-	.questions-section .accordion .accordion-header {
-		font-size: 18px !important;
-		font-weight: 500 !important;
-		line-height: 1.1 !important;
-	}
-
-	.questions-section .accordion .accordion-body {
-		font-size: 16px !important;
-		line-height: 1.45 !important;
-	}
-}
-
-/* Mobile: style for "Zobraziť všetky" control inside Questions section */
-@media (max-width: 480px) {
-	.questions-show-all {
-		font-size: 16px !important;
-		text-align: left !important;
-		width: 327px !important;
-		margin: 12px auto 0 auto !important;
-		color: #1E1E1E !important;
-		font-weight: 900 !important;
-		font-style: italic !important;
-	}
-}
-
-/* Mobile-only question car image (small, centered) */
-@media (max-width: 480px) {
-
-	.questions-bg-mobile {
-		display: block !important;
-		position: relative !important;
-		width: 418px !important;
-		margin: 0 auto 8px auto !important;
-		z-index: 0 !important;
-		pointer-events: none !important;
-	}
-
-	.questions-bg-mobile__img {
-		display: block !important;
-		width: 450px !important;
-		height: 250px !important;
-		object-fit: contain !important;
-		margin: 0 auto !important;
-	}
-
-	/* Keep the large gradient background hidden on phones (we only want the car) */
-	.questions-section .questions-bg {
-		display: none !important;
-		visibility: hidden !important;
-		width: 0 !important;
-		height: 0 !important;
-		pointer-events: none !important;
-	}
-}
-
-/* Mobile: ensure Questions section uses light gray background on phones */
-@media (max-width: 480px) {
-	.questions-section {
-		background-color: #F2F2F2 !important;
-	}
-}
-
-/* Mobile: ensure reviews section has no bottom margin on phones */
-@media (max-width: 480px) {
-	.reviews-section {
-		margin-bottom: 0 !important;
-	}
-}
-
-/* Advertise section: mobile adjustments */
-@media (max-width: 480px) {
-	.advertise-section {
-		background-color: #F2F2F2 !important;
-		padding-top: 24px !important;
-		padding-bottom: 100px !important;
-		margin-top: 0px !important;
-		margin-bottom: 0px !important;
-	}
-
-	.advertise-title {
-		font-size: 36px !important;
-		line-height: 1.05 !important;
-		margin-bottom: 24px !important;
-		text-align: left !important;
-		padding-left: 12px !important;
-	}
-
-	.adv-grid {
-		gap: 16px !important;
-		grid-template-columns: 1fr !important;
-	}
-
-	.adv-card {
-		width: 327px !important;
-		height: 176px !important;
-		margin: 0 auto !important;
-		padding: 12px !important;
-		box-sizing: border-box !important;
-		border-radius: 14px !important;
-		overflow: visible !important;
-	}
-
-	/* When a card is activated on touch, use the element's --active-bg variable */
-	.adv-card.adv-card--active {
-		background-color: var(--active-bg) !important;
-		color: #ffffff !important;
-	}
-
-	/* Also invert logos when active to match hover state */
-	.adv-card.adv-card--active .adv-logo {
-		filter: grayscale(100%) brightness(0) invert(1) !important;
-		opacity: 0.98 !important;
-	}
-
-	/* Mobile: show only first 3 advertise cards; 'show all' toggles .adv-grid--expanded */
-	.adv-grid {
-		grid-template-columns: 1fr !important;
-	}
-
-	/* hide cards 4+ using animated properties instead of display */
-	.adv-grid .adv-card:nth-child(n+4) {
-		max-height: 0 !important;
-		opacity: 0 !important;
-		transform: translateY(-8px) !important;
-		overflow: hidden !important;
-		pointer-events: none !important;
-		transition: max-height 360ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease, transform 300ms cubic-bezier(.2,.9,.2,1);
-	}
-
-	.adv-grid.adv-grid--expanded .adv-card:nth-child(n+4) {
-		max-height: 500px !important; /* large enough to reveal each card */
-		opacity: 1 !important;
-		transform: translateY(0) !important;
-		pointer-events: auto !important;
-	}
-
-	/* ensure all adv-cards have a smooth base transition */
-	.adv-card {
-		transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease, max-height 360ms cubic-bezier(.2,.9,.2,1);
-	}
-
-	/* Mobile 'show all' link styling */
-	.adv-show-all {
-		display: block !important;
-		/* move the control up on small screens so it's visually closer to the cards */
-		margin-top: -65px !important;
-		text-align: left !important;
-		font-style: italic !important;
-		font-weight: 900 !important;
-		font-size: 16px !important;
-		color: #1E1E1E !important;
-		text-decoration: none !important;
-		padding-left: 12px !important;
-	}
-
-	.adv-logo {
-		top: 24px !important;
-		left: 24px !important;
-		width: 120px !important;
-		height: auto !important;
-		max-width: 120px !important;
-		object-fit: contain !important;
-	}
-
-	/* Footer: mobile layout and logo sizes */
-	.site-footer {
-		background-color: #1E1E1E !important;
-		color: #FFFFFF !important;
-		padding-top: 24px !important;
-		padding-bottom: 24px !important;
-	}
-
-	.footer-inner {
-		max-width: 327px !important;
-		margin: 0 auto !important;
-		padding-left: 12px !important;
-		padding-right: 12px !important;
-	}
-
-	.footer-grid {
-		display: grid !important;
-		grid-template-columns: 1fr !important;
-		gap: 18px !important;
-		align-items: start !important;
-	}
-
-	.footer-col--brand {
-		display: flex !important;
-		/* place invite text above logos on mobile */
-		flex-direction: column !important;
-		gap: 8px !important;
-		align-items: flex-start !important;
-	}
-
-	.footer-logo {
-		width: 104px !important;
-		height: 48px !important;
-		object-fit: contain !important;
-		display: block !important;
-	}
-
-	.footer-sublogo img {
-		width: 123px !important;
-		height: 20px !important;
-		object-fit: contain !important;
-		display: block !important;
-		margin: 0 !important;
-	}
-
-	/* Small adjustment: invite text next to the logo */
-	.footer-invite {
-		font-size: 14px !important;
-		color: #FFFFFF !important;
-		margin: 0 !important;
-		line-height: 1 !important;
-	}
-
-	/* If sublogo shares the same row, ensure it doesn't wrap and is vertically centered */
-	.footer-sublogo {
-		display: flex !important;
-		align-items: center !important;
-	}
-
-	/* Row containing the main footer logo and the brandcars sublogo */
-	.footer-logos-row {
-		display: flex !important;
-		flex-direction: row !important;
-		align-items: center !important;
-		gap: 50px !important;
-		background: none !important;
-		background-color: transparent !important;
-	}
-
-	/* Ensure the main footer logo aligns left and sublogo sits to its right */
-	.footer-logos-row .footer-logo { margin: 0 !important; }
-	.footer-logos-row .footer-sublogo { margin: 0 !important; }
-
-	/* Column that contains the invite text above the second (brandcars) logo */
-	.footer-subcol {
-		display: flex !important;
-		flex-direction: column !important;
-		align-items: flex-start !important;
-		justify-content: center !important;
-		gap: 6px !important;
-	}
-
-	/* Slightly reduce invite size when it's above the small brandcars logo and left-align */
-	.footer-subcol .footer-invite {
-		font-size: 13px !important;
-		text-align: left !important;
-		align-self: flex-start !important;
-	}
-
-	/* Ensure the brandcars image sits flush under the invite line */
-	.footer-subcol .footer-sublogo img {
-		display: block !important;
-		width: 123px !important;
-		height: 20px !important;
-		object-fit: contain !important;
-	}
-
-	/* Ensure no background boxes behind logos or invite text on mobile */
-	.footer-logos-row img,
-	.footer-sublogo,
-	.footer-logo,
-	.footer-invite {
-		background: none !important;
-		background-color: transparent !important;
-	}
-
-	.footer-mid {
-		display: grid !important;
-		grid-template-columns: repeat(2, 1fr) !important;
-		gap: 12px !important;
-	}
-
-	.footer-col .footer-links {
-		padding: 0 !important;
-		margin: 0 !important;
-		list-style: none !important;
-	}
-
-	.footer-col .footer-links li { margin-bottom: 8px !important; }
-
-	.footer-col .footer-links a { color: #FFFFFF !important; text-decoration: none !important; font-size: 14px !important; background: none !important; }
-
-	.footer-col--contact {
-		display: flex !important;
-		flex-direction: column !important;
-		gap: 12px !important;
-		align-items: flex-start !important;
-	}
-
-	.footer-social a img { width: 24px !important; height: 24px !important; margin-right: 8px !important; }
-
-	.footer-address { font-size: 12px !important; color: #CCCCCC !important; }
-
-	.footer-okriders-logo {
-		width: 106px !important;
-		height: 20px !important;
-		object-fit: contain !important;
-		display: block !important;
-		margin-top: 6px !important;
-	}
-
-	/* Position advertise car images on mobile as requested */
-	img.adv-car {
-		position: absolute !important;
-		right: -55px !important;
-		bottom: -42px !important;
-		object-fit: contain !important;
-		max-width: none !important;
-	}
-
-	/* Force hero to exact phone dimensions on small screens (375x812) */
+	/* Mobile: set background for reviews and promo sections to light gray (#F2F2F2) */
 	@media (max-width: 480px) {
-		.hero-bg {
-			max-width: 425px !important;
-			height: 812px !important;
+
+		.reviews-section,
+		.promo-section {
+			background-color: #F2F2F2 !important;
+		}
+	}
+
+	/* Mobile: ensure reviews-section has no top margin on phones */
+	@media (max-width: 1024px) {
+		.reviews-section {
+			margin-top: 0 !important;
+			margin-left: 0px !important;
+		}
+
+		.reviews-section .flex {
+			gap: 24px !important;
 			margin: 0 auto !important;
+		}
+
+		/* Hide reviews 3, 4, 5 on mobile by default */
+		.review-card--hidden,
+		.review-card-right.review-card--hidden,
+		.reviews-left .review-card--hidden {
+			display: none !important;
+		}
+
+		/* Show all reviews when active */
+		.reviews-section.show-all .review-card--hidden,
+		.reviews-section.show-all .review-card-right.review-card--hidden,
+		.reviews-section.show-all .reviews-left .review-card--hidden {
+			display: block !important;
+		}
+
+		/* Show all button styling */
+		.reviews-show-all-btn {
+			cursor: pointer;
+			background: none !important;
+			color: #1E1E1E !important;
+			font-size: 16px !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			text-align: left !important;
+			padding: 0 !important;
+			margin: 0 !important;
+			display: block !important;
+		}
+
+		.reviews-hide-all-btn {
+			cursor: pointer;
+			background: none !important;
+			color: #1E1E1E !important;
+			font-size: 16px !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			text-align: left !important;
+			padding: 0 !important;
+			margin-top: 32px !important;
+			display: none !important;
+		}
+
+		.reviews-show-all-btn:hover,
+		.reviews-hide-all-btn:hover {
+			opacity: 0.7;
+		}
+
+		/* Hide show button when all reviews are shown */
+		.reviews-section.show-all .reviews-show-all-btn {
+			display: none !important;
+		}
+
+		/* Show hide button when all reviews are shown */
+		.reviews-section.show-all .reviews-hide-all-btn {
+			display: block !important;
+		}
+	}
+
+	/* Mobile: position small carside icon inside review cards to the top-left */
+	@media (max-width: 480px) {
+
+		.review-card img[alt="carside icon"],
+		.review-card-right img[alt="carside icon"] {
+			position: absolute !important;
+			top: 18px !important;
+			left: 18px !important;
+			right: auto !important;
+			bottom: auto !important;
+			width: 52px !important;
+			height: 25px !important;
+		}
+	}
+
+	/* Mobile: make review paragraph text 16px for better mobile fit */
+	@media (max-width: 480px) {
+
+		.reviews-section .review-card p,
+		.reviews-section .review-card-right p,
+		.reviews-section .reviews-left .review-card p {
+			font-size: 16px !important;
+			line-height: 1.4 !important;
+			margin-top: 32px !important;
+			margin-bottom: 4px !important;
+		}
+	}
+
+	/* Mobile: exact sizes for each review card (first..fifth) */
+	@media (max-width: 480px) {
+
+		/* Left column (three stacked cards) */
+		.reviews-left>.review-card:nth-of-type(1) {
+			width: 327px !important;
+			height: 293px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			box-sizing: border-box !important;
 			overflow: hidden !important;
-			position: relative !important;
 		}
 
-		/* Constrain carousel & slides to the same width so layout matches the fixed phone frame */
-		.hero-carousel,
-		.hero-slides,
-		.hero-slides-track {
-			max-width: 425px !important;
+		.reviews-left>.review-card:nth-of-type(2) {
+			width: 327px !important;
+			height: 401px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			box-sizing: border-box !important;
+			overflow: hidden !important;
+		}
+
+		.reviews-left>.review-card:nth-of-type(3) {
+			width: 327px !important;
+			height: 293px !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			box-sizing: border-box !important;
+			overflow: hidden !important;
+		}
+
+		/* Right column (two stacked cards) */
+		/* Swap: 4th card should be taller (530), 5th slightly shorter (369) */
+		.reviews-right>.review-card-right:nth-of-type(1) {
+			width: 327px !important;
+			height: 530px !important;
+			margin-left: 0px !important;
+			margin-right: auto !important;
+			box-sizing: border-box !important;
+			overflow: hidden !important;
+		}
+
+		.reviews-right>.review-card-right:nth-of-type(2) {
+			width: 327px !important;
+			height: 369px !important;
+			margin-left: 0px !important;
+			margin-right: auto !important;
+			box-sizing: border-box !important;
+			overflow: hidden !important;
+		}
+
+		/* Ensure the review cards keep their internal padding/layout when forced to height */
+		.review-card,
+		.review-card-right {
+			padding: 16px !important;
+			display: block !important;
+		}
+	}
+
+	/* Questions section: mobile specific overrides (<=480px) */
+	@media (max-width: 480px) {
+
+		/* Remove the decorative questions background on phones to avoid overlap */
+		.questions-section .questions-bg {
+			display: none !important;
+			visibility: hidden !important;
+			width: 0 !important;
+			height: 0 !important;
+			pointer-events: none !important;
+		}
+
+		/* Make the questions title large and readable on phones */
+		.questions-section h2 {
+			font-size: 36px !important;
+			line-height: 1.05 !important;
+			margin-top: 0 !important;
+			margin-bottom: 16px !important;
+		}
+
+		/* Constrain accordions to the phone panel width and set header height to 60px */
+		.questions-section .accordion {
+			width: 327px !important;
 			margin: 0 auto !important;
-		}
-
-		.slide-inner {
-			width: 375px !important;
-			max-width: 375px !important;
-			padding-left: 0 !important;
-			padding-right: 0 !important;
 			box-sizing: border-box !important;
 		}
 
-		/* Make the hero image use the requested mobile size (255x231) */
-		.hero-right .hero-car {
-			width: 332px !important;
-			height: 153px !important;
-			max-width: none !important;
-			object-fit: contain !important;
-			display: block !important;
-			margin: 0 auto !important;
+		.questions-section .accordion .accordion-item-wrapper {
+			width: 327px !important;
+			min-height: 60px !important;
+			border-radius: 12px !important;
+			padding: 0 12px !important;
+			box-sizing: border-box !important;
+			overflow: hidden !important;
 		}
 
-		.hero-right .hero-coins {
-			width: 255px !important;
-			height: 231px !important;
-			max-width: none !important;
-			object-fit: contain !important;
-			display: block !important;
-			margin: 0 auto !important;
-		}
-
-		.hero-car {
-			width: 332px !important;
-			height: 153px !important;
-			max-width: none !important;
-			object-fit: contain !important;
-			display: block !important;
-			margin: 0 auto !important;
-		}
-
-		.hero-coins {
-			width: 255px !important;
-			height: 231px !important;
-			max-width: none !important;
-			object-fit: contain !important;
-			display: block !important;
-			margin: 0 auto !important;
+		.questions-section .accordion .accordion-header {
+			min-height: 60px !important;
+			height: 60px !important;
+			display: flex !important;
+			align-items: center !important;
+			padding-left: 12px !important;
+			padding-right: 12px !important;
+			font-size: 18px !important;
 		}
 	}
 
-	/* Reduce logo visual size inside the card on phones (if logos are images inside adv-card) */
-	.adv-card .adv-logo img,
-	.adv-card img.adv-logo {
+	/* Questions accordion typography on mobile: header 18px, body 16px */
+	@media (max-width: 480px) {
+		.questions-section .accordion .accordion-header {
+			font-size: 18px !important;
+			font-weight: 500 !important;
+			line-height: 1.1 !important;
+		}
 
+		.questions-section .accordion .accordion-body {
+			font-size: 16px !important;
+			line-height: 1.45 !important;
+		}
 	}
 
-	/* Per-logo exact sizes on mobile as requested */
-	.adv-logo--ticketmaster,
-	.adv-logo--ticketmaster img {
-		width: 175px !important;
-		height: 23px !important;
-		max-width: 175px !important;
+	/* Mobile: style for "Zobraziť všetky" control inside Questions section */
+	@media (max-width: 480px) {
+		.questions-show-all {
+			font-size: 16px !important;
+			text-align: left !important;
+			width: 327px !important;
+			margin: 12px auto 0 auto !important;
+			color: #1E1E1E !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+		}
 	}
 
-	.adv-logo--pizzahut,
-	.adv-logo--pizzahut img {
-		width: 164px !important;
-		height: 34px !important;
-		max-width: 164px !important;
+	/* Mobile-only question car image (small, centered) */
+	@media (max-width: 480px) {
+
+		.questions-bg-mobile {
+			display: block !important;
+			position: relative !important;
+			width: 418px !important;
+			margin: 0 auto 8px auto !important;
+			z-index: 0 !important;
+			pointer-events: none !important;
+		}
+
+		.questions-bg-mobile__img {
+			display: block !important;
+			width: 450px !important;
+			height: 250px !important;
+			object-fit: contain !important;
+			margin: 0 auto !important;
+		}
+
+		/* Keep the large gradient background hidden on phones (we only want the car) */
+		.questions-section .questions-bg {
+			display: none !important;
+			visibility: hidden !important;
+			width: 0 !important;
+			height: 0 !important;
+			pointer-events: none !important;
+		}
 	}
 
-	.adv-logo--costa,
-	.adv-logo--costa img {
-		width: 105px !important;
-		height: 40px !important;
-		max-width: 105px !important;
+	/* Mobile: ensure Questions section uses light gray background on phones */
+	@media (max-width: 480px) {
+		.questions-section {
+			background-color: #F2F2F2 !important;
+		}
 	}
 
-	.adv-logo--cpp,
-	.adv-logo--cpp img {
-		width: 102px !important;
-		height: 50px !important;
-		max-width: 102px !important;
+	/* Mobile: ensure reviews section has no bottom margin on phones */
+	@media (max-width: 480px) {
+		.reviews-section {
+			margin-bottom: 0 !important;
+		}
 	}
 
-	.adv-logo--pp,
-	.adv-logo--pp img {
-		width: 170px !important;
-		height: 45px !important;
-		max-width: 170px !important;
+	/* Advertise section: mobile adjustments */
+	@media (max-width: 480px) {
+		.advertise-section {
+			background-color: #F2F2F2 !important;
+			padding-top: 24px !important;
+			padding-bottom: 100px !important;
+			margin-top: 0px !important;
+			margin-bottom: 0px !important;
+		}
+
+		.advertise-title {
+			font-size: 36px !important;
+			line-height: 1.05 !important;
+			margin-bottom: 24px !important;
+			text-align: left !important;
+			padding-left: 12px !important;
+		}
+
+		.adv-grid {
+			gap: 16px !important;
+			grid-template-columns: 1fr !important;
+		}
+
+		.adv-card {
+			width: 327px !important;
+			height: 176px !important;
+			margin: 0 auto !important;
+			padding: 12px !important;
+			box-sizing: border-box !important;
+			border-radius: 14px !important;
+			overflow: visible !important;
+		}
+
+		/* When a card is activated on touch, use the element's --active-bg variable */
+		.adv-card.adv-card--active {
+			background-color: var(--active-bg) !important;
+			color: #ffffff !important;
+		}
+
+		/* Also invert logos when active to match hover state */
+		.adv-card.adv-card--active .adv-logo {
+			filter: grayscale(100%) brightness(0) invert(1) !important;
+			opacity: 0.98 !important;
+		}
+
+		/* Mobile: show only first 3 advertise cards; 'show all' toggles .adv-grid--expanded */
+		.adv-grid {
+			grid-template-columns: 1fr !important;
+		}
+
+		/* hide cards 4+ using animated properties instead of display */
+		.adv-grid .adv-card:nth-child(n+4) {
+			max-height: 0 !important;
+			opacity: 0 !important;
+			transform: translateY(-8px) !important;
+			overflow: hidden !important;
+			pointer-events: none !important;
+			transition: max-height 360ms cubic-bezier(.2, .9, .2, 1), opacity 260ms ease, transform 300ms cubic-bezier(.2, .9, .2, 1);
+		}
+
+		.adv-grid.adv-grid--expanded .adv-card:nth-child(n+4) {
+			max-height: 500px !important;
+			/* large enough to reveal each card */
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+			pointer-events: auto !important;
+		}
+
+		/* ensure all adv-cards have a smooth base transition */
+		.adv-card {
+			transition: transform 300ms cubic-bezier(.2, .9, .2, 1), opacity 260ms ease, max-height 360ms cubic-bezier(.2, .9, .2, 1);
+		}
+
+		/* Mobile 'show all' link styling */
+		.adv-show-all {
+			display: block !important;
+			/* move the control up on small screens so it's visually closer to the cards */
+			margin-top: -65px !important;
+			text-align: left !important;
+			font-style: italic !important;
+			font-weight: 900 !important;
+			font-size: 16px !important;
+			color: #1E1E1E !important;
+			text-decoration: none !important;
+			padding-left: 12px !important;
+		}
+
+		.adv-logo {
+			top: 24px !important;
+			left: 24px !important;
+			width: 120px !important;
+			height: auto !important;
+			max-width: 120px !important;
+			object-fit: contain !important;
+		}
+
+		/* Footer: mobile layout and logo sizes */
+		.site-footer {
+			background-color: #1E1E1E !important;
+			color: #FFFFFF !important;
+			padding-top: 24px !important;
+			padding-bottom: 24px !important;
+		}
+
+		.footer-inner {
+			max-width: 327px !important;
+			margin: 0 auto !important;
+			padding-left: 12px !important;
+			padding-right: 12px !important;
+		}
+
+		.footer-grid {
+			display: grid !important;
+			grid-template-columns: 1fr !important;
+			gap: 18px !important;
+			align-items: start !important;
+		}
+
+		.footer-col--brand {
+			display: flex !important;
+			/* place invite text above logos on mobile */
+			flex-direction: column !important;
+			gap: 8px !important;
+			align-items: flex-start !important;
+		}
+
+		.footer-logo {
+			width: 104px !important;
+			height: 48px !important;
+			object-fit: contain !important;
+			display: block !important;
+		}
+
+		.footer-sublogo img {
+			width: 123px !important;
+			height: 20px !important;
+			object-fit: contain !important;
+			display: block !important;
+			margin: 0 !important;
+		}
+
+		/* Small adjustment: invite text next to the logo */
+		.footer-invite {
+			font-size: 14px !important;
+			color: #FFFFFF !important;
+			margin: 0 !important;
+			line-height: 1 !important;
+		}
+
+		/* If sublogo shares the same row, ensure it doesn't wrap and is vertically centered */
+		.footer-sublogo {
+			display: flex !important;
+			align-items: center !important;
+		}
+
+		/* Row containing the main footer logo and the brandcars sublogo */
+		.footer-logos-row {
+			display: flex !important;
+			flex-direction: row !important;
+			align-items: center !important;
+			gap: 50px !important;
+			background: none !important;
+			background-color: transparent !important;
+		}
+
+		/* Ensure the main footer logo aligns left and sublogo sits to its right */
+		.footer-logos-row .footer-logo {
+			margin: 0 !important;
+		}
+
+		.footer-logos-row .footer-sublogo {
+			margin: 0 !important;
+		}
+
+		/* Column that contains the invite text above the second (brandcars) logo */
+		.footer-subcol {
+			display: flex !important;
+			flex-direction: column !important;
+			align-items: flex-start !important;
+			justify-content: center !important;
+			gap: 6px !important;
+		}
+
+		/* Slightly reduce invite size when it's above the small brandcars logo and left-align */
+		.footer-subcol .footer-invite {
+			font-size: 13px !important;
+			text-align: left !important;
+			align-self: flex-start !important;
+		}
+
+		/* Ensure the brandcars image sits flush under the invite line */
+		.footer-subcol .footer-sublogo img {
+			display: block !important;
+			width: 123px !important;
+			height: 20px !important;
+			object-fit: contain !important;
+		}
+
+		/* Ensure no background boxes behind logos or invite text on mobile */
+		.footer-logos-row img,
+		.footer-sublogo,
+		.footer-logo,
+		.footer-invite {
+			background: none !important;
+			background-color: transparent !important;
+		}
+
+		.footer-mid {
+			display: grid !important;
+			grid-template-columns: repeat(2, 1fr) !important;
+			gap: 12px !important;
+		}
+
+		.footer-col .footer-links {
+			padding: 0 !important;
+			margin: 0 !important;
+			list-style: none !important;
+		}
+
+		.footer-col .footer-links li {
+			margin-bottom: 8px !important;
+		}
+
+		.footer-col .footer-links a {
+			color: #FFFFFF !important;
+			text-decoration: none !important;
+			font-size: 14px !important;
+			background: none !important;
+		}
+
+		.footer-col--contact {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 12px !important;
+			align-items: flex-start !important;
+		}
+
+		.footer-social a img {
+			width: 24px !important;
+			height: 24px !important;
+			margin-right: 8px !important;
+		}
+
+		.footer-address {
+			font-size: 12px !important;
+			color: #CCCCCC !important;
+		}
+
+		.footer-okriders-logo {
+			width: 106px !important;
+			height: 20px !important;
+			object-fit: contain !important;
+			display: block !important;
+			margin-top: 6px !important;
+		}
+
+		/* Position advertise car images on mobile as requested */
+		img.adv-car {
+			position: absolute !important;
+			right: -55px !important;
+			bottom: -42px !important;
+			object-fit: contain !important;
+			max-width: none !important;
+		}
+
+		/* Force hero to exact phone dimensions on small screens (375x812) */
+		@media (max-width: 480px) {
+			.hero-bg {
+				max-width: 425px !important;
+				height: 812px !important;
+				margin: 0 auto !important;
+				overflow: hidden !important;
+				position: relative !important;
+			}
+
+			/* Constrain carousel & slides to the same width so layout matches the fixed phone frame */
+			.hero-carousel,
+			.hero-slides,
+			.hero-slides-track {
+				max-width: 425px !important;
+				margin: 0 auto !important;
+			}
+
+			.slide-inner {
+				width: 375px !important;
+				max-width: 375px !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				box-sizing: border-box !important;
+			}
+
+			/* Make the hero image use the requested mobile size (255x231) */
+			.hero-right .hero-car {
+				width: 332px !important;
+				height: 153px !important;
+				max-width: none !important;
+				object-fit: contain !important;
+				display: block !important;
+				margin: 0 auto !important;
+			}
+
+			.hero-right .hero-coins {
+				width: 255px !important;
+				height: 231px !important;
+				max-width: none !important;
+				object-fit: contain !important;
+				display: block !important;
+				margin: 0 auto !important;
+			}
+
+			.hero-car {
+				width: 332px !important;
+				height: 153px !important;
+				max-width: none !important;
+				object-fit: contain !important;
+				display: block !important;
+				margin: 0 auto !important;
+			}
+
+			.hero-coins {
+				width: 255px !important;
+				height: 231px !important;
+				max-width: none !important;
+				object-fit: contain !important;
+				display: block !important;
+				margin: 0 auto !important;
+			}
+		}
+
+		/* Reduce logo visual size inside the card on phones (if logos are images inside adv-card) */
+		.adv-card .adv-logo img,
+		.adv-card img.adv-logo {}
+
+		/* Per-logo exact sizes on mobile as requested */
+		.adv-logo--ticketmaster,
+		.adv-logo--ticketmaster img {
+			width: 175px !important;
+			height: 23px !important;
+			max-width: 175px !important;
+		}
+
+		.adv-logo--pizzahut,
+		.adv-logo--pizzahut img {
+			width: 164px !important;
+			height: 34px !important;
+			max-width: 164px !important;
+		}
+
+		.adv-logo--costa,
+		.adv-logo--costa img {
+			width: 105px !important;
+			height: 40px !important;
+			max-width: 105px !important;
+		}
+
+		.adv-logo--cpp,
+		.adv-logo--cpp img {
+			width: 102px !important;
+			height: 50px !important;
+			max-width: 102px !important;
+		}
+
+		.adv-logo--pp,
+		.adv-logo--pp img {
+			width: 170px !important;
+			height: 45px !important;
+			max-width: 170px !important;
+		}
+
+		/* Beko exact mobile size */
+		.adv-logo--beko,
+		.adv-logo--beko img {
+			width: 85px !important;
+			height: 48px !important;
+			max-width: 85px !important;
+		}
+
+		/* Exact mobile sizes for the car images inside advertise cards */
+		img.adv-car.adv-car--1 {
+			width: 259px !important;
+			height: 165px !important;
+			max-width: 259px !important;
+			object-fit: contain !important;
+		}
+
+		img.adv-car.adv-car--2 {
+			width: 268px !important;
+			height: 170px !important;
+			max-width: 268px !important;
+			object-fit: contain !important;
+		}
+
+		img.adv-car.adv-car--4 {
+			/* beko is adv-car--4 per markup */
+			width: 277px !important;
+			height: 177px !important;
+			max-width: 277px !important;
+			object-fit: contain !important;
+		}
+
+		img.adv-car.adv-car--3 {
+			width: 259px !important;
+			height: 127px !important;
+			max-width: 259px !important;
+			object-fit: contain !important;
+		}
+
+		img.adv-car.adv-car--5 {
+			width: 270px !important;
+			height: 138px !important;
+			max-width: 270px !important;
+			object-fit: contain !important;
+		}
+
+		img.adv-car.adv-car--6 {
+			width: 271px !important;
+			height: 151px !important;
+			max-width: 271px !important;
+			object-fit: contain !important;
+		}
 	}
 
-	/* Beko exact mobile size */
-	.adv-logo--beko,
-	.adv-logo--beko img {
-		width: 85px !important;
-		height: 48px !important;
-		max-width: 85px !important;
+	/* ===== SCROLL ANIMATIONS ===== */
+
+	/* Keyframes */
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
 	}
 
-	/* Exact mobile sizes for the car images inside advertise cards */
-	img.adv-car.adv-car--1 {
-		width: 259px !important;
-		height: 165px !important;
-		max-width: 259px !important;
-		object-fit: contain !important;
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
-	img.adv-car.adv-car--2 {
-		width: 268px !important;
-		height: 170px !important;
-		max-width: 268px !important;
-		object-fit: contain !important;
+	@keyframes fadeInScale {
+		from {
+			opacity: 0;
+			transform: scale(0.8);
+		}
+
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 
-	img.adv-car.adv-car--4 {
-		/* beko is adv-car--4 per markup */
-		width: 277px !important;
-		height: 177px !important;
-		max-width: 277px !important;
-		object-fit: contain !important;
+	@keyframes bounce {
+
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+
+		50% {
+			transform: translateY(-10px);
+		}
 	}
 
-	img.adv-car.adv-car--3 {
-		width: 259px !important;
-		height: 127px !important;
-		max-width: 259px !important;
-		object-fit: contain !important;
-	}
-
-	img.adv-car.adv-car--5 {
-		width: 270px !important;
-		height: 138px !important;
-		max-width: 270px !important;
-		object-fit: contain !important;
-	}
-
-	img.adv-car.adv-car--6 {
-		width: 271px !important;
-		height: 151px !important;
-		max-width: 271px !important;
-		object-fit: contain !important;
-	}
-}
-
-/* ===== SCROLL ANIMATIONS ===== */
-
-/* Keyframes */
-@keyframes fadeIn {
-	from {
+	/* Base animation setup */
+	.animate-on-scroll {
 		opacity: 0;
 	}
-	to {
-		opacity: 1;
-	}
-}
 
-@keyframes fadeInUp {
-	from {
+	.animate-on-scroll.animated {
+		animation-fill-mode: forwards;
+	}
+
+	/* Hero Section Animations */
+	.hero-car {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.hero-coins {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.hero-icon {
+		animation: fadeIn 0.6s ease-out forwards;
+		animation-delay: 0.3s;
+	}
+
+	.hero-icon.bounce-animation {
+		animation: fadeIn 0.6s ease-out forwards, bounce 2s ease-in-out 1s infinite;
+	}
+
+	.hero-title,
+	.hero-text {
+		animation: fadeInUp 0.8s ease-out forwards;
+		animation-delay: 0.2s;
+	}
+
+	.hero-eyecatcher {
+		animation: fadeInScale 0.8s ease-out forwards;
+		animation-delay: 0.4s;
+	}
+
+	.hero-button-left {
+		animation: fadeIn 0.6s ease-out forwards;
+		animation-delay: 0.6s;
+	}
+
+	.hero-button-right {
+		animation: fadeIn 0.6s ease-out forwards;
+		animation-delay: 0.8s;
+	}
+
+	/* App Section */
+	.app-title,
+	.app-text {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.app-badge {
 		opacity: 0;
-		transform: translateY(40px);
 	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
 
-@keyframes fadeInScale {
-	from {
+	.app-badge.animated {
+		animation: fadeIn 0.5s ease-out forwards;
+	}
+
+	.app-badge:nth-child(1) {
+		animation-delay: 0.2s;
+	}
+
+	.app-badge:nth-child(2) {
+		animation-delay: 0.3s;
+	}
+
+	.app-badge:nth-child(3) {
+		animation-delay: 0.4s;
+	}
+
+	.app-badge:nth-child(4) {
+		animation-delay: 0.5s;
+	}
+
+	.app-phone-center {
+		animation: fadeIn 1s ease-out forwards;
+		animation-delay: 0.3s;
+	}
+
+	/* Download Section */
+	.download-icon,
+	.download-title {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.download-image {
+		animation: fadeInUp 0.8s ease-out forwards;
+		animation-delay: 0.2s;
+	}
+
+	.download-qr {
+		animation: fadeIn 0.8s ease-out forwards;
+		animation-delay: 0.4s;
+	}
+
+	/* Desktop Section */
+	.desktop-image,
+	.desktop-title {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.desktop-content {
+		animation: fadeIn 0.8s ease-out forwards;
+		animation-delay: 0.3s;
+	}
+
+	/* Benefits Section */
+	.benefits-title {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.benefits-content {
+		animation: fadeIn 0.8s ease-out forwards;
+		animation-delay: 0.2s;
+	}
+
+	.benefits-card {
+		animation: fadeInScale 0.8s ease-out forwards;
+	}
+
+	.benefits-card:nth-child(1) {
+		animation-delay: 0.1s;
+	}
+
+	.benefits-card:nth-child(2) {
+		animation-delay: 0.2s;
+	}
+
+	.benefits-card:nth-child(3) {
+		animation-delay: 0.3s;
+	}
+
+	/* Features Section (5x) */
+	.feature-title,
+	.feature-image {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
+
+	.feature-content {
 		opacity: 0;
-		transform: scale(0.8);
 	}
-	to {
-		opacity: 1;
-		transform: scale(1);
+
+	.feature-content.animated {
+		animation: fadeIn 0.6s ease-out forwards;
 	}
-}
 
-@keyframes bounce {
-	0%, 100% {
-		transform: translateY(0);
+	.feature-content-row {
+		opacity: 0;
 	}
-	50% {
-		transform: translateY(-10px);
+
+	.feature-content-row.animated {
+		animation: fadeIn 0.5s ease-out forwards;
 	}
-}
 
-/* Base animation setup */
-.animate-on-scroll {
-	opacity: 0;
-}
+	/* Map Trail Section */
+	.map-trail-logo,
+	.map-trail-title,
+	.map-trail-image {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
 
-.animate-on-scroll.animated {
-	animation-fill-mode: forwards;
-}
+	.map-trail-content {
+		animation: fadeIn 0.8s ease-out forwards;
+		animation-delay: 0.3s;
+	}
 
-/* Hero Section Animations */
-.hero-car {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
+	/* FAQ Section */
+	.faq-title {
+		animation: fadeInUp 0.8s ease-out forwards;
+	}
 
-.hero-coins {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
+	.faq-content {
+		animation: fadeIn 0.8s ease-out forwards;
+		animation-delay: 0.2s;
+	}
 
-.hero-icon {
-	animation: fadeIn 0.6s ease-out forwards;
-	animation-delay: 0.3s;
-}
-
-.hero-icon.bounce-animation {
-	animation: fadeIn 0.6s ease-out forwards, bounce 2s ease-in-out 1s infinite;
-}
-
-.hero-title, .hero-text {
-	animation: fadeInUp 0.8s ease-out forwards;
-	animation-delay: 0.2s;
-}
-
-.hero-eyecatcher {
-	animation: fadeInScale 0.8s ease-out forwards;
-	animation-delay: 0.4s;
-}
-
-.hero-button-left {
-	animation: fadeIn 0.6s ease-out forwards;
-	animation-delay: 0.6s;
-}
-
-.hero-button-right {
-	animation: fadeIn 0.6s ease-out forwards;
-	animation-delay: 0.8s;
-}
-
-/* App Section */
-.app-title, .app-text {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.app-badge {
-	opacity: 0;
-}
-
-.app-badge.animated {
-	animation: fadeIn 0.5s ease-out forwards;
-}
-
-.app-badge:nth-child(1) { animation-delay: 0.2s; }
-.app-badge:nth-child(2) { animation-delay: 0.3s; }
-.app-badge:nth-child(3) { animation-delay: 0.4s; }
-.app-badge:nth-child(4) { animation-delay: 0.5s; }
-
-.app-phone-center {
-	animation: fadeIn 1s ease-out forwards;
-	animation-delay: 0.3s;
-}
-
-/* Download Section */
-.download-icon, .download-title {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.download-image {
-	animation: fadeInUp 0.8s ease-out forwards;
-	animation-delay: 0.2s;
-}
-
-.download-qr {
-	animation: fadeIn 0.8s ease-out forwards;
-	animation-delay: 0.4s;
-}
-
-/* Desktop Section */
-.desktop-image, .desktop-title {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.desktop-content {
-	animation: fadeIn 0.8s ease-out forwards;
-	animation-delay: 0.3s;
-}
-
-/* Benefits Section */
-.benefits-title {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.benefits-content {
-	animation: fadeIn 0.8s ease-out forwards;
-	animation-delay: 0.2s;
-}
-
-.benefits-card {
-	animation: fadeInScale 0.8s ease-out forwards;
-}
-
-.benefits-card:nth-child(1) { animation-delay: 0.1s; }
-.benefits-card:nth-child(2) { animation-delay: 0.2s; }
-.benefits-card:nth-child(3) { animation-delay: 0.3s; }
-
-/* Features Section (5x) */
-.feature-title, .feature-image {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.feature-content {
-	opacity: 0;
-}
-
-.feature-content.animated {
-	animation: fadeIn 0.6s ease-out forwards;
-}
-
-.feature-content-row {
-	opacity: 0;
-}
-
-.feature-content-row.animated {
-	animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Map Trail Section */
-.map-trail-logo, .map-trail-title, .map-trail-image {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.map-trail-content {
-	animation: fadeIn 0.8s ease-out forwards;
-	animation-delay: 0.3s;
-}
-
-/* FAQ Section */
-.faq-title {
-	animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.faq-content {
-	animation: fadeIn 0.8s ease-out forwards;
-	animation-delay: 0.2s;
-}
-
-/* Footer */
-footer {
-	animation: fadeIn 1s ease-out forwards;
-}
+	/* Footer */
+	footer {
+		animation: fadeIn 1s ease-out forwards;
+	}
