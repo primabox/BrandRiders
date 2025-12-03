@@ -434,7 +434,7 @@
     </div>
     <!-- breakout background image placed outside the centered container so it can escape the layout bounds -->
   </section>
-  </section>
+  
 
 
 
@@ -453,8 +453,8 @@
 
           <!-- Short explanatory text above the cards (width: 510px) -->
           <div class="download-qr-title">
-            <img src="img/mobile/mobileApp.png" alt="Mobile App" class="download-mobile-app-icon" />
-            STÁHNĚTE SI APLIKACI <br> A STAŇTE SE ČLENEM BRAND RIDERS
+            <img src="img/icons/okridersApp.png" alt="Mobile App" class="download-mobile-app" />
+            <div>STÁHNĚTE SI APLIKACI <br> A STAŇTE SE ČLENEM BRAND RIDERS</div>
           </div>
           <!-- QR / App badges: two cards -->
           <div class="qr-grid flex gap-4">
@@ -691,46 +691,46 @@
   <section class="register  pt-64 pb-12 overflow-y-hidden">
     <div class="flex justify-start pl-40">
       <div
-        class="bg-gradient-red w-[1767px] h-[584px] rounded-tl-[50px] rounded-bl-[50px] flex items-center justify-start overflow-visible">
+        class="register-bg bg-gradient-red w-[1767px] h-[584px] rounded-tl-[50px] rounded-bl-[50px] flex items-center justify-start overflow-visible">
         <div class="mx-auto  flex items-center justify-between h-full">
           <!-- Left: illustration -->
           <div class=" w-[947px] h-[734px] flex items-center">
-            <img src="img/Imac.png" alt="App desktop" class="w-[947px] h-[734px] -ml-8 -mt-[140px]" />
+            <img src="img/Imac.png" alt="App desktop" class="register-imac w-[947px] h-[734px] -ml-8 -mt-[140px]" />
           </div>
 
           <!-- Right: registration form -->
           <div class="register-right w-1/2 text-left text-white px-6 py-12">
-            <h2 class="text-[44px] font-black italic">DOSTUPNÉ TAKÉ <br> V DESKTOP VERZI</h2>
-            <p class="text-lg md:text-[24px] mb-6">Zaregistrujte se zde</p>
+            <h2 class="register-title text-[44px] font-black italic">DOSTUPNÉ TAKÉ <br> V DESKTOP VERZI</h2>
+            <p class="register-subtitle text-lg md:text-[24px] mb-6">Zaregistrujte se zde</p>
 
-            <form class="grid grid-cols-2 gap-4 max-w-[580px]">
+            <form class="register-form grid grid-cols-2 gap-4 max-w-[580px]">
               <input type="text" name="firstName" placeholder="Jméno"
-                class="p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
+                class="register-input p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
               <input type="text" name="lastName" placeholder="Příjmení"
-                class="p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
+                class="register-input p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
               <input type="text" name="phone" placeholder="Telefon"
-                class="p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
+                class="register-input p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
               <input type="email" name="email" placeholder="E-mail"
-                class="p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
+                class="register-input p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
 
               <!-- Divider -->
-              <div class="col-span-2 my-2" style="width: 573px; border-top: 1.5px solid #DDDDDD;"></div>
+              <div class="register-divider col-span-2 my-2" style="width: 573px; border-top: 1.5px solid #DDDDDD;"></div>
 
               <div class="relative">
                 <input type="password" name="password" placeholder="Heslo"
-                  class="p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
+                  class="register-input p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
                 <img src="img/icons/passShow.png" alt="Show password"
-                  class="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 cursor-pointer" />
+                  class="register-passshow absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 cursor-pointer" />
               </div>
               <div class="relative">
                 <input type="password" name="passwordConfirm" placeholder="Heslo"
-                  class="p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
+                  class="register-input p-3 rounded-[10px] text-black w-[275px] bg-white placeholder-[#CACACA] text-[17px]" />
                 <img src="img/icons/passShow.png" alt="Show password"
-                  class="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 cursor-pointer" />
+                  class="register-passshow absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 cursor-pointer" />
               </div>
 
               <!-- Checkbox -->
-              <div class="col-span-2 flex items-start gap-3">
+              <div class="register-checkbox col-span-2 flex items-start gap-3">
                 <input type="checkbox" id="gdpr-consent" name="gdprConsent" class="custom-checkbox mt-1" required />
                 <label for="gdpr-consent" class="text-[15px] text-white leading-tight">
                   Souhlasím se zpracováním svých osobních údajů dle <a href="/gdpr" class="underline">Zásad ochrany
@@ -741,7 +741,7 @@
               </div>
 
               <button type="submit"
-                class="col-span-2 mt-4 bg-[#0FC26C] text-white font-black py-3 rounded-full w-[260px]">ZAREGISTROVAT
+                class="register-button col-span-2 mt-4 bg-[#0FC26C] text-white font-black py-3 rounded-full w-[260px]">ZAREGISTROVAT
                 SE</button>
             </form>
           </div>
@@ -755,13 +755,13 @@
     <div class="mx-auto max-w-[1550px] px-[72px] flex items-center justify-between">
       <!-- Left: text area styled like photo 2 -->
       <div class="showcase-text relative w-1/2 ">
-        <h3 class="uppercase text-[44px] font-black italic showcase-title"
+        <h3 class="showcase-title-text uppercase text-[44px] font-black italic showcase-title"
           style="margin-top:-160px; margin-bottom: 100px;">UKÁZKY
           REKLAMNÍCH KAMPANÍ</h3>
-        <div class="showcase-logo mb-4">
+        <div class="showcase-logo-wrapper showcase-logo mb-4">
           <img src="img/logos/canapuffLogo.png" alt="Canapuff logo" class="max-w-[330px] h-[90px]" />
         </div>
-        <p class="mt-4 text-[18px] text-[#1E1E1E]">Canapuff ponúka kvety, vapy, gummies, <br> hash a cartridge z rôznych
+        <p class="showcase-desc mt-4 text-[18px] text-[#1E1E1E]">Canapuff ponúka kvety, vapy, gummies, <br> hash a cartridge z rôznych
           kanabinoidov</p>
 
         <!-- arrows are rendered inside the slider now (moved to .showcase-slider) -->
@@ -772,13 +772,13 @@
         style="transform: translateX(80px);">
         <!-- large arrows positioned inside the slider -->
         <button
-          class="showcase-prev cursor-pointer text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
+          class="showcase-arrow-left showcase-prev cursor-pointer text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
           aria-label="Předchozí"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
         <button
-          class="showcase-next cursor-pointer text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
+          class="showcase-arrow-right showcase-next cursor-pointer text-[#1E1E1E] bg-transparent w-12 h-12 flex items-center justify-center z-40 text-[28px]"
           aria-label="Další"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         <!--  slide  1-->
-        <div class="slide absolute inset-0 flex items-center justify-center">
+        <div class="showcase-slide slide absolute inset-0 flex items-center justify-center">
           <img src="img/slides/car1.png" alt="Ukázka kampaně 1" class="max-w-[960px] max-h-[540px] object-contain" />
           <div class="showcase-logo sr-only" aria-hidden="true"><img src="img/logos/canapuffLogo.png"
               alt="Canapuff logo" class="w-[330px] h-[90px]" /></div>
@@ -788,7 +788,7 @@
         </div>
 
         <!-- slide 2  -->
-        <div class="slide absolute inset-0 flex items-center justify-center">
+        <div class="showcase-slide slide absolute inset-0 flex items-center justify-center">
           <img src="img/slides/car2.png" alt="Ukázka kampaně 2" class="max-w-[1049px] max-h-[540px] object-contain" />
           <div class="showcase-logo sr-only" aria-hidden="true"><img src="img/logos/biogroupLogo.png"
               alt="Biogroup logo" class="w-[241px] h-32" style="transform: translateY(-20px);" /></div>
@@ -797,7 +797,7 @@
         </div>
 
         <!-- slide 3  -->
-        <div class="slide absolute inset-0 flex items-center justify-center">
+        <div class="showcase-slide slide absolute inset-0 flex items-center justify-center">
           <img src="img/slides/car3.png" alt="Ukázka kampaně 2" class="max-w-[1049px] max-h-[582px] object-contain" />
           <div class="showcase-logo sr-only" aria-hidden="true"><img src="img/logos/oktagonLogo.png" alt="Biogroup logo"
               class="w-[324px] h-[50px]" style="transform: translateY(0px);" /></div>
@@ -807,7 +807,7 @@
         </div>
 
         <!-- slide 4  -->
-        <div class="slide absolute inset-0 flex items-center justify-center">
+        <div class="showcase-slide slide absolute inset-0 flex items-center justify-center">
           <img src="img/slides/car4.png" alt="Ukázka kampaně 2" class="max-w-[1049px] max-h-[582px] object-contain" />
           <div class="showcase-logo sr-only" aria-hidden="true"><img src="img/logos/pizzahutLogo.png"
               alt="Biogroup logo" class="w-[314px] h-[65px]" style="transform: translateY(0px);" /></div>
@@ -833,42 +833,42 @@
         <img id="mapCar" src="img/map/car.png" alt="Car" class="map-car" aria-hidden="true" />
 
         <!-- SVG wrapper: image + invisible path used for motion calculations -->
-        <svg id="mapTrailSvg" viewBox="0 0 1165 2130" preserveAspectRatio="xMidYMid meet" class="block w-full h-auto">
+        <svg id="mapTrailSvg" viewBox="0 0 1165 2220" preserveAspectRatio="xMidYMid meet" class="block w-full h-auto" overflow="visible">
           <!-- Pink car (hand) should appear under the map trail, so place it before the mapTrail image -->
           <!-- moved left 60px and down 60px per request -->
-          <image href="img/map/pinkcarHand.png" x="-200" y="1775" width="640" height="517"
+          <image href="img/map/pinkcarHand.png" x="-200" y="1875" width="640" height="517"
             preserveAspectRatio="xMidYMid meet" />
 
-          <path
+          <path style="transform: translatex(-40px);"
             d="M637.068 449.186L638.931 409.229L637.068 449.186ZM578.568 990.186L567.448 1028.61L578.568 990.186ZM787.567 1507.19L777.693 1545.95L787.567 1507.19ZM1026.57 1863.69L999.079 1834.63L1026.57 1863.69ZM559.567 1863.69L566.677 1903.05L559.567 1863.69ZM308.567 2133.19C308.567 2155.28 326.475 2173.19 348.567 2173.19C370.658 2173.19 388.567 2155.28 388.567 2133.19H308.567ZM47.2371 4.55379e-05C39.0143 88.8589 49.3402 164.644 77.0326 228.404C104.842 292.434 149.128 341.925 204.878 379.489C314.691 453.481 469.288 481.408 635.206 489.142L638.931 409.229C476.28 401.647 340.377 374.323 249.581 313.144C205.027 283.124 171.481 245.049 150.411 196.535C129.223 147.751 119.619 86.0126 126.897 7.37154L47.2371 4.55379e-05ZM635.206 489.142C780.423 495.912 909.886 511.944 1004.97 554.695C1051.85 575.774 1088.86 602.717 1115.36 636.948C1141.65 670.911 1159.24 714.147 1164.22 770.697L1243.91 763.674C1237.73 693.474 1215.24 635.282 1178.62 587.975C1142.21 540.937 1093.45 506.767 1037.77 481.731C927.722 432.25 784.855 416.032 638.931 409.229L635.206 489.142ZM1164.22 770.697C1169.31 828.455 1160.56 873.351 1141.72 907.105C1123.17 940.349 1092.88 966.33 1047.92 983.331C955.402 1018.33 804.016 1013.79 589.689 951.763L567.448 1028.61C786.133 1091.9 958.667 1102.62 1076.23 1058.16C1136.31 1035.43 1182.6 998.008 1211.58 946.092C1240.27 894.686 1249.99 832.667 1243.91 763.674L1164.22 770.697ZM589.689 951.763C450.566 911.497 298.318 902.464 182.392 947.739C123.58 970.708 72.9799 1008.19 39.9393 1063.55C6.91297 1118.89 -6.2976 1188.29 2.8082 1271.06L82.3284 1262.31C74.6849 1192.83 86.4121 1141.79 108.636 1104.55C130.845 1067.34 165.807 1040.1 211.495 1022.26C304.568 985.908 437.069 990.874 567.448 1028.61L589.689 951.763ZM2.8082 1271.06C12.6104 1360.16 56.8772 1420.49 121.013 1459C182.691 1496.02 260.99 1511.9 339.755 1519.54C418.82 1527.2 504.198 1526.94 580.616 1528.35C658.934 1529.79 726.86 1533 777.693 1545.95L797.44 1468.42C736.253 1452.84 659.23 1449.78 582.091 1448.36C503.051 1446.9 422.464 1447.18 347.472 1439.91C272.18 1432.61 208.331 1418.1 162.188 1390.4C118.503 1364.18 89.2756 1325.46 82.3284 1262.31L2.8082 1271.06ZM777.693 1545.95C906.936 1578.87 992.479 1629.81 1029.39 1681.49C1047.01 1706.17 1052.8 1729.74 1049.37 1752.45C1045.85 1775.82 1031.71 1803.76 999.079 1834.63L1054.05 1892.74C1095.42 1853.62 1121.53 1810.43 1128.48 1764.38C1135.52 1717.66 1122 1673.51 1094.49 1635C1041.16 1560.31 933.198 1503 797.44 1468.42L777.693 1545.95ZM999.079 1834.63C957.417 1874.04 902.114 1872.27 819.884 1854.63C781.927 1846.49 736.024 1834.46 692.665 1827.11C648.086 1819.56 600.305 1815.68 552.457 1824.32L566.677 1903.05C601.557 1896.75 638.975 1899.15 679.296 1905.99C720.837 1913.03 759.533 1923.5 803.105 1932.85C883.933 1950.19 979.402 1963.36 1054.05 1892.74L999.079 1834.63ZM552.457 1824.32C494.397 1834.81 430.918 1851.83 383.129 1899.93C334.339 1949.04 308.567 2023.36 308.567 2133.19H388.567C388.567 2035.01 411.545 1984.83 439.88 1956.32C469.216 1926.79 511.237 1913.06 566.677 1903.05L552.457 1824.32Z"
             fill="white" />
 
           <!-- // TODO: MAKE TRANSPARENT stroke="transparent" // -->
           <path id="trailPath"
             d="M48.22,0C34.31,102.06,65.31,209,130,289c68.6,84.83,183.61,112.24,286,131.83q129.25,24.74,260.39,37.91c82.2,8.26,166.13,8.84,246.38,30.44,162.71,43.8,273.78,207,235,376.22-28,122.1-136.44,177.35-253.34,183.4C764.84,1056,627.9,1019.39,493.74,986c-105.8-26.32-213.91-43.08-320-6.25-72.13,25.05-131.87,79-158.65,151.27-32.78,88.48-11.92,196.72,58.59,261.23,71.47,65.4,175.36,87.76,269.47,91.27,208.26,7.77,446.72-17.29,617.69,128.89,21.07,18,40.16,37.2,54.9,60.81,25,40.11,35.84,92.31,15.73,135.11-22.36,47.61-81.4,81.2-130.65,94-167.35,43.31-351.09-107.88-507.56,2.84-88.26,62.46-100.82,164.45-84.21,264.23"
-            fill="none" stroke="black" stroke-width="1" pointer-events="none" />
+            fill="none" stroke="transparent" stroke-width="1" pointer-events="none" />
 
 
           <!-- Decorative icons at the start of the trail -->
-          <image href="img/map/cottage.png" x="6" y="-26" width="148" height="146"
+          <image href="img/map/cottage.png" x="-26" y="-46" width="148" height="146"
             preserveAspectRatio="xMidYMid meet" />
-          <image href="img/map/waveCheck.png" x="110" y="70" width="120" height="120"
+          <image href="img/map/waveCheck.png" x="65" y="45" width="120" height="120"
             preserveAspectRatio="xMidYMid meet" />
           <!-- Additional decorations requested: villa and shining stars (moved left near Step 3) -->
-          <image href="img/map/villa.png" x="-30" y="1060" width="155" height="155"
+          <image href="img/map/villa.png" x="-75" y="1060" width="155" height="155"
             preserveAspectRatio="xMidYMid meet" />
-          <image href="img/map/shiningStars.png" x="150" y="1100" width="79" height="79"
+          <image href="img/map/shiningStars.png" x="135" y="1100" width="79" height="79"
             preserveAspectRatio="xMidYMid meet" />
 
           <!-- Grouped green icons placed near Step 2 (side-by-side). Use the group transform to nudge their position. -->
           <g id="mapStepIcons" transform="translate(740,420)">
-            <image id="icon-pump" href="img/map/pumpGreen.png" x="50" y="0" width="88" height="88"
+            <image id="icon-pump" href="img/map/pumpGreen.png" x="50" y="-30" width="88" height="88"
               preserveAspectRatio="xMidYMid meet" />
-            <image id="icon-stit" href="img/map/stitGreen.png" x="180" y="30" width="61" height="73"
+            <image id="icon-stit" href="img/map/stitGreen.png" x="180" y="-2" width="61" height="73"
               preserveAspectRatio="xMidYMid meet" />
-            <image id="icon-tire" href="img/map/tireGreen.png" x="280" y="90" width="68" height="68"
+            <image id="icon-tire" href="img/map/tireGreen.png" x="280" y="50" width="68" height="68"
               preserveAspectRatio="xMidYMid meet" />
-            <image id="icon-fastfood" href="img/map/fastfoodGreen.png" x="350" y="155" width="77" height="77"
+            <image id="icon-fastfood" href="img/map/fastfoodGreen.png" x="350" y="120" width="77" height="77"
               preserveAspectRatio="xMidYMid meet" />
           </g>
 
@@ -886,9 +886,9 @@
           <g id="mapSteps">
             <!-- Step 1 (right) - number always on LEFT of content -->
             <foreignObject x="340" y="100" width="760" height="260">
-              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right map-step-1">
                 <div class="map-step__media">
-                  <img src="img/map/stepMobile1.png" alt="App" width="316" height="473" class="map-step__img-lg" />
+                  <img src="img/map/stepMobile1.png" alt="App" width="316" height="473" class="map-step__img-lg" style="transform: translate(-75px, -30px);" />
                 </div>
                 <div class="map-step__num">1</div>
                 <div class="map-step__content">
@@ -902,7 +902,7 @@
 
             <!-- Step 2 (left) - number left of content -->
             <foreignObject x="0" y="550" width="760" height="260" transform="translate(-150,0)">
-              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left map-step-2">
 
                 <div class="map-step__num">2</div>
                 <div class="map-step__content">
@@ -928,7 +928,7 @@
 
             <!-- Step 3 (right) - number left of content -->
             <foreignObject x="110" y="1140" width="760" height="260">
-              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right map-step-3">
                 <div class="map-step__media">
                   <img src="img/map/stepCar3.png" alt="Polep" width="511" height="207" class="map-step__img-md"
                     style="transform: translate(20px, 150px);" />
@@ -948,8 +948,8 @@
             </foreignObject>
 
             <!-- Step 4 (left) - number left of content -->
-            <foreignObject x="-120" y="1530" width="760" height="260">
-              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left">
+            <foreignObject x="-120" y="1550" width="760" height="260">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--left map-step-4">
                 <div class="map-step__num">4</div>
                 <div class="map-step__content">
                   <div class="map-step__title-row">
@@ -965,10 +965,10 @@
 
             <!-- Step 5 (right) - number left of content -->
             <!-- Coin image above Step 5 -->
-            <image href="img/map/penizky.png" x="920" y="1660" width="310" height="281"
+            <image href="img/map/penizky.png" x="920" y="1760" width="310" height="281"
               preserveAspectRatio="xMidYMid meet" />
-            <foreignObject x="500" y="1920" width="760" height="260">
-              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right">
+            <foreignObject x="500" y="2020" width="760" height="260">
+              <div xmlns="http://www.w3.org/1999/xhtml" class="svg-fo map-step map-step--right map-step-5">
                 <div class="map-step__num">5</div>
                 <div class="map-step__content">
                   <h3 class="map-step__title">UKONČENIE KAMPANE</h3>
@@ -978,7 +978,7 @@
               </div>
             </foreignObject>
             <!-- Water house marker at the end of the trail (centered on trail endpoint) -->
-            <image href="img/map/waterHouse.png" x="230" y="1950" width="182" height="182"
+            <image href="img/map/waterHouse.png" x="220" y="2020" width="182" height="182"
               preserveAspectRatio="xMidYMid meet" />
           </g>
 
@@ -1059,12 +1059,12 @@
     </div>
   </section>
 
-  <section class="promo-section py-20 h-[584px]">
+  <section class="promo-section pt-72 pb-20 h-[584px]">
     <div class="max-w-[1350px] px-0 mx-0">
       <div class="promo-inner relative overflow-visible flex flex-col md:flex-row items-center gap-10 h-full">
 
         <!-- Left: fixed-width gradient block (622px) -->
-        <div class="promo-gradient w-full md:w-[1283px] h-[622px] rounded-tr-[50px] rounded-br-[50px] overflow-visible">
+        <div class="promo-gradient promo-bg w-full md:w-[1283px] h-[622px] rounded-tr-[50px] rounded-br-[50px] overflow-visible">
           <!-- Mobile-only shield image that sits above the gradient -->
           <img src="img/mobile/stit.png" alt="shield mobile" class="promo-shield-mobile md:hidden" />
           <!-- Mobile-only cleaning image (shown when carClean is active) -->
@@ -1079,12 +1079,12 @@
           <img src="img/mobile/fuelgun.png" alt="fuel gun mobile" class="promo-fuelgun-mobile md:hidden"
             style="display:none;" />
           <div class="promo-left w-[1283px] pl-[250px] px-8 py-10 text-white h-full flex flex-col justify-center">
-            <h2 class="promo-title">NAJVÝHODNEJŠIE <br> POISTENIE NA TRHU</h2>
-            <p class="promo-description">Prišlo vám zdraženie alebo hľadáte férové poistenie?
+            <h2 class="promo-title promo-title-text">NAJVÝHODNEJŠIE <br> POISTENIE NA TRHU</h2>
+            <p class="promo-description promo-desc-text">Prišlo vám zdraženie alebo hľadáte férové poistenie?
               Získajte <br> najvýhodnejšie ceny a jedinečný servis!</p>
 
             <!-- Broker logo above CTA -->
-            <div class="promo-logo mb-3">
+            <div class="promo-logo promo-logo-wrapper mb-3">
               <img src="img/logos/brokerLogo.png" alt="Broker logo"
                 class="max-w-[166px] h-[62px] object-contain mb-2 mt-2" />
             </div>
@@ -1124,24 +1124,24 @@
         <div
           class="promo-right w-1/2 flex-1 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 md:z-20 flex items-end justify-end overflow-visible md:pl-8">
           <!-- small icons above the car (pump, shield, tire, database) -->
-          <div class="promo-icons" role="tablist" aria-label="Promo features">
-            <img src="img/icons/pumpGreen.png" alt="pump" width="40" height="40" class="promo-icon w-[40px] h-[40px]"
+          <div class="promo-icons promo-icons-group" role="tablist" aria-label="Promo features">
+            <img src="img/icons/pumpGreen.png" alt="pump" width="40" height="40" class="promo-icon promo-icon-1 w-[40px] h-[40px]"
               style="width:40px;height:40px;" role="tab" tabindex="0" aria-pressed="false" data-tab="carPump"
               data-gray-src="img/icons/pumpGray.png" data-title="Lacnejšie tankovanie"
               data-desc="Vďaka spolupráci so sieťou čerpacích staníc ORLEN môžete čerpať&nbsp;pohonné hmoty o niekoľko centov lacnejšie ako pri bežných stojanových cenách.">
             </img>
 
-            <img src="img/icons/stitGreen.png" alt="shield" width="38" height="44" class="promo-icon w-[38px] h-[44px]"
+            <img src="img/icons/stitGreen.png" alt="shield" width="38" height="44" class="promo-icon promo-icon-2 w-[38px] h-[44px]"
               style="width:38px;height:44px;" role="tab" tabindex="0" aria-pressed="false" data-tab="carStit"
               data-gray-src="img/icons/stitGray.png" />
 
-            <img src="img/icons/tireGreen.png" alt="tire" width="43" height="43" class="promo-icon w-[43px] h-[43px]"
+            <img src="img/icons/tireGreen.png" alt="tire" width="43" height="43" class="promo-icon promo-icon-3 w-[43px] h-[43px]"
               style="width:43px;height:43px;" role="tab" tabindex="0" aria-pressed="false" data-tab="carClean"
               data-gray-src="img/icons/tireGray.png"
               data-title="Zľavy na pneumatiky, &lt;br&gt;  náhradné diely &lt;br&gt; a doplnky"
               data-desc="Nakupujte najlacnejšie pneumatiky, disky, autodiely a doplnky za ceny ako veľkoodberatelia a autoservisy." />
 
-            <img src="img/icons/database.png" alt="database" width="40" height="40" class="promo-icon w-[40px] h-[40px]"
+            <img src="img/icons/database.png" alt="database" width="40" height="40" class="promo-icon promo-icon-4 w-[40px] h-[40px]"
               style="width:40px;height:40px;" role="tab" tabindex="0" aria-pressed="false" data-tab="car4"
               data-gray-src="img/icons/databaseGray.png"
               data-title="Možnosť platenej &lt;br&gt; inzercie na Vašom &lt;br&gt; aute" />
@@ -1167,7 +1167,7 @@
           </div>
 
           <img id="promoCar" src="img/slides/carStit.png" alt="Promo car" width="1059" height="480"
-            class="promo-car max-w-[1059px] w-[1059px] h-[480px] object-contain rounded-[12px]" />
+            class="promo-car promo-car-slide max-w-[1059px] w-[1059px] h-[480px] object-contain rounded-[12px]" />
 
           <!-- Preload / DOM sources for showcase slides so promo can swap quickly -->
           <img id="carPump" src="img/slides/carPump.png" alt="Promo slide 1" width="1059" height="469"
@@ -1184,13 +1184,13 @@
     </div>
   </section>
 
-  <section class="reviews-section mt-[250px] mb-[250px] py-20 overflow-y-hidden">
+  <section class="reviews-section mt-[450px] mb-[250px] py-20 overflow-y-hidden">
     <div class="mx-auto max-w-[1470px] px-6">
       <div class="map-trail-bar-wrap">
         <div class="map-trail-bar gradient-red w-[100px] h-[20px] rounded-full" aria-hidden="true"></div>
       </div>
-      <h2 class="text-[64px] font-black italic mb-20" style="color: #1E1E1E;">NAŠI <br> BRAND RIDERS</h2>
-      <div class="flex flex-col md:flex-row gap-8">
+       <h2 class="text-[64px] font-black italic mb-20" style="color: #1E1E1E;">NAŠI <br> BRAND RIDERS</h2>
+      <div class="flex flex-col md:flex-row gap-32">
         <!-- Left: three stacked reviews, each width 747 -->
         <div class="reviews-left flex flex-col gap-32">
 
@@ -1209,6 +1209,7 @@
             </div>
             <img src="img/icons/carsideRed.png" alt="carside icon" class="absolute right-6 bottom-6 w-[52px] h-[25px]"
               width="52" height="25" />
+            <img src="img/tailLeft.png" alt="tail" class="absolute left-0 bottom-[-45px] w-[77px] h-[77px]" width="77" height="77" />
           </div>
 
           <div
@@ -1227,6 +1228,7 @@
             </div>
             <img src="img/icons/carsideRed.png" alt="carside icon" class="absolute right-6 bottom-6 w-[52px] h-[25px]"
               width="52" height="25" />
+            <img src="img/tailRight.png" alt="tail" class="absolute right-0 bottom-[-45px] w-[77px] h-[77px]" width="77" height="77" />
           </div>
 
           <div
@@ -1244,6 +1246,7 @@
             </div>
             <img src="img/icons/carsideRed.png" alt="carside icon" class="absolute right-6 bottom-6 w-[52px] h-[25px]"
               width="52" height="25" />
+            <img src="img/tailLeft.png" alt="tail" class="absolute left-0 bottom-[-45px] w-[77px] h-[77px]" width="77" height="77" />
           </div>
 
         </div>
@@ -1269,6 +1272,7 @@
             </div>
             <img src="img/icons/carsideRed.png" alt="carside icon" class="absolute right-6 bottom-6 w-[52px] h-[25px]"
               width="52" height="25" />
+            <img src="img/tailRight.png" alt="tail" class="absolute right-0 bottom-[-45px] w-[77px] h-[77px]" width="77" height="77" />
           </div>
 
           <div
@@ -1287,6 +1291,7 @@
             </div>
             <img src="img/icons/carsideRed.png" alt="carside icon" class="absolute right-6 bottom-10 w-[52px] h-[25px]"
               width="52" height="25" />
+            <img src="img/tailLeft.png" alt="tail" class="absolute left-0 bottom-[-45px] w-[77px] h-[77px]" width="77" height="77" />
           </div>
         </div>
       </div>
@@ -1305,21 +1310,21 @@
 
   <section class="questions-section py-20 relative overflow-y-hidden">
     <div class="mx-auto max-w-[1470px] px-6 relative z-10">
-      <div class="questions-bg" aria-hidden="true">
+      <div class="questions-bg questions-bg-slide" aria-hidden="true">
         <img src="img/questionCar.png" alt="Car on gradient" class="questions-bg__img" width="806" height="453" />
       </div>
       <!-- Mobile-only question car: visible on phones without the large gradient background -->
 
       <!-- Gradient background is handled in CSS via a pseudo-element -->
-      <div class="question-bar-wrap">
+      <div class="question-bar-wrap question-bar-wrapper">
         <div class="question-bar gradient-red w-[100px] h-[20px] rounded-full" aria-hidden="true"></div>
       </div>
-      <h2 class="text-[64px] font-black italic mb-32" style="color: #1E1E1E;">NAJČASTEJŠIE<br>OTÁZKY</h2>
+      <h2 class="questions-title-text text-[64px] font-black italic mb-32" style="color: #1E1E1E;">NAJČASTEJŠIE<br>OTÁZKY</h2>
 
       <div class="flex flex-col items-center">
         <div class="accordion w-[1203px]">
           <!-- Accordion item 1 (collapsed by default) - answer lives inside the interactive item -->
-          <div class="accordion-block mb-8">
+          <div class="accordion-block accordion-item-1 mb-8">
             <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion"
               role="button" tabindex="0" aria-expanded="false">
               <div class="accordion-header flex items-center justify-between px-8">
@@ -1339,7 +1344,7 @@
           </div>
 
           <!-- Accordion item 2 (collapsed by default) - answer lives inside the interactive item -->
-          <div class="accordion-block mb-8">
+          <div class="accordion-block accordion-item-2 mb-8">
             <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion"
               role="button" tabindex="0" aria-expanded="false">
               <div class="accordion-header flex items-center justify-between px-8">
@@ -1358,7 +1363,7 @@
           </div>
 
           <!-- Accordion item 3 (collapsed by default) - answer lives inside the interactive item -->
-          <div class="accordion-block mb-8">
+          <div class="accordion-block accordion-item-3 mb-8">
             <div class="accordion-item-wrapper bg-white rounded-[44px] w-full overflow-hidden shadow-accordion"
               role="button" tabindex="0" aria-expanded="false">
               <div class="accordion-header flex items-center justify-between px-8">
@@ -1489,7 +1494,7 @@
             </div>
           </div>
         </div>
-        <a href="#" class="questions-show-all">ZOBRAZIT VŠETKY</a>
+        <a href="#" class="questions-show-all questions-show-all-btn">ZOBRAZIT VŠETKY</a>
         <div class="questions-bg-mobile mobile-only" aria-hidden="true">
           <img src="img/questionCar.png" alt="Car (mobile)" class="questions-bg-mobile__img" width="418" height="177" />
         </div>
@@ -1499,47 +1504,47 @@
 
   <section class="advertise-section py-36 mb-24">
     <div class="mx-auto max-w-[1470px] px-6">
-      <div class="advertise-bar-wrap">
+      <div class="advertise-bar-wrap advertise-bar-wrapper">
         <div class="advertise-bar w-[100px] h-[20px] rounded-full" aria-hidden="true"></div>
       </div>
 
-      <h2 class="advertise-title">REKLAMU NA <br> VOZIDLÁCH VYUŽÍVAJÚ</h2>
+      <h2 class="advertise-title advertise-title-text">REKLAMU NA <br> VOZIDLÁCH VYUŽÍVAJÚ</h2>
 
       <div class="adv-grid grid grid-cols-3">
         <div
-          class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#6D2037] transition-colors duration-400">
-          <img src="img/logos/costacoffeLogo.png" alt="Costa Coffeet" class="adv-logo adv-logo--costa" />
-          <img src="img/slides/costacoffeCar.png" alt="car" class="adv-car adv-car--1" />
+          class="adv-card adv-card-1 bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#6D2037] transition-colors duration-400">
+          <img src="img/logos/costacoffeLogo.png" alt="Costa Coffeet" class="adv-logo adv-logo-1 adv-logo--costa" />
+          <img src="img/slides/costacoffeCar.png" alt="car" class="adv-car adv-car-animated-1 adv-car--1" />
         </div>
 
         <div
-          class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#C70F2E] transition-colors duration-400">
-          <img src="img/logos/pizzaHut2.png" alt="Pizza Hut" class="adv-logo adv-logo--pizzahut" />
-          <img src="img/slides/pizzahutCar.png" alt="car" class="adv-car adv-car--2" />
+          class="adv-card adv-card-2 bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#C70F2E] transition-colors duration-400">
+          <img src="img/logos/pizzaHut2.png" alt="Pizza Hut" class="adv-logo adv-logo-2 adv-logo--pizzahut" />
+          <img src="img/slides/pizzahutCar.png" alt="car" class="adv-car adv-car-animated-2 adv-car--2" />
         </div>
 
         <div
-          class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#024DDF] transition-colors duration-400">
-          <img src="img/logos/ticketmasterLogo.png" alt="Ticketmaster" class="adv-logo adv-logo--ticketmaster" />
-          <img src="img/slides/ticketmasterCar.png" alt="car" class="adv-car adv-car--3" />
+          class="adv-card adv-card-3 bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#024DDF] transition-colors duration-400">
+          <img src="img/logos/ticketmasterLogo.png" alt="Ticketmaster" class="adv-logo adv-logo-3 adv-logo--ticketmaster" />
+          <img src="img/slides/ticketmasterCar.png" alt="car" class="adv-car adv-car-animated-3 adv-car--3" />
         </div>
 
         <div
-          class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#2D7DB9] transition-colors duration-400">
-          <img src="img/logos/bekoLogo.png" alt="Beko" class="adv-logo adv-logo--beko" />
-          <img src="img/slides/bekoCar.png" alt="car" class="adv-car adv-car--4" />
+          class="adv-card adv-card-4 bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#2D7DB9] transition-colors duration-400">
+          <img src="img/logos/bekoLogo.png" alt="Beko" class="adv-logo adv-logo-4 adv-logo--beko" />
+          <img src="img/slides/bekoCar.png" alt="car" class="adv-car adv-car-animated-4 adv-car--4" />
         </div>
 
         <div
-          class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#005091] transition-colors duration-400">
-          <img src="img/logos/cppLogo.png" alt="CPP" class="adv-logo adv-logo--cpp" />
-          <img src="img/slides/cppCar.png" alt="car" class="adv-car adv-car--5" />
+          class="adv-card adv-card-5 bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#005091] transition-colors duration-400">
+          <img src="img/logos/cppLogo.png" alt="CPP" class="adv-logo adv-logo-5 adv-logo--cpp" />
+          <img src="img/slides/cppCar.png" alt="car" class="adv-car adv-car-animated-5 adv-car--5" />
         </div>
 
         <div
-          class="adv-card bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#FEBA3A] transition-colors duration-400">
-          <img src="img/logos/ppLogo.png" alt="PP" class="adv-logo adv-logo--pp" />
-          <img src="img/slides/ppCar.png" alt="car" class="adv-car adv-car--6" />
+          class="adv-card adv-card-6 bg-white rounded-[18px] p-6 relative overflow-visible hover:bg-[#FEBA3A] transition-colors duration-400">
+          <img src="img/logos/ppLogo.png" alt="PP" class="adv-logo adv-logo-6 adv-logo--pp" />
+          <img src="img/slides/ppCar.png" alt="car" class="adv-car adv-car-animated-6 adv-car--6" />
         </div>
       </div>
       <a href="#" class="adv-show-all mobile-only" aria-expanded="false">ZOBRAZIT VŠETKY</a>
@@ -1547,7 +1552,7 @@
   </section>
 
   <footer class="site-footer">
-    <div class="footer-inner mx-auto">
+    <div class="footer-inner footer-content mx-auto">
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
           <div class="footer-logos-row">

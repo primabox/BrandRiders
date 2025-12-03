@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    threshold: 0.3
   };
 
   // Create observer
@@ -81,4 +81,169 @@ document.addEventListener('DOMContentLoaded', () => {
   // Benefits cards animation
   const benefitsCards = document.querySelectorAll('.benefits-card');
   benefitsCards.forEach(card => observer.observe(card));
+
+  // Features section animation
+  const featuresSection = document.querySelector('.features-section');
+  if (featuresSection) {
+    const featuresObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('features-visible');
+          featuresObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    featuresObserver.observe(featuresSection);
+  }
+
+  // Download section animation
+  const downloadSection = document.querySelector('.download-section');
+  if (downloadSection) {
+    const downloadObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('download-visible');
+          downloadObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    downloadObserver.observe(downloadSection);
+  }
+
+  // Earnings section animation
+  const earningsSection = document.querySelector('.earnings-section');
+  if (earningsSection) {
+    const earningsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('earnings-visible');
+          earningsObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    earningsObserver.observe(earningsSection);
+  }
+
+  // Community section animation
+  const communitySection = document.querySelector('.community-section');
+  if (communitySection) {
+    const communityObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('community-visible');
+          communityObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    communityObserver.observe(communitySection);
+  }
+
+  // Register section animation
+  const registerSection = document.querySelector('.register');
+  if (registerSection) {
+    const registerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('register-visible');
+          registerObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    registerObserver.observe(registerSection);
+  }
+
+  // Showcase carousel section animation
+  const showcaseSection = document.querySelector('.showcase-carousel');
+  if (showcaseSection) {
+    const showcaseObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('showcase-visible');
+          showcaseObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    showcaseObserver.observe(showcaseSection);
+  }
+
+  // Map trail section animation
+  const mapTrailSection = document.querySelector('.map-trail-section');
+  if (mapTrailSection) {
+    const mapTrailObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('map-trail-visible');
+          mapTrailObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    mapTrailObserver.observe(mapTrailSection);
+  }
+
+  // Promo section animation
+  const promoSection = document.querySelector('.promo-section');
+  if (promoSection) {
+    const promoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('promo-visible');
+          promoObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    promoObserver.observe(promoSection);
+  }
+
+  // Questions section animation
+  const questionsSection = document.querySelector('.questions-section');
+  if (questionsSection) {
+    const questionsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('questions-visible');
+          questionsObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    questionsObserver.observe(questionsSection);
+  }
+
+  // Advertise section animation
+  const advertiseSection = document.querySelector('.advertise-section');
+  if (advertiseSection) {
+    const advertiseObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('advertise-visible');
+          advertiseObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    advertiseObserver.observe(advertiseSection);
+  }
+
+  // Footer animation
+  const footer = document.querySelector('.site-footer');
+  if (footer) {
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('footer-visible');
+          footerObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    footerObserver.observe(footer);
+  }
 });

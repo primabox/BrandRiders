@@ -96,19 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         show(idx);
     });
 
-    let timer = setInterval(() => {
-        idx = (idx + 1) % slides.length;
-        show(idx);
-    }, 5000);
-
-    // Pause auto-rotate while hovering the carousel
-    container.addEventListener('mouseenter', () => clearInterval(timer));
-    container.addEventListener('mouseleave', () => {
-        timer = setInterval(() => {
-            idx = (idx + 1) % slides.length;
-            show(idx);
-        }, 5000);
-    });
+    // Auto-rotate disabled - slides change only on button click or swipe
 
     // Touch / swipe support for mobile: simple left/right swipe to change slides
     let touchStartX = 0;
@@ -117,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const SWIPE_THRESHOLD = 40; // pixels
 
     function onTouchStart(e) {
-        clearInterval(timer);
         isTouching = true;
         touchStartX = e.touches ? e.touches[0].clientX : e.clientX;
         touchCurrentX = touchStartX;
@@ -141,11 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             show(idx);
         }
-        // restart auto-rotate
-        timer = setInterval(() => {
-            idx = (idx + 1) % slides.length;
-            show(idx);
-        }, 5000);
         isTouching = false;
     }
 
