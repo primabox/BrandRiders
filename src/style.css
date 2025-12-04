@@ -1748,10 +1748,39 @@
 		margin-bottom: 12px;
 	}
 
+	/* Initial state for bar animation */
+	.map-trail-section .map-trail-bar-wrap {
+		opacity: 0;
+		transform: translateY(-60px);
+		transition: opacity 0.8s cubic-bezier(.2, .9, .3, 1), transform 0.8s cubic-bezier(.2, .9, .3, 1);
+	}
+
+	/* Initial state for title animation */
+	.map-trail-section h2 {
+		opacity: 0;
+		transform: translateY(40px);
+		transition: opacity 0.8s cubic-bezier(.2, .9, .3, 1) 0.2s, transform 0.8s cubic-bezier(.2, .9, .3, 1) 0.2s;
+	}
+
+	/* Animated state when visible */
+	.map-trail-section.map-trail-visible .map-trail-bar-wrap {
+		opacity: 1;
+		transform: translateY(-10px);
+	}
+
+	.map-trail-section.map-trail-visible h2 {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
 	@media (max-width: 900px) {
 		.map-trail-bar-wrap {
 			transform: translateY(0);
 			margin-bottom: 12px;
+		}
+
+		.map-trail-section.map-trail-visible .map-trail-bar-wrap {
+			transform: translateY(0);
 		}
 	}
 
@@ -6835,6 +6864,16 @@
 		z-index: 1;
 	}
 
+	.map-step-mobile__svg_5 {
+		position: absolute;
+		top: 0;
+		left: 200px;
+		width: 120%;
+		height: 300px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
 	.map-step-mobile-1 {
 		position: relative;
 		min-height: 250px;
@@ -6916,6 +6955,19 @@
 	.map-step-mobile-4 .map-step-mobile__title,
 	.map-step-mobile-4 .map-step-mobile__desc,
 	.map-step-mobile-4 .map-step-mobile__badge {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Mobile5 same pattern */
+	.map-step-mobile-5 {
+		position: relative;
+		min-height: 250px;
+	}
+
+	.map-step-mobile-5 .map-step-mobile__num,
+	.map-step-mobile-5 .map-step-mobile__title,
+	.map-step-mobile-5 .map-step-mobile__desc {
 		position: relative;
 		z-index: 2;
 	}
@@ -7023,11 +7075,8 @@
 
 		/* Step 5: penizky.png */
 		.map-step-mobile:nth-child(5) .map-step-mobile__img {
-			max-width: 200px !important;
-			width: 200px !important;
-			height: 144px !important;
-			margin-left: auto !important;
-			transform: translateX(34px) !important;
+			max-width: 450px !important;
+			transform: translate(-15px, 70px) !important;
 		}
 
 		.map-step-mobile__title {
@@ -8160,4 +8209,17 @@
 	/* Footer */
 	footer {
 		animation: fadeIn 1s ease-out forwards;
+	}
+
+	/* Mobile steps fade in from bottom */
+	.map-step-mobile {
+		opacity: 0;
+		transform: translateY(40px);
+		transition: none;
+	}
+
+	.map-step-mobile.mobile-step-visible {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
 	}

@@ -261,4 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     reviewsObserver.observe(reviewsSection);
   }
+
+  // Mobile steps animations
+  const mobileSteps = document.querySelectorAll('.map-step-mobile');
+  if (mobileSteps.length > 0) {
+    const mobileStepsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('mobile-step-visible');
+          mobileStepsObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    mobileSteps.forEach(step => {
+      mobileStepsObserver.observe(step);
+    });
+  }
 });

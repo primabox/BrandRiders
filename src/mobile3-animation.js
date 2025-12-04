@@ -63,8 +63,8 @@
 
     // Position car on the path (in SVG coordinates)
     // Center the car on the point
-    car.setAttribute('x', point.x - 11.5); // 11.5 = half of car width (23/2)
-    car.setAttribute('y', point.y - 10); // 10 = half of car height (20/2)
+    car.setAttribute('x', point.x - 15); // 15 = half of car width (30/2)
+    car.setAttribute('y', point.y - 16.5); // 16.5 = half of car height (33/2)
     
     // Get car position in SVG coordinates
     const carSVGX = point.x;
@@ -76,23 +76,23 @@
     // Change car to red after passing villa
     if (!carImageChanged && carSVGY > villaPos.y) {
       car.setAttribute('href', 'img/map/carRed.png');
-      car.setAttribute('width', '20');
-      car.setAttribute('height', '20');
+      car.setAttribute('width', '30');
+      car.setAttribute('height', '29');
       car.style.transition = 'opacity 0.3s ease';
       carImageChanged = true;
     } else if (carImageChanged && carSVGY <= villaPos.y) {
       // Reset to original if scrolling back up
       car.setAttribute('href', 'img/map/car.png');
-      car.setAttribute('width', '23');
-      car.setAttribute('height', '20');
+      car.setAttribute('width', '30');
+      car.setAttribute('height', '33');
       car.style.transition = 'opacity 0.3s ease';
       carImageChanged = false;
     }
     
     // Adjust car centering when size changes
     if (carImageChanged) {
-      car.setAttribute('x', point.x - 10); // 10 = half of carRed width (20/2)
-      car.setAttribute('y', point.y - 10); // 10 = half of carRed height (20/2)
+      car.setAttribute('x', point.x - 15); // 15 = half of carRed width (30/2)
+      car.setAttribute('y', point.y - 14.5); // 14.5 = half of carRed height (29/2)
     }
   }
 
