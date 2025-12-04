@@ -246,4 +246,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
     footerObserver.observe(footer);
   }
+
+  // Reviews section animations
+  const reviewsSection = document.querySelector('.reviews-section');
+  if (reviewsSection) {
+    const reviewsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reviews-visible');
+          reviewsObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    reviewsObserver.observe(reviewsSection);
+  }
 });

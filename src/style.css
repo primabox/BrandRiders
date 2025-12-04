@@ -6804,7 +6804,123 @@
 			display: none !important;
 		}
 
-		.map-trail-mobile {
+	/* Mobile1 SVG animation */
+	.map-step-mobile__svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 120%;
+		height: 300px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.map-step-mobile__svg_3 {
+		position: absolute;
+		top: -100px;
+		left: -35px;
+		width: 148%;
+		height: 490px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.map-step-mobile__svg_4 {
+		position: absolute;
+		top: -60px;
+		left: -60px;
+		width: 160%;
+		height: 456px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.map-step-mobile-1 {
+		position: relative;
+		min-height: 250px;
+	}
+
+	.map-step-mobile-1 .map-step-mobile__img {
+		position: relative;
+		z-index: 2;
+		right: -160px;
+		top: -35px;
+	}
+
+	.map-step-mobile-1 .map-step-mobile__num,
+	.map-step-mobile-1 .map-step-mobile__title,
+	.map-step-mobile-1 .map-step-mobile__desc,
+	.map-step-mobile-1 .map-step-mobile__note {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Mobile2 same as mobile1 */
+	.map-step-mobile-2 {
+		position: relative;
+		min-height: 250px;
+	}
+
+	.map-step-mobile-2 .map-step-mobile__img {
+		position: relative;
+		z-index: 2;
+		right: -160px;
+		top: -35px;
+	}
+
+	.map-step-mobile-2 .map-step-mobile__num,
+	.map-step-mobile-2 .map-step-mobile__title,
+	.map-step-mobile-2 .map-step-mobile__desc,
+	.map-step-mobile-2 .map-step-mobile__badge {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Mobile3 same pattern */
+	.map-step-mobile-3 {
+		position: relative;
+		min-height: 250px;
+	}
+
+	.map-step-mobile-3 .map-step-mobile__img {
+		position: relative;
+		z-index: 2;
+		width: 346px !important;
+		height: 140px !important;
+		max-width: 346px !important;
+		margin-left: 80px !important;
+	}
+
+	.map-step-mobile-3 .map-step-mobile__num,
+	.map-step-mobile-3 .map-step-mobile__title,
+	.map-step-mobile-3 .map-step-mobile__desc,
+	.map-step-mobile-3 .map-step-mobile__badge {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Mobile4 same pattern */
+	.map-step-mobile-4 {
+		position: relative;
+		min-height: 250px;
+	}
+
+	.map-step-mobile-4 .map-step-mobile__img {
+		position: relative;
+		z-index: 2;
+		right: -160px;
+		top: -35px;
+	}
+
+	.map-step-mobile-4 .map-step-mobile__num,
+	.map-step-mobile-4 .map-step-mobile__title,
+	.map-step-mobile-4 .map-step-mobile__desc,
+	.map-step-mobile-4 .map-step-mobile__badge {
+		position: relative;
+		z-index: 2;
+	}
+
+	.map-trail-mobile {
 			display: flex !important;
 			flex-direction: column !important;
 			gap: 40px !important;
@@ -6850,9 +6966,9 @@
 		}
 
 		.map-step-mobile:nth-child(1) .map-step-mobile__img:first-of-type {
-			max-width: 425px !important;
-			width: 425px !important;
-			height: 300px !important;
+			max-width: 121px !important;
+			width: 121px !important;
+			height: 233px !important;
 		}
 
 		.map-step-mobile:nth-child(1) .map-step-mobile__img:nth-of-type(2) {
@@ -6871,7 +6987,7 @@
 			max-width: 136% !important;
 			width: 128% !important;
 			height: 300px !important;
-			transform: translateX(-37px) !important;
+			transform: translate(-200px, 90px) !important;
 		}
 
 		.map-step-mobile:nth-child(2) .map-step-mobile__img:nth-of-type(2) {
@@ -6883,9 +6999,10 @@
 
 		/* Step 3: stepCar3.png */
 		.map-step-mobile:nth-child(3) .map-step-mobile__img:first-of-type {
-			max-width: 126% !important;
-			width: 110% !important;
-			height: 420px !important;
+			max-width: 100% !important;
+			width: 100% !important;
+			height: 140px !important;
+			transform: translate(30px, 80px);
 		}
 
 		.map-step-mobile:nth-child(3) .map-step-mobile__img:nth-of-type(2) {
@@ -6974,7 +7091,7 @@
 
 		.map-trail-section h2 {
 			font-size: 32px !important;
-			margin-bottom: 32px !important;
+			margin-bottom: 100px !important;
 		}
 
 		.map-trail-mobile {
@@ -7302,6 +7419,90 @@
 	@media (max-width: 480px) {
 		.reviews-section {
 			margin-bottom: 0 !important;
+		}
+	}
+
+	/* Reviews section animations */
+	.reviews-section h2 {
+		opacity: 0;
+		animation: none;
+	}
+
+	.reviews-section.reviews-visible h2 {
+		animation: reviews-title-slide-up 1200ms cubic-bezier(.2, .9, .3, 1) forwards;
+	}
+
+	.reviews-section .map-trail-bar-wrap {
+		opacity: 0;
+		animation: none;
+	}
+
+	.reviews-section.reviews-visible .map-trail-bar-wrap {
+		animation: reviews-bar-slide-down 1000ms cubic-bezier(.2, .9, .3, 1) forwards;
+	}
+
+	.reviews-section .review-card,
+	.reviews-section .review-card-right {
+		opacity: 0;
+		animation: none;
+	}
+
+	.reviews-section.reviews-visible .review-card,
+	.reviews-section.reviews-visible .review-card-right {
+		animation: reviews-card-pop 900ms cubic-bezier(.34, 1.56, .64, 1) forwards;
+	}
+
+	/* Stagger delays for review cards */
+	.reviews-section.reviews-visible .reviews-left .review-card:nth-child(1) {
+		animation-delay: 400ms;
+	}
+
+	.reviews-section.reviews-visible .reviews-left .review-card:nth-child(2) {
+		animation-delay: 550ms;
+	}
+
+	.reviews-section.reviews-visible .reviews-left .review-card:nth-child(3) {
+		animation-delay: 700ms;
+	}
+
+	.reviews-section.reviews-visible .reviews-right .review-card-right:nth-child(1) {
+		animation-delay: 850ms;
+	}
+
+	.reviews-section.reviews-visible .reviews-right .review-card-right:nth-child(2) {
+		animation-delay: 1000ms;
+	}
+
+	@keyframes reviews-title-slide-up {
+		0% {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes reviews-bar-slide-down {
+		0% {
+			opacity: 0;
+			transform: translateY(-30px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes reviews-card-pop {
+		0% {
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
 		}
 	}
 

@@ -988,10 +988,18 @@
       <!-- Mobile version: Stacked steps -->
       <div class="map-trail-mobile">
         <!-- Step 1 -->
-        <div class="map-step-mobile">
+        <div class="map-step-mobile map-step-mobile-1">
 
           <div class="map-step-mobile__content">
-            <img src="img/map/mobile1.png" alt="Step 1" class="map-step-mobile__img" />
+            <!-- SVG with path for car animation -->
+            <svg id="mobile1Svg" viewBox="-20 -40 372 256" class="map-step-mobile__svg" preserveAspectRatio="xMidYMid meet" overflow="visible">
+              <path id="mobile1Path" d="M23.8628 2.56299C38.3628 137.563 165.963 182.763 366.363 191.563" stroke="white" stroke-width="48" fill="none" />
+              <!-- Decorative icons at the start -->
+              <image href="img/map/cottage.png" x="-10" y="-35" width="73" height="73" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/waveCheck.png" x="35" y="5" width="60" height="60" preserveAspectRatio="xMidYMid meet" />
+              <!-- Animated car image -->
+              <image id="mobile1Phone" href="img/map/car.png" x="0" y="0" width="23" height="20" style="opacity: 0;" />
+            </svg>
             <img src="img/map/stepMobile1.png" alt="App" class="map-step-mobile__img" />
             <div class="map-step-mobile__num">1</div>
             <h3 class="map-step-mobile__title">ZAREGISTRUJTE SA</h3>
@@ -1002,9 +1010,19 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="map-step-mobile">
+        <div class="map-step-mobile map-step-mobile-2">
           <div class="map-step-mobile__content">
-            <img src="img/map/mobile2.png" alt="Step 2 header" class="map-step-mobile__img" />
+            <!-- SVG with path for car animation -->
+            <svg id="mobile2Svg" viewBox="-20 -40 415 313" class="map-step-mobile__svg" preserveAspectRatio="xMidYMid meet" overflow="visible">
+              <path id="mobile2Path" d="M415.243 268.031C372.243 60.0315 124.743 -9.4685 -65.2566 38.5315" stroke="white" stroke-width="48" fill="none" />
+              <!-- Decorative icons -->
+              <image href="img/map/pumpGreen.png" x="50" y="-25" width="44" height="44" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/stitGreen.png" x="130" y="-10" width="30" height="36" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/tireGreen.png" x="210" y="10" width="34" height="34" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/fastfoodGreen.png" x="275" y="30" width="38" height="38" preserveAspectRatio="xMidYMid meet" />
+              <!-- Animated car image -->
+              <image id="mobile2Car" href="img/map/car.png" x="0" y="0" width="23" height="20" style="opacity: 0;" />
+            </svg>
             <img src="img/map/slide7.png" alt="Step 2 visual" class="map-step-mobile__img" />
             <div class="map-step-mobile__num">2</div>
             <h3 class="map-step-mobile__title">UŽÍVAJTE SI VÝHODY</h3>
@@ -1019,11 +1037,19 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="map-step-mobile">
+        <div class="map-step-mobile map-step-mobile-3">
           <div class="map-step-mobile__content">
-            <img src="img/map/mobile3.png" alt="Step 3 header" class="map-step-mobile__img" />
+            <!-- SVG with path for car animation -->
+            <svg id="mobile3Svg" viewBox="-20 -40 414 460" class="map-step-mobile__svg map-step-mobile__svg_3" preserveAspectRatio="xMidYMid meet" overflow="visible">
+              <path id="mobile3Path" d="M363.923 23.4082C127.503 76.9077 24.0026 58.538 24.0001 166.909C46.0818 291.538 305 277.907 363.922 365.907" stroke="white" stroke-width="48" fill="none" />
+              <!-- Decorative icons -->
+              <image href="img/map/villa.png" x="-10" y="100" width="77" height="77" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/shiningStars.png" x="65" y="90" width="40" height="40" preserveAspectRatio="xMidYMid meet" />
+              <!-- Animated car image -->
+              <image id="mobile3Car" href="img/map/car.png" x="0" y="0" width="23" height="20" style="opacity: 0;" />
+            </svg>
             <img src="img/map/stepCar3.png" alt="Polep" class="map-step-mobile__img" />
-            <div class="map-step-mobile__num">3</div>
+            <div class="map-step-mobile__num mt-20">3</div>
             <h3 class="map-step-mobile__title">POLEP AUTA</h3>
             <span class="map-step-mobile__badge map-step-mobile__badge--gold">ZARÁBAJ</span>
             <p class="map-step-mobile__desc">Nadišiel čas na <strong>reklamnú kampaň.</strong> V prípade, že vaše auto
@@ -1034,10 +1060,18 @@
         </div>
 
         <!-- Step 4 -->
-        <div class="map-step-mobile">
+        <div class="map-step-mobile map-step-mobile-4">
           <div class="map-step-mobile__content">
-            <img src="img/map/mobile4.png" alt="Step 4 header" class="map-step-mobile__img" />
-            <div class="map-step-mobile__num">4</div>
+            <svg id="mobile4Svg" viewBox="-120 -40 640 280" class="map-step-mobile__svg map-step-mobile__svg_4" xmlns="http://www.w3.org/2000/svg">
+              <path id="mobile4Path" d="M403.638 182.455C307.889 -7.13721 50.8283 -9.6961 -120.082 86.1867" stroke="white" stroke-width="48" fill="none" />
+              <!-- Decorative icons -->
+              <image href="img/map/corporatefullRed.png" x="80" y="-105" width="130" height="140" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/corporatehalfRed.png" x="190" y="-5" width="130" height="140" preserveAspectRatio="xMidYMid meet" />
+              <image href="img/map/penizky.png" x="230" y="-150" width="180" height="160" preserveAspectRatio="xMidYMid meet" />
+              <!-- Animated car image -->
+              <image id="mobile4Car" href="img/map/carSide.png" x="0" y="0" width="50" height="22" style="opacity: 0;" />
+            </svg>
+            <div class="map-step-mobile__num mt-52">4</div>
             <h3 class="map-step-mobile__title">JAZDITE !</h3>
             <span class="map-step-mobile__badge map-step-mobile__badge--gold">ZARÁBAJ</span>
             <p class="map-step-mobile__desc">Jazdite a zarábajte počas vašich <strong>bežných ciest</strong> autom do
@@ -1612,6 +1646,10 @@
   <script type="module" src="src/showcase-carousel.js"></script>
   <script type="module" src="src/carousel.js"></script>
   <script type="module" src="src/map-trail.js"></script>
+  <script type="module" src="src/mobile1-animation.js"></script>
+  <script type="module" src="src/mobile2-animation.js"></script>
+  <script type="module" src="src/mobile3-animation.js"></script>
+  <script type="module" src="src/mobile4-animation.js"></script>
   <script type="module" src="src/promo-icons.js"></script>
   <script type="module" src="src/questions-show-all.js"></script>
   <script type="module" src="src/questions.js"></script>
